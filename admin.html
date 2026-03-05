@@ -402,6 +402,60 @@
     .gemeinschaft-card h4 { font-size: 0.9rem; margin-bottom: 0.2rem; }
     .gemeinschaft-card p { font-size: 0.8rem; color: var(--text-light); }
 
+    /* Drop Zone & Image Gallery */
+    .drop-zone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 1rem;
+      background: var(--bg-light);
+    }
+    .drop-zone:hover { border-color: var(--coral); background: #fff5f4; }
+    .drop-zone.dragover { border-color: var(--coral); background: #fff1f0; transform: scale(1.01); }
+    .drop-zone.uploading { opacity: 0.5; pointer-events: none; }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .image-gallery:empty { display: none; }
+    .image-gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 2px solid var(--border-light);
+      transition: var(--transition);
+    }
+    .image-gallery-item.main { border-color: var(--coral); }
+    .image-gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    .gallery-btn {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 0.65rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .gallery-btn:hover { background: rgba(0,0,0,0.85); }
+    .gallery-btn.star { bottom: 4px; left: 4px; }
+    .image-gallery-item.main .gallery-btn.star { color: #FFD700; }
+    .gallery-btn.remove { top: 4px; right: 4px; }
+    .gallery-btn.remove:hover { background: var(--coral); }
+
     @media (max-width: 768px) {
       .admin-rooms-grid { grid-template-columns: 1fr; }
       .admin-header { flex-direction: column; align-items: flex-start; }
@@ -505,7 +559,12 @@
       <div class="edit-modal-body">
         <input type="hidden" id="editRoomId">
 
-        <div class="edit-image-preview" id="editImagePreview"></div>
+        <div class="drop-zone" id="editDropZone">
+          <span style="font-size: 2rem;">📷</span>
+          <p style="margin: 0.5rem 0 0; color: var(--text-light); font-size: 0.9rem;">Bilder hierher ziehen oder klicken zum Hochladen</p>
+          <input type="file" id="editFileInput" accept="image/*" multiple style="display: none;">
+        </div>
+        <div class="image-gallery" id="editImageGallery"></div>
 
         <div class="form-row">
           <div class="form-group">
@@ -535,11 +594,6 @@
         <div class="form-group">
           <label>Beschreibung</label>
           <textarea id="editRoomDescription" rows="3" placeholder="Beschreibung des Zimmers..."></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>Hauptbild (Pfad)</label>
-          <input type="text" id="editRoomImage" placeholder="z.B. img/zimmer1-1.jpg">
         </div>
 
         <div class="form-group">
@@ -579,8 +633,14 @@
           <input type="text" id="gemeinschaftEditDetails">
         </div>
         <div class="form-group">
-          <label>Bild (Pfad)</label>
-          <input type="text" id="gemeinschaftEditImage">
+          <label>Bild</label>
+          <div class="drop-zone" id="gemeinschaftDropZone" style="padding: 1.5rem;">
+            <span style="font-size: 1.5rem;">📷</span>
+            <p style="margin: 0.3rem 0 0; color: var(--text-light); font-size: 0.85rem;">Bild hierher ziehen oder klicken</p>
+            <input type="file" id="gemeinschaftFileInput" accept="image/*" style="display: none;">
+          </div>
+          <input type="hidden" id="gemeinschaftEditImage">
+          <div id="gemeinschaftImagePreview" style="margin-top: 0.5rem; border-radius: var(--radius-sm); overflow: hidden;"></div>
         </div>
       </div>
       <div class="edit-modal-footer">
@@ -778,7 +838,7 @@
       document.getElementById('editRoomDescription').value = room.description;
       document.getElementById('editRoomImage').value = room.image;
 
-      document.getElementById('editImagePreview').innerHTML = `<img src="${room.image}" alt="${room.title}">`;
+      renderImageGallery(roomId);
 
       // Card features
       renderListEditor('editCardFeatures', room.cardFeatures || []);
@@ -844,7 +904,6 @@
       room.price = priceVal ? parseInt(priceVal) : null;
       room.subtitle = document.getElementById('editRoomSubtitle').value;
       room.description = document.getElementById('editRoomDescription').value;
-      room.image = document.getElementById('editRoomImage').value;
       room.cardFeatures = getListValues('editCardFeatures');
       room.amenities = getListValues('editAmenities');
 
@@ -852,11 +911,6 @@
       closeEditModal();
       renderDashboard();
       showToast('Änderungen übernommen (noch nicht gespeichert)', 'success');
-    });
-
-    // Update image preview on path change
-    document.getElementById('editRoomImage').addEventListener('change', function() {
-      document.getElementById('editImagePreview').innerHTML = `<img src="${this.value}" alt="Vorschau">`;
     });
 
     // ===== GEMEINSCHAFT EDIT =====
@@ -868,6 +922,7 @@
       document.getElementById('gemeinschaftEditTitle').value = item.title;
       document.getElementById('gemeinschaftEditDetails').value = item.details;
       document.getElementById('gemeinschaftEditImage').value = item.image;
+      renderGemeinschaftPreview();
       gemeinschaftOverlay.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
@@ -967,6 +1022,158 @@
       div.textContent = str;
       return div.innerHTML;
     }
+
+    // ===== IMAGE UPLOAD & GALLERY =====
+    function getUploadWebhookUrl() {
+      const roomsUrl = localStorage.getItem('s9_webhook_url') || '';
+      return roomsUrl.replace('schweinekamp9-rooms', 'schweinekamp9-upload');
+    }
+
+    function readFileAsBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function uploadImage(file, prefix) {
+      if (!file.type.startsWith('image/')) return null;
+      if (file.size > 5 * 1024 * 1024) {
+        showToast('Bild zu groß (max. 5 MB)', 'error');
+        return null;
+      }
+
+      const ext = file.name.split('.').pop().toLowerCase();
+      const timestamp = Date.now();
+      const filename = `img/${prefix}-${timestamp}.${ext}`;
+      const base64 = await readFileAsBase64(file);
+
+      const uploadUrl = getUploadWebhookUrl();
+      if (!uploadUrl) {
+        showToast('Webhook-URL nicht konfiguriert', 'error');
+        return null;
+      }
+
+      try {
+        const res = await fetch(uploadUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename, content: base64 })
+        });
+        if (res.ok) {
+          const result = await res.json();
+          if (result.success) return result.path || filename;
+        }
+        throw new Error('Upload fehlgeschlagen');
+      } catch (e) {
+        showToast('Upload-Fehler: ' + e.message, 'error');
+        return null;
+      }
+    }
+
+    function renderImageGallery(roomId) {
+      const room = data.rooms[roomId];
+      const gallery = document.getElementById('editImageGallery');
+      const images = room.images || [];
+
+      if (images.length === 0) {
+        gallery.innerHTML = '<p style="color: var(--text-light); font-size: 0.85rem;">Noch keine Bilder. Ziehe Bilder in die Zone oben.</p>';
+        return;
+      }
+
+      gallery.innerHTML = images.map((img, i) => `
+        <div class="image-gallery-item ${img === room.image ? 'main' : ''}">
+          <img src="${img}" alt="Bild ${i + 1}">
+          <button class="gallery-btn star" onclick="setMainImage('${roomId}', ${i})" title="Als Hauptbild">&#9733;</button>
+          <button class="gallery-btn remove" onclick="removeImage('${roomId}', ${i})" title="Entfernen">&#10005;</button>
+        </div>
+      `).join('');
+    }
+
+    function setMainImage(roomId, index) {
+      const room = data.rooms[roomId];
+      room.image = room.images[index];
+      hasChanges = true;
+      renderImageGallery(roomId);
+      showToast('Hauptbild geändert', 'success');
+    }
+
+    function removeImage(roomId, index) {
+      const room = data.rooms[roomId];
+      const removed = room.images.splice(index, 1)[0];
+      if (room.image === removed) {
+        room.image = room.images.length > 0 ? room.images[0] : 'img/haus-eingang.jpg';
+      }
+      hasChanges = true;
+      renderImageGallery(roomId);
+    }
+
+    function renderGemeinschaftPreview() {
+      const imgPath = document.getElementById('gemeinschaftEditImage').value;
+      const preview = document.getElementById('gemeinschaftImagePreview');
+      if (imgPath) {
+        preview.innerHTML = `<img src="${imgPath}" alt="Vorschau" style="width: 100%; max-height: 200px; object-fit: cover; border-radius: var(--radius-sm);">`;
+      } else {
+        preview.innerHTML = '';
+      }
+    }
+
+    // ===== DROP ZONE SETUP =====
+    function setupDropZone(dropZoneId, fileInputId, onFiles) {
+      const dz = document.getElementById(dropZoneId);
+      const fi = document.getElementById(fileInputId);
+      if (!dz || !fi) return;
+
+      dz.addEventListener('click', () => fi.click());
+      dz.addEventListener('dragover', (e) => { e.preventDefault(); dz.classList.add('dragover'); });
+      dz.addEventListener('dragleave', () => dz.classList.remove('dragover'));
+      dz.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dz.classList.remove('dragover');
+        onFiles(e.dataTransfer.files);
+      });
+      fi.addEventListener('change', () => { onFiles(fi.files); fi.value = ''; });
+    }
+
+    // Room image drop zone
+    setupDropZone('editDropZone', 'editFileInput', async (files) => {
+      const roomId = document.getElementById('editRoomId').value;
+      const dz = document.getElementById('editDropZone');
+      dz.classList.add('uploading');
+
+      for (const file of files) {
+        const path = await uploadImage(file, `zimmer${roomId}`);
+        if (path) {
+          const room = data.rooms[roomId];
+          if (!room.images) room.images = [];
+          room.images.push(path);
+          if (room.images.length === 1) room.image = path;
+          hasChanges = true;
+          renderImageGallery(roomId);
+          showToast('Bild hochgeladen!', 'success');
+        }
+      }
+
+      dz.classList.remove('uploading');
+    });
+
+    // Gemeinschaft image drop zone
+    setupDropZone('gemeinschaftDropZone', 'gemeinschaftFileInput', async (files) => {
+      if (files.length === 0) return;
+      const dz = document.getElementById('gemeinschaftDropZone');
+      dz.classList.add('uploading');
+
+      const path = await uploadImage(files[0], 'gemeinschaft');
+      if (path) {
+        document.getElementById('gemeinschaftEditImage').value = path;
+        renderGemeinschaftPreview();
+        showToast('Bild hochgeladen!', 'success');
+      }
+
+      dz.classList.remove('uploading');
+    });
 
     // ===== WARN ON UNSAVED CHANGES =====
     window.addEventListener('beforeunload', (e) => {
