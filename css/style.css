@@ -143,10 +143,10 @@ ul { list-style: none; }
 .nav-cta {
   background: var(--coral);
   color: white !important;
-  padding: 0.55rem 1.3rem;
+  padding: 0.65rem 2rem;
   border-radius: var(--radius-sm);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 .nav-cta::after { display: none !important; }
