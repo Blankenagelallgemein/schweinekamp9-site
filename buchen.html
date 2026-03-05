@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buchen — Schweinekamp 9, Stuhr</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">S9</div>
+      Schweinekamp 9
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="zimmer.html">Zimmer</a>
+      <a href="buchen.html" class="active">Buchen</a>
+      <a href="bewohner.html">Bewohner</a>
+      <a href="buchen.html" class="nav-cta">Jetzt anfragen</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Zimmer anfragen</h1>
+    <p>Füll das Formular aus — wir melden uns innerhalb von 24 Stunden.</p>
+  </div>
+
+  <!-- BOOKING FORM -->
+  <section class="section">
+    <div class="container">
+      <div class="form-layout">
+
+        <!-- Form -->
+        <div>
+          <div class="form-card" id="bookingForm">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.3rem;">Deine Anfrage</h3>
+            <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 2rem;">Alle Felder mit * sind Pflichtfelder.</p>
+
+            <form id="inquiryForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">Vorname *</label>
+                  <input type="text" id="firstName" placeholder="Max" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Nachname *</label>
+                  <input type="text" id="lastName" placeholder="Mustermann" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">E-Mail *</label>
+                  <input type="email" id="email" placeholder="max@uni.de" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Telefon</label>
+                  <input type="tel" id="phone" placeholder="+49 170 123 456">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="roomSelect">Gewünschtes Zimmer *</label>
+                  <select id="roomSelect" required>
+                    <option value="">Zimmer wählen...</option>
+                    <optgroup label="Wohnung (6 Zimmer)">
+                      <option value="1" disabled>Zimmer 1 — Sonnenseite (Belegt)</option>
+                      <option value="2">Zimmer 2 — Gemütlich (440€/Monat)</option>
+                      <option value="3">Zimmer 3 — Erdgeschoss (390€/Monat)</option>
+                      <option value="4" disabled>Zimmer 4 — Ruheoase (Belegt)</option>
+                      <option value="5" disabled>Zimmer 5 — Dachstudio (Belegt)</option>
+                      <option value="6" disabled>Zimmer 6 — Kompakt (Belegt)</option>
+                    </optgroup>
+                    <optgroup label="Haus (8 Zimmer)">
+                      <option value="A" disabled>Zimmer A — Terrassenzugang (Belegt)</option>
+                      <option value="B" disabled>Zimmer B — Gemütlich (Belegt)</option>
+                      <option value="C" disabled>Zimmer C — Ruhig (Belegt)</option>
+                      <option value="D" disabled>Zimmer D — Kompakt (Belegt)</option>
+                      <option value="E" disabled>Zimmer E — Erdgeschoss (Belegt)</option>
+                      <option value="F" disabled>Zimmer F — Obergeschoss (Belegt)</option>
+                      <option value="G" disabled>Zimmer G — Dachgeschoss (Belegt)</option>
+                      <option value="H">Zimmer H — Premium (440€/Monat)</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="moveIn">Gewünschter Einzug *</label>
+                  <input type="date" id="moveIn" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="university">Universität / Hochschule</label>
+                  <input type="text" id="university" placeholder="z.B. Hochschule Bremen">
+                </div>
+                <div class="form-group">
+                  <label for="subject">Studienfach</label>
+                  <input type="text" id="subject" placeholder="z.B. BWL, Informatik">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Über dich / Nachricht</label>
+                <textarea id="message" placeholder="Erzähl uns kurz etwas über dich — was studierst du, warum suchst du ein WG-Zimmer, was ist dir wichtig?"></textarea>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 2rem;">
+                <input type="checkbox" id="privacy" style="margin-top: 0.3rem;" required>
+                <label for="privacy" style="font-size: 0.85rem; color: var(--text-light); cursor: pointer;">
+                  Ich habe die <a href="#" style="color: var(--coral); text-decoration: underline;">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden. *
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Anfrage absenden</button>
+            </form>
+          </div>
+
+          <!-- Success Message -->
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon">✓</div>
+            <h2 style="margin-bottom: 0.5rem;">Anfrage gesendet!</h2>
+            <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 1.5rem;">Danke für dein Interesse! Wir melden uns innerhalb von 24 Stunden bei dir per E-Mail.</p>
+            <a href="index.html" class="btn btn-secondary">Zurück zur Startseite</a>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="form-sidebar">
+          <div class="form-sidebar-card" id="sidebarCard">
+            <div class="form-sidebar-image placeholder grad-1" id="sidebarImage" style="display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6);">
+              Wähle ein Zimmer
+            </div>
+            <div class="form-sidebar-body">
+              <h3 id="sidebarTitle">Kein Zimmer gewählt</h3>
+              <div class="form-sidebar-details" id="sidebarDetails">Wähle links ein Zimmer aus, um Details zu sehen.</div>
+              <div class="form-sidebar-price" id="sidebarPrice" style="display: none;">
+                — <span>/ Monat</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-light); border-radius: var(--radius-md); padding: 1.5rem; margin-top: 1rem;">
+            <h4 style="font-size: 0.95rem; margin-bottom: 0.8rem;">So geht's weiter</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+              <div style="display: flex; gap: 0.8rem; font-size: 0.85rem;">
+                <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--coral); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;">1</span>
+                <span>Du schickst deine Anfrage ab</span>
+              </div>
+              <div style="display: flex; gap: 0.8rem; font-size: 0.85rem;">
+                <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--coral); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;">2</span>
+                <span>Wir melden uns innerhalb von 24h</span>
+              </div>
+              <div style="display: flex; gap: 0.8rem; font-size: 0.85rem;">
+                <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--coral); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;">3</span>
+                <span>Besichtigungstermin vereinbaren</span>
+              </div>
+              <div style="display: flex; gap: 0.8rem; font-size: 0.85rem;">
+                <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--coral); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;">4</span>
+                <span>Mietvertrag unterschreiben & einziehen</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Schweinekamp 9</h3>
+        <p>Studentisches Wohnen auf dem Resthof — 28816 Stuhr bei Bremen.</p>
+      </div>
+      <div>
+        <h4>Seiten</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="zimmer.html">Zimmer</a></li>
+          <li><a href="buchen.html">Buchen</a></li>
+          <li><a href="bewohner.html">Bewohner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="#">kontakt@schweinekamp9.de</a></li>
+          <li><a href="#">+49 123 456 789</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Schweinekamp 9. Alle Rechte vorbehalten.</span>
+      <span>Made with ♥ für Studenten</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

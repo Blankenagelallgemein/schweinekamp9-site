@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schweinekamp 9 — Studentenzimmer auf dem Resthof in Stuhr bei Bremen</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">S9</div>
+      Schweinekamp 9
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="zimmer.html">Zimmer</a>
+      <a href="buchen.html">Buchen</a>
+      <a href="bewohner.html">Bewohner</a>
+      <a href="buchen.html" class="nav-cta">Jetzt anfragen</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">Jetzt freie Zimmer verfügbar</div>
+        <h1>Dein Zuhause am <span>Schweinekamp</span></h1>
+        <p class="hero-subtitle">Möblierte WG-Zimmer auf einem Resthof in Stuhr — direkt an der Bremer Stadtgrenze. Natur pur und trotzdem in 9 Minuten an der Hochschule Bremen.</p>
+        <div class="hero-actions">
+          <a href="zimmer.html" class="btn btn-primary btn-lg">Zimmer ansehen</a>
+          <a href="#highlights" class="btn btn-secondary btn-lg">Mehr erfahren</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-image-main">
+          <img src="img/haus-eingang.jpg" alt="Schweinekamp 9 — Resthof in Stuhr">
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value">14</div>
+            <div class="hero-stat-label">Zimmer</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">2</div>
+            <div class="hero-stat-label">WGs</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">9 min</div>
+            <div class="hero-stat-label">zur Hochschule</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="section section-alt" id="highlights">
+    <div class="container">
+      <div class="section-header">
+        <h2>Warum Schweinekamp 9?</h2>
+        <p>Alles was du für dein Studium brauchst — auf einem Resthof mit Charme.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon coral">📍</div>
+          <h3>Top Anbindung</h3>
+          <p>1,5 km mit dem Rad zum Roland Center, dann Tram 1 oder 8 in nur 9 Minuten zur Hochschule Bremen.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon green">🛋️</div>
+          <h3>Voll möbliert</h3>
+          <p>Bett, Schreibtisch, Schrank, Regal — du brauchst nur noch deinen Koffer.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon blue">🏡</div>
+          <h3>Resthof-Charme</h3>
+          <p>Wohnen auf einem Resthof mit viel Grün und Natur — direkt an der Bremer Stadtgrenze in 28816 Stuhr.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon yellow">👥</div>
+          <h3>2 WGs, 14 Zimmer</h3>
+          <p>Haus mit 8 Zimmern und 2 Bädern, Wohnung mit 6 Zimmern und 3 Bädern — gemeinsame Küchen und Wohnbereiche.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZIMMER VORSCHAU -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Unsere Zimmer</h2>
+        <p>Finde dein perfektes Zimmer — von gemütlich bis geräumig.</p>
+      </div>
+      <div class="rooms-grid">
+        <!-- Zimmer 2 — Verfügbar 440€ -->
+        <a href="buchen.html?zimmer=2" class="room-card">
+          <div class="room-card-image">
+            <img src="img/zimmer2-1.jpg" alt="Zimmer 2 — Gemütlich">
+            <span class="room-badge available">Verfügbar</span>
+            <button class="room-card-heart" onclick="event.preventDefault()">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer 2 — Gemütlich</div>
+            <div class="room-card-details">Wohnung · Möbliert · Hell</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">🔇 Ruhige Seite</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">440€ <span>/ Monat</span></div>
+              <span class="btn btn-primary btn-sm">Anfragen</span>
+            </div>
+          </div>
+        </a>
+        <!-- Zimmer 3 — Verfügbar 390€ -->
+        <a href="buchen.html?zimmer=3" class="room-card">
+          <div class="room-card-image">
+            <img src="img/zimmer3-1.jpg" alt="Zimmer 3 — Erdgeschoss">
+            <span class="room-badge available">Verfügbar</span>
+            <button class="room-card-heart" onclick="event.preventDefault()">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer 3 — Erdgeschoss</div>
+            <div class="room-card-details">Wohnung · Möbliert · EG · Geräumig</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">🚪 Erdgeschoss</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">390€ <span>/ Monat</span></div>
+              <span class="btn btn-primary btn-sm">Anfragen</span>
+            </div>
+          </div>
+        </a>
+        <!-- Zimmer H — Verfügbar 440€ -->
+        <a href="buchen.html?zimmer=H" class="room-card">
+          <div class="room-card-image">
+            <img src="img/zimmerH-2.jpg" alt="Zimmer H — Premium">
+            <span class="room-badge available">Verfügbar</span>
+            <button class="room-card-heart" onclick="event.preventDefault()">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer H — Premium</div>
+            <div class="room-card-details">Haus · Geräumig · Dachschräge</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">📐 Großes Zimmer</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">440€ <span>/ Monat</span></div>
+              <span class="btn btn-primary btn-sm">Anfragen</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="zimmer.html" class="btn btn-outline">Alle Zimmer ansehen →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAGE -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Die perfekte Lage</h2>
+        <p>Resthof in Stuhr — Natur pur, trotzdem bestens angebunden.</p>
+      </div>
+      <div class="map-section">
+        <div class="map-placeholder has-image">
+          <img src="img/fahrradweg-roland-center.png" alt="Fahrradweg zum Roland Center — 1,5 km">
+        </div>
+        <div class="location-info">
+          <h3>Anbindung & Umgebung</h3>
+          <div class="location-list">
+            <div class="location-item">
+              <div class="location-item-icon">🚲</div>
+              <div>
+                <strong>Roland Center</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-light);">1,5 km mit dem Fahrrad</span>
+              </div>
+            </div>
+            <div class="location-item">
+              <div class="location-item-icon">🚌</div>
+              <div>
+                <strong>Bus "Zur Windhorst"</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-light);">7 Minuten zu Fuß</span>
+              </div>
+            </div>
+            <div class="location-item">
+              <div class="location-item-icon">🚋</div>
+              <div>
+                <strong>Hochschule Bremen</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-light);">Tram 1 oder 8 — nur 9 Minuten</span>
+              </div>
+            </div>
+            <div class="location-item">
+              <div class="location-item-icon">🛒</div>
+              <div>
+                <strong>Roland Center (Einkaufen)</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-light);">Alle Geschäfte & Supermärkte</span>
+              </div>
+            </div>
+            <div class="location-item">
+              <div class="location-item-icon">🌿</div>
+              <div>
+                <strong>Natur & Ruhe</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-light);">Resthof mit viel Grün direkt vor der Tür</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="text-align: center;">
+    <div class="container">
+      <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 1rem;">Bereit einzuziehen?</h2>
+      <p style="color: var(--text-light); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem;">Schick uns eine Anfrage — wir melden uns innerhalb von 24 Stunden bei dir.</p>
+      <a href="buchen.html" class="btn btn-primary btn-lg">Jetzt Zimmer anfragen</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Schweinekamp 9</h3>
+        <p>Studentisches Wohnen auf dem Resthof — möbliert, naturnah, gut angebunden. 14 Zimmer in 2 WGs, 28816 Stuhr bei Bremen.</p>
+      </div>
+      <div>
+        <h4>Seiten</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="zimmer.html">Zimmer</a></li>
+          <li><a href="buchen.html">Buchen</a></li>
+          <li><a href="bewohner.html">Bewohner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="#">kontakt@schweinekamp9.de</a></li>
+          <li><a href="#">+49 123 456 789</a></li>
+          <li><a href="#">Schweinekamp 9, 28816 Stuhr</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">AGB</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Schweinekamp 9. Alle Rechte vorbehalten.</span>
+      <span>Made with ♥ für Studenten</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

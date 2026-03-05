@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zimmer — Schweinekamp 9 in Stuhr</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">S9</div>
+      Schweinekamp 9
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="zimmer.html" class="active">Zimmer</a>
+      <a href="buchen.html">Buchen</a>
+      <a href="bewohner.html">Bewohner</a>
+      <a href="buchen.html" class="nav-cta">Jetzt anfragen</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Unsere Zimmer</h1>
+    <p>14 möblierte Zimmer in 2 WGs auf dem Resthof — finde das perfekte für dich.</p>
+  </div>
+
+  <!-- FILTER + ROOMS -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Filter Bar -->
+      <div class="filter-bar" id="filterBar">
+        <div class="filter-group">
+          <label>WG</label>
+          <select id="filterWG">
+            <option value="all">Alle WGs</option>
+            <option value="7er">Wohnung — 6 Zimmer</option>
+            <option value="5er">Haus — 8 Zimmer</option>
+          </select>
+        </div>
+        <div class="filter-divider"></div>
+        <div class="filter-group">
+          <label>Verfügbarkeit</label>
+          <select id="filterStatus">
+            <option value="all">Alle</option>
+            <option value="available">Verfügbar</option>
+            <option value="occupied">Belegt</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- WG Wohnung (Rooms 1-6) -->
+      <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--dark);">🏠 Wohnung — 6 Zimmer (3 Bäder, Küche, Wohnzimmer)</h3>
+
+      <div class="rooms-grid" id="roomsGrid">
+
+        <!-- Zimmer 1 — Belegt -->
+        <div class="room-card" data-wg="7er" data-status="occupied" data-room="1">
+          <div class="room-card-image">
+            <img src="img/zimmer1-1.jpg" alt="Zimmer 1">
+            <span class="room-badge occupied">Belegt</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer 1 — Sonnenseite</div>
+            <div class="room-card-details">Wohnung · Möbliert · Dachschräge</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">📚 Schreibtisch</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">Preis <span>auf Anfrage</span></div>
+              <span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer 2 — Verfügbar 440€ -->
+        <div class="room-card" data-wg="7er" data-status="available" data-room="2">
+          <div class="room-card-image">
+            <img src="img/zimmer2-1.jpg" alt="Zimmer 2">
+            <span class="room-badge available">Verfügbar</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer 2 — Gemütlich</div>
+            <div class="room-card-details">Wohnung · Möbliert · Hell</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">🔇 Ruhige Seite</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">440€ <span>/ Monat</span></div>
+              <a href="buchen.html?zimmer=2" class="btn btn-primary btn-sm">Anfragen</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer 3 — Verfügbar 390€ -->
+        <div class="room-card" data-wg="7er" data-status="available" data-room="3">
+          <div class="room-card-image">
+            <img src="img/zimmer3-1.jpg" alt="Zimmer 3">
+            <span class="room-badge available">Verfügbar</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer 3 — Erdgeschoss</div>
+            <div class="room-card-details">Wohnung · Möbliert · EG · Geräumig</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">🚪 Erdgeschoss</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">390€ <span>/ Monat</span></div>
+              <a href="buchen.html?zimmer=3" class="btn btn-primary btn-sm">Anfragen</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer 4 — Belegt -->
+        <div class="room-card" data-wg="7er" data-status="occupied" data-room="4">
+          <div class="room-card-image">
+            <img src="img/zimmer4-1.jpg" alt="Zimmer 4">
+            <span class="room-badge occupied">Belegt</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer 4 — Ruheoase</div>
+            <div class="room-card-details">Wohnung · Möbliert · Ruhige Lage</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">🔇 Ruhige Lage</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">Preis <span>auf Anfrage</span></div>
+              <span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer 5 — Belegt -->
+        <div class="room-card" data-wg="7er" data-status="occupied" data-room="5">
+          <div class="room-card-image">
+            <img src="img/zimmer5-1.jpg" alt="Zimmer 5">
+            <span class="room-badge occupied">Belegt</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer 5 — Dachstudio</div>
+            <div class="room-card-details">Wohnung · Dachschräge · Rundfenster</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">🌙 Dachfenster</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">Preis <span>auf Anfrage</span></div>
+              <span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer 6 — Belegt -->
+        <div class="room-card" data-wg="7er" data-status="occupied" data-room="6">
+          <div class="room-card-image">
+            <img src="img/zimmer6-1.jpg" alt="Zimmer 6">
+            <span class="room-badge occupied">Belegt</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer 6 — Kompakt</div>
+            <div class="room-card-details">Wohnung · Möbliert · Viel Licht</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">💡 Viel Licht</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">Preis <span>auf Anfrage</span></div>
+              <span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- WG Haus (Rooms A-H) -->
+      <h3 style="font-size: 1.2rem; margin: 3rem 0 1rem; color: var(--dark);">🏡 Haus — 8 Zimmer (2 Bäder, Küche, Wohnzimmer)</h3>
+
+      <div class="rooms-grid" id="roomsGrid2">
+
+        <!-- Zimmer A — Belegt -->
+        <div class="room-card" data-wg="5er" data-status="occupied" data-room="A">
+          <div class="room-card-image">
+            <img src="img/zimmerA-1.jpg" alt="Zimmer A">
+            <span class="room-badge occupied">Belegt</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer A — Terrassenzugang</div>
+            <div class="room-card-details">Haus · Möbliert · Terrasse</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">🌿 Terrassenzugang</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">Preis <span>auf Anfrage</span></div>
+              <span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer B — Belegt -->
+        <div class="room-card" data-wg="5er" data-status="occupied" data-room="B">
+          <div class="room-card-image">
+            <img src="img/zimmerB-1.jpg" alt="Zimmer B">
+            <span class="room-badge occupied">Belegt</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer B — Gemütlich</div>
+            <div class="room-card-details">Haus · Möbliert · Wandbeleuchtung</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">💡 Wandleuchten</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">Preis <span>auf Anfrage</span></div>
+              <span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer C — Belegt -->
+        <div class="room-card" data-wg="5er" data-status="occupied" data-room="C">
+          <div class="room-card-image">
+            <img src="img/zimmerC-1.jpg" alt="Zimmer C">
+            <span class="room-badge occupied">Belegt</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer C — Ruhig</div>
+            <div class="room-card-details">Haus · Möbliert · Ruhige Lage</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">🔇 Ruhige Lage</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">Preis <span>auf Anfrage</span></div>
+              <span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer D — Belegt -->
+        <div class="room-card" data-wg="5er" data-status="occupied" data-room="D">
+          <div class="room-card-image">
+            <img src="img/haus-eingang.jpg" alt="Zimmer D">
+            <span class="room-badge occupied">Belegt</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer D — Kompakt</div>
+            <div class="room-card-details">Haus · Möbliert</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">📚 Schreibtisch</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">Preis <span>auf Anfrage</span></div>
+              <span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer E — Belegt -->
+        <div class="room-card" data-wg="5er" data-status="occupied" data-room="E">
+          <div class="room-card-image">
+            <img src="img/haus-eingang.jpg" alt="Zimmer E">
+            <span class="room-badge occupied">Belegt</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer E — Erdgeschoss</div>
+            <div class="room-card-details">Haus · Möbliert · EG</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">🚪 Erdgeschoss</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">Preis <span>auf Anfrage</span></div>
+              <span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer F — Belegt -->
+        <div class="room-card" data-wg="5er" data-status="occupied" data-room="F">
+          <div class="room-card-image">
+            <img src="img/haus-aussen.jpg" alt="Zimmer F">
+            <span class="room-badge occupied">Belegt</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer F — Obergeschoss</div>
+            <div class="room-card-details">Haus · Möbliert · OG</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">📚 Schreibtisch</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">Preis <span>auf Anfrage</span></div>
+              <span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer G — Belegt -->
+        <div class="room-card" data-wg="5er" data-status="occupied" data-room="G">
+          <div class="room-card-image">
+            <img src="img/haus-aussen.jpg" alt="Zimmer G">
+            <span class="room-badge occupied">Belegt</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer G — Dachgeschoss</div>
+            <div class="room-card-details">Haus · Möbliert · DG</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">🏔️ Dachgeschoss</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">Preis <span>auf Anfrage</span></div>
+              <span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zimmer H — Verfügbar 440€ -->
+        <div class="room-card" data-wg="5er" data-status="available" data-room="H">
+          <div class="room-card-image">
+            <img src="img/zimmerH-2.jpg" alt="Zimmer H">
+            <span class="room-badge available">Verfügbar</span>
+            <button class="room-card-heart">♡</button>
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Zimmer H — Premium</div>
+            <div class="room-card-details">Haus · Geräumig · Dachschräge</div>
+            <div class="room-card-amenities">
+              <span class="room-card-amenity">🛏️ Möbliert</span>
+              <span class="room-card-amenity">📐 Großes Zimmer</span>
+              <span class="room-card-amenity">📺 TV</span>
+            </div>
+            <div class="room-card-footer">
+              <div class="room-card-price">440€ <span>/ Monat</span></div>
+              <a href="buchen.html?zimmer=H" class="btn btn-primary btn-sm">Anfragen</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No Results -->
+      <div id="noResults" style="display: none; text-align: center; padding: 3rem; color: var(--text-light);">
+        <p style="font-size: 2rem; margin-bottom: 1rem;">😕</p>
+        <p style="font-size: 1.1rem; font-weight: 600; color: var(--dark);">Keine Zimmer gefunden</p>
+        <p>Versuche andere Filtereinstellungen.</p>
+      </div>
+
+      <!-- Gemeinschaftsräume -->
+      <h3 style="font-size: 1.2rem; margin: 3rem 0 1rem; color: var(--dark);">✨ Gemeinschaftsbereiche</h3>
+      <div class="rooms-grid">
+        <div class="room-card" style="cursor: default;">
+          <div class="room-card-image">
+            <img src="img/kueche-1.jpg" alt="Küche">
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Gemeinschaftsküche</div>
+            <div class="room-card-details">Voll ausgestattet in jeder WG</div>
+          </div>
+        </div>
+        <div class="room-card" style="cursor: default;">
+          <div class="room-card-image">
+            <img src="img/wohnzimmer.jpg" alt="Wohnzimmer">
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Wohnzimmer</div>
+            <div class="room-card-details">Sofa, TV, Gemeinschaftsbereich</div>
+          </div>
+        </div>
+        <div class="room-card" style="cursor: default;">
+          <div class="room-card-image">
+            <img src="img/bad-dg.jpg" alt="Bad">
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">Badezimmer</div>
+            <div class="room-card-details">2-3 Bäder pro WG</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ROOM DETAIL MODAL -->
+  <div class="modal-overlay" id="roomModal">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-image" id="modalImage"></div>
+      <div class="modal-body">
+        <h2 id="modalTitle"></h2>
+        <div class="modal-meta" id="modalMeta"></div>
+        <p class="modal-description" id="modalDescription"></p>
+        <h4 style="margin-bottom: 0.8rem;">Ausstattung</h4>
+        <div class="modal-amenities" id="modalAmenities"></div>
+        <div class="modal-price-bar">
+          <div class="modal-price" id="modalPrice"></div>
+          <a href="#" class="btn btn-primary" id="modalCTA">Jetzt anfragen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Schweinekamp 9</h3>
+        <p>Studentisches Wohnen auf dem Resthof — 28816 Stuhr bei Bremen.</p>
+      </div>
+      <div>
+        <h4>Seiten</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="zimmer.html">Zimmer</a></li>
+          <li><a href="buchen.html">Buchen</a></li>
+          <li><a href="bewohner.html">Bewohner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="#">kontakt@schweinekamp9.de</a></li>
+          <li><a href="#">+49 123 456 789</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Schweinekamp 9. Alle Rechte vorbehalten.</span>
+      <span>Made with ♥ für Studenten</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
