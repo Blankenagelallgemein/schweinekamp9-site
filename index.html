@@ -100,67 +100,8 @@
         <h2>Unsere Zimmer</h2>
         <p>Finde dein perfektes Zimmer — von gemütlich bis geräumig.</p>
       </div>
-      <div class="rooms-grid">
-        <!-- Zimmer 2 — Verfügbar 440€ -->
-        <a href="buchen.html?zimmer=2" class="room-card">
-          <div class="room-card-image">
-            <img src="img/zimmer2-1.jpg" alt="Zimmer 2 — Gemütlich">
-            <span class="room-badge available">Verfügbar</span>
-            <button class="room-card-heart" onclick="event.preventDefault()">♡</button>
-          </div>
-          <div class="room-card-body">
-            <div class="room-card-title">Zimmer 2 — Gemütlich</div>
-            <div class="room-card-details">Wohnung · Möbliert · Hell</div>
-            <div class="room-card-amenities">
-              <span class="room-card-amenity">🛏️ Möbliert</span>
-              <span class="room-card-amenity">🔇 Ruhige Seite</span>
-            </div>
-            <div class="room-card-footer">
-              <div class="room-card-price">440€ <span>/ Monat</span></div>
-              <span class="btn btn-primary btn-sm">Anfragen</span>
-            </div>
-          </div>
-        </a>
-        <!-- Zimmer 3 — Verfügbar 390€ -->
-        <a href="buchen.html?zimmer=3" class="room-card">
-          <div class="room-card-image">
-            <img src="img/zimmer3-1.jpg" alt="Zimmer 3 — Erdgeschoss">
-            <span class="room-badge available">Verfügbar</span>
-            <button class="room-card-heart" onclick="event.preventDefault()">♡</button>
-          </div>
-          <div class="room-card-body">
-            <div class="room-card-title">Zimmer 3 — Erdgeschoss</div>
-            <div class="room-card-details">Wohnung · Möbliert · EG · Geräumig</div>
-            <div class="room-card-amenities">
-              <span class="room-card-amenity">🛏️ Möbliert</span>
-              <span class="room-card-amenity">🚪 Erdgeschoss</span>
-            </div>
-            <div class="room-card-footer">
-              <div class="room-card-price">390€ <span>/ Monat</span></div>
-              <span class="btn btn-primary btn-sm">Anfragen</span>
-            </div>
-          </div>
-        </a>
-        <!-- Zimmer H — Verfügbar 440€ -->
-        <a href="buchen.html?zimmer=H" class="room-card">
-          <div class="room-card-image">
-            <img src="img/zimmerH-2.jpg" alt="Zimmer H — Premium">
-            <span class="room-badge available">Verfügbar</span>
-            <button class="room-card-heart" onclick="event.preventDefault()">♡</button>
-          </div>
-          <div class="room-card-body">
-            <div class="room-card-title">Zimmer H — Premium</div>
-            <div class="room-card-details">Haus · Geräumig · Dachschräge</div>
-            <div class="room-card-amenities">
-              <span class="room-card-amenity">🛏️ Möbliert</span>
-              <span class="room-card-amenity">📐 Großes Zimmer</span>
-            </div>
-            <div class="room-card-footer">
-              <div class="room-card-price">440€ <span>/ Monat</span></div>
-              <span class="btn btn-primary btn-sm">Anfragen</span>
-            </div>
-          </div>
-        </a>
+      <div class="rooms-grid" id="homeRoomsPreview">
+        <!-- Dynamisch geladen aus data/rooms.json -->
       </div>
       <div style="text-align: center; margin-top: 2.5rem;">
         <a href="zimmer.html" class="btn btn-outline">Alle Zimmer ansehen →</a>

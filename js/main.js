@@ -25,196 +25,200 @@ if (navToggle && navLinks) {
   });
 }
 
-// ===== ROOM DATA =====
-const roomData = {
-  '1': {
-    title: 'Zimmer 1 — Sonnenseite',
-    wg: '7er WG',
-    details: 'Möbliert · Dachschräge',
-    status: 'occupied',
-    price: null,
-    image: 'img/zimmer1-1.jpg',
-    images: ['img/zimmer1-1.jpg', 'img/zimmer1-2.jpg', 'img/zimmer1-3.jpg'],
-    description: 'Helles Zimmer mit Dachschräge und viel Tageslicht. Möbliert mit Bett, Schreibtisch, Schrank und Regal. Derzeit belegt.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '👔 Kleiderschrank', '📖 Regal', '💡 Deckenleuchte']
-  },
-  '2': {
-    title: 'Zimmer 2 — Gemütlich',
-    wg: '7er WG',
-    details: 'Möbliert · Hell',
-    status: 'available',
-    price: 440,
-    image: 'img/zimmer2-1.jpg',
-    images: ['img/zimmer2-1.jpg', 'img/zimmer2-2.jpg'],
-    description: 'Gemütliches und helles Zimmer in der 7er WG. Möbliert mit Bett, Schreibtisch, Schrank und Regal. Teil der Wohnung mit 3 Bädern und Gemeinschaftsküche.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '👔 Kleiderschrank', '📖 Regal', '💡 Deckenleuchte', '🔇 Ruhige Seite']
-  },
-  '3': {
-    title: 'Zimmer 3 — Erdgeschoss',
-    wg: '7er WG',
-    details: 'Möbliert · EG · Geräumig',
-    status: 'available',
-    price: 390,
-    image: 'img/zimmer3-1.jpg',
-    images: ['img/zimmer3-1.jpg', 'img/zimmer3-2.jpg', 'img/zimmer3-3.jpg', 'img/zimmer3-4.jpg'],
-    description: 'Geräumiges Zimmer im Erdgeschoss der 7er WG. Möbliert mit Bett, Schreibtisch und Schrank. Ebenerdiger Zugang, kein Treppensteigen. Teil der Wohnung mit 3 Bädern.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '👔 Kleiderschrank', '🚪 Erdgeschoss', '📐 Geräumig', '💡 Deckenleuchte']
-  },
-  '4': {
-    title: 'Zimmer 4 — Ruheoase',
-    wg: '7er WG',
-    details: 'Möbliert · Ruhige Lage',
-    status: 'occupied',
-    price: null,
-    image: 'img/zimmer4-1.jpg',
-    images: ['img/zimmer4-1.jpg', 'img/zimmer4-2.jpg', 'img/zimmer4-3.jpg'],
-    description: 'Ruhig gelegenes Zimmer in der 7er WG mit gemütlicher Atmosphäre. Derzeit belegt.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '👔 Kleiderschrank', '🔇 Ruhige Lage']
-  },
-  '5': {
-    title: 'Zimmer 5 — Dachstudio',
-    wg: '7er WG',
-    details: 'Dachschräge · Rundfenster',
-    status: 'occupied',
-    price: null,
-    image: 'img/zimmer5-1.jpg',
-    images: ['img/zimmer5-1.jpg', 'img/zimmer5-2.jpg', 'img/zimmer5-3.jpg', 'img/zimmer5-4.jpg', 'img/zimmer5-5.jpg'],
-    description: 'Charmantes Dachstudio mit Dachschrägen, Holzbalken und einem runden Fenster. Gemütliche Atmosphäre. Derzeit belegt.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch', '🪑 Relaxsessel', '🌙 Dachfenster', '⭕ Rundfenster', '🌿 Pflanzen']
-  },
-  '6': {
-    title: 'Zimmer 6 — Kompakt',
-    wg: '7er WG',
-    details: 'Möbliert · Viel Licht',
-    status: 'occupied',
-    price: null,
-    image: 'img/zimmer6-1.jpg',
-    images: ['img/zimmer6-1.jpg', 'img/zimmer6-2.jpg', 'img/zimmer6-3.jpg', 'img/zimmer6-4.jpg', 'img/zimmer6-5.jpg', 'img/zimmer6-6.jpg'],
-    description: 'Kompaktes, aber helles Zimmer in der 7er WG mit viel natürlichem Licht. Derzeit belegt.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '👔 Kleiderschrank', '💡 Viel Licht']
-  },
-  'A': {
-    title: 'Zimmer A — Terrassenzugang',
-    wg: '5er WG',
-    details: 'Möbliert · Terrasse',
-    status: 'occupied',
-    price: null,
-    image: 'img/zimmerA-1.jpg',
-    images: ['img/zimmerA-1.jpg', 'img/zimmerA-2.jpg', 'img/zimmerA-3.jpg', 'img/zimmerA-4.jpg'],
-    description: 'Zimmer mit bodentiefer Terrassentür und direktem Zugang zum Außenbereich. Derzeit belegt.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '🪟 Terrassentür', '🌿 Gartenzugang', '🗄️ Vitrinenschrank', '💡 Wandlampe']
-  },
-  'B': {
-    title: 'Zimmer B — Gemütlich',
-    wg: '5er WG',
-    details: 'Möbliert · Wandbeleuchtung',
-    status: 'occupied',
-    price: null,
-    image: 'img/zimmerB-1.jpg',
-    images: ['img/zimmerB-1.jpg', 'img/zimmerB-2.jpg', 'img/zimmerB-3.jpg', 'img/zimmerB-4.jpg', 'img/zimmerB-5.jpg'],
-    description: 'Gemütliches Zimmer mit schöner Tapete und stimmungsvoller Wandbeleuchtung. Derzeit belegt.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '📖 Regal', '💡 Wandleuchten', '🎨 Tapete', '🔇 Ruhig']
-  },
-  'C': {
-    title: 'Zimmer C — Ruhig',
-    wg: '5er WG',
-    details: 'Möbliert · Ruhige Lage',
-    status: 'occupied',
-    price: null,
-    image: 'img/zimmerC-1.jpg',
-    images: ['img/zimmerC-1.jpg', 'img/zimmerC-2.jpg', 'img/zimmerC-3.jpg', 'img/zimmerC-4.jpg'],
-    description: 'Ruhiges Zimmer im Haus mit gemütlicher Atmosphäre. Derzeit belegt.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '👔 Kleiderschrank', '🔇 Ruhige Lage']
-  },
-  'D': {
-    title: 'Zimmer D — Kompakt',
-    wg: '5er WG',
-    details: 'Möbliert',
-    status: 'occupied',
-    price: null,
-    image: 'img/haus-eingang.jpg',
-    images: ['img/haus-eingang.jpg'],
-    description: 'Kompaktes Zimmer im Haus. Derzeit belegt.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '👔 Kleiderschrank']
-  },
-  'E': {
-    title: 'Zimmer E — Erdgeschoss',
-    wg: '5er WG',
-    details: 'Möbliert · EG',
-    status: 'occupied',
-    price: null,
-    image: 'img/haus-eingang.jpg',
-    images: ['img/haus-eingang.jpg'],
-    description: 'Zimmer im Erdgeschoss des Hauses. Derzeit belegt.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '👔 Kleiderschrank', '🚪 Erdgeschoss']
-  },
-  'F': {
-    title: 'Zimmer F — Obergeschoss',
-    wg: '5er WG',
-    details: 'Möbliert · OG',
-    status: 'occupied',
-    price: null,
-    image: 'img/haus-aussen.jpg',
-    images: ['img/haus-aussen.jpg'],
-    description: 'Zimmer im Obergeschoss des Hauses. Derzeit belegt.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '👔 Kleiderschrank']
-  },
-  'G': {
-    title: 'Zimmer G — Dachgeschoss',
-    wg: '5er WG',
-    details: 'Möbliert · DG',
-    status: 'occupied',
-    price: null,
-    image: 'img/haus-aussen.jpg',
-    images: ['img/haus-aussen.jpg'],
-    description: 'Zimmer im Dachgeschoss des Hauses. Derzeit belegt.',
-    amenities: ['🛏️ Bett', '📚 Schreibtisch & Stuhl', '👔 Kleiderschrank', '🏔️ Dachgeschoss']
-  },
-  'H': {
-    title: 'Zimmer H — Premium',
-    wg: '5er WG',
-    details: 'Geräumig · Dachschräge',
-    status: 'available',
-    price: 440,
-    image: 'img/zimmerH-2.jpg',
-    images: ['img/zimmerH-1.jpg', 'img/zimmerH-2.jpg'],
-    description: 'Das Premium-Zimmer im Haus — geräumig mit Dachschräge, eigenem Sofabereich mit TV, Schreibtisch und viel Platz. Weiße IKEA-Möbel, moderner Glastisch, gemütliche Beleuchtung.',
-    amenities: ['🛏️ Bett', '📚 Glas-Schreibtisch', '👔 Kleiderschrank', '🗄️ Kommode', '📺 TV & Sofa-Ecke', '💡 Design-Lampe']
-  }
-};
+// ===== ROOM DATA (loaded from JSON) =====
+let roomData = {};
+let roomsJsonData = null;
 
-// ===== ZIMMER FILTER =====
-const filterWG = document.getElementById('filterWG');
-const filterStatus = document.getElementById('filterStatus');
-const noResults = document.getElementById('noResults');
-
-function filterRooms() {
-  const grids = [document.getElementById('roomsGrid'), document.getElementById('roomsGrid2')];
-  let visibleCount = 0;
-
-  grids.forEach(grid => {
-    if (!grid) return;
-    const cards = grid.querySelectorAll('.room-card[data-room]');
-    cards.forEach(card => {
-      const wg = card.dataset.wg;
-      const status = card.dataset.status;
-      let show = true;
-
-      if (filterWG && filterWG.value !== 'all' && wg !== filterWG.value) show = false;
-      if (filterStatus && filterStatus.value !== 'all' && status !== filterStatus.value) show = false;
-
-      card.style.display = show ? '' : 'none';
-      if (show) visibleCount++;
-    });
-  });
-
-  if (noResults) {
-    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+// Load rooms data and initialize everything
+async function loadRoomsData() {
+  try {
+    const response = await fetch('data/rooms.json');
+    roomsJsonData = await response.json();
+    roomData = roomsJsonData.rooms;
+    initializeRooms();
+  } catch (e) {
+    console.error('Could not load rooms data:', e);
   }
 }
 
-if (filterWG) filterWG.addEventListener('change', filterRooms);
-if (filterStatus) filterStatus.addEventListener('change', filterRooms);
+function createRoomCardHTML(id, room) {
+  const isAvailable = room.status === 'available';
+  const priceHTML = room.price
+    ? `${room.price}€ <span>/ Monat</span>`
+    : `Preis <span>auf Anfrage</span>`;
+  const badgeClass = isAvailable ? 'available' : 'occupied';
+  const badgeText = isAvailable ? 'Verfügbar' : 'Belegt';
+  const buttonHTML = isAvailable
+    ? `<a href="buchen.html?zimmer=${id}" class="btn btn-primary btn-sm">Anfragen</a>`
+    : `<span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>`;
+  const featuresHTML = (room.cardFeatures || [])
+    .map(f => `<span class="room-card-amenity">${f}</span>`)
+    .join('');
+
+  return `
+    <div class="room-card" data-wg="${room.wgFilter}" data-status="${room.status}" data-room="${id}">
+      <div class="room-card-image">
+        <img src="${room.image}" alt="${room.title}">
+        <span class="room-badge ${badgeClass}">${badgeText}</span>
+        <button class="room-card-heart">♡</button>
+      </div>
+      <div class="room-card-body">
+        <div class="room-card-title">${room.title}</div>
+        <div class="room-card-details">${room.subtitle}</div>
+        <div class="room-card-amenities">${featuresHTML}</div>
+        <div class="room-card-footer">
+          <div class="room-card-price">${priceHTML}</div>
+          ${buttonHTML}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function createPreviewCardHTML(id, room) {
+  const priceHTML = room.price
+    ? `${room.price}€ <span>/ Monat</span>`
+    : `Preis <span>auf Anfrage</span>`;
+  const featuresHTML = (room.cardFeatures || []).slice(0, 2)
+    .map(f => `<span class="room-card-amenity">${f}</span>`)
+    .join('');
+
+  return `
+    <a href="buchen.html?zimmer=${id}" class="room-card">
+      <div class="room-card-image">
+        <img src="${room.image}" alt="${room.title}">
+        <span class="room-badge available">Verfügbar</span>
+        <button class="room-card-heart" onclick="event.preventDefault()">♡</button>
+      </div>
+      <div class="room-card-body">
+        <div class="room-card-title">${room.title}</div>
+        <div class="room-card-details">${room.subtitle}</div>
+        <div class="room-card-amenities">${featuresHTML}</div>
+        <div class="room-card-footer">
+          <div class="room-card-price">${priceHTML}</div>
+          <span class="btn btn-primary btn-sm">Anfragen</span>
+        </div>
+      </div>
+    </a>
+  `;
+}
+
+function initializeRooms() {
+  if (!roomsJsonData) return;
+
+  // ===== ZIMMER PAGE: Render room grids =====
+  const roomsGrid = document.getElementById('roomsGrid');
+  const roomsGrid2 = document.getElementById('roomsGrid2');
+  const wohnungHeader = document.getElementById('wohnungHeader');
+  const hausHeader = document.getElementById('hausHeader');
+
+  if (roomsGrid && roomsGrid2) {
+    const wohnung = roomsJsonData.wohnungen[0];
+    const haus = roomsJsonData.wohnungen[1];
+
+    if (wohnungHeader) {
+      wohnungHeader.textContent = `${wohnung.icon} ${wohnung.label} (${wohnung.subtitle})`;
+    }
+    if (hausHeader) {
+      hausHeader.textContent = `${haus.icon} ${haus.label} (${haus.subtitle})`;
+    }
+
+    roomsGrid.innerHTML = wohnung.roomIds
+      .map(id => createRoomCardHTML(id, roomData[id]))
+      .join('');
+
+    roomsGrid2.innerHTML = haus.roomIds
+      .map(id => createRoomCardHTML(id, roomData[id]))
+      .join('');
+
+    // Bind click events for modal
+    document.querySelectorAll('.room-card[data-room]').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.btn')) return;
+        if (e.target.closest('.room-card-heart')) return;
+        const roomId = card.dataset.room;
+        if (roomId) openRoomModal(roomId);
+      });
+    });
+
+    // Initialize filters
+    initFilters();
+  }
+
+  // ===== ZIMMER PAGE: Render Gemeinschaft =====
+  const gemeinschaftGrid = document.getElementById('gemeinschaftGrid');
+  if (gemeinschaftGrid && roomsJsonData.gemeinschaft) {
+    gemeinschaftGrid.innerHTML = roomsJsonData.gemeinschaft.map(item => `
+      <div class="room-card" style="cursor: default;">
+        <div class="room-card-image">
+          <img src="${item.image}" alt="${item.title}">
+        </div>
+        <div class="room-card-body">
+          <div class="room-card-title">${item.title}</div>
+          <div class="room-card-details">${item.details}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ===== HOME PAGE: Render available rooms preview =====
+  const homePreview = document.getElementById('homeRoomsPreview');
+  if (homePreview) {
+    const availableRooms = Object.entries(roomData)
+      .filter(([, r]) => r.status === 'available')
+      .slice(0, 3);
+
+    homePreview.innerHTML = availableRooms
+      .map(([id, room]) => createPreviewCardHTML(id, room))
+      .join('');
+  }
+
+  // ===== BOOKING PAGE: Initialize sidebar =====
+  initBookingSidebar();
+}
+
+// ===== ZIMMER FILTER =====
+function initFilters() {
+  const filterWG = document.getElementById('filterWG');
+  const filterStatus = document.getElementById('filterStatus');
+  const noResults = document.getElementById('noResults');
+
+  function filterRooms() {
+    const grids = [document.getElementById('roomsGrid'), document.getElementById('roomsGrid2')];
+    let visibleCount = 0;
+
+    grids.forEach(grid => {
+      if (!grid) return;
+      const cards = grid.querySelectorAll('.room-card[data-room]');
+      cards.forEach(card => {
+        const wg = card.dataset.wg;
+        const status = card.dataset.status;
+        let show = true;
+
+        if (filterWG && filterWG.value !== 'all' && wg !== filterWG.value) show = false;
+        if (filterStatus && filterStatus.value !== 'all' && status !== filterStatus.value) show = false;
+
+        card.style.display = show ? '' : 'none';
+        if (show) visibleCount++;
+      });
+    });
+
+    // Show/hide WG headers based on filter
+    const wohnungHeader = document.getElementById('wohnungHeader');
+    const hausHeader = document.getElementById('hausHeader');
+    if (filterWG) {
+      if (wohnungHeader) wohnungHeader.style.display = (filterWG.value === '5er') ? 'none' : '';
+      if (hausHeader) hausHeader.style.display = (filterWG.value === '7er') ? 'none' : '';
+    }
+
+    if (noResults) {
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  if (filterWG) filterWG.addEventListener('change', filterRooms);
+  if (filterStatus) filterStatus.addEventListener('change', filterRooms);
+}
 
 // ===== ROOM MODAL =====
 const modalOverlay = document.getElementById('roomModal');
@@ -226,8 +230,8 @@ function openRoomModal(roomId) {
 
   document.getElementById('modalTitle').textContent = room.title;
   document.getElementById('modalMeta').innerHTML = `
-    <span>🏠 ${room.wg}</span>
-    <span>📋 ${room.details}</span>
+    <span>🏠 ${room.wg === 'wohnung' ? 'Wohnung' : 'Haus'}</span>
+    <span>📋 ${room.subtitle}</span>
   `;
   document.getElementById('modalDescription').textContent = room.description;
 
@@ -276,16 +280,6 @@ if (modalOverlay) {
   });
 }
 
-// Room card click -> open modal (for both grids)
-document.querySelectorAll('.room-card[data-room]').forEach(card => {
-  card.addEventListener('click', (e) => {
-    if (e.target.closest('.btn')) return;
-    if (e.target.closest('.room-card-heart')) return;
-    const roomId = card.dataset.room;
-    if (roomId) openRoomModal(roomId);
-  });
-});
-
 // Close modal on Escape
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
@@ -301,15 +295,16 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// ===== BOOKING FORM =====
-const roomSelect = document.getElementById('roomSelect');
-const sidebarTitle = document.getElementById('sidebarTitle');
-const sidebarDetails = document.getElementById('sidebarDetails');
-const sidebarPrice = document.getElementById('sidebarPrice');
-const sidebarImage = document.getElementById('sidebarImage');
+// ===== BOOKING SIDEBAR =====
+function initBookingSidebar() {
+  const roomSelect = document.getElementById('roomSelect');
+  const sidebarTitle = document.getElementById('sidebarTitle');
+  const sidebarDetails = document.getElementById('sidebarDetails');
+  const sidebarPrice = document.getElementById('sidebarPrice');
+  const sidebarImage = document.getElementById('sidebarImage');
 
-// Pre-select room from URL params
-if (roomSelect) {
+  if (!roomSelect) return;
+
   const params = new URLSearchParams(window.location.search);
   const zimmer = params.get('zimmer');
   if (zimmer) {
@@ -320,26 +315,26 @@ if (roomSelect) {
   roomSelect.addEventListener('change', () => {
     updateSidebar(roomSelect.value);
   });
-}
 
-function updateSidebar(roomId) {
-  const room = roomData[roomId];
-  if (!room || !sidebarTitle) return;
+  function updateSidebar(roomId) {
+    const room = roomData[roomId];
+    if (!room || !sidebarTitle) return;
 
-  sidebarTitle.textContent = room.title;
-  sidebarDetails.textContent = `${room.wg} · ${room.details}`;
-  sidebarPrice.style.display = 'block';
-  if (room.price) {
-    sidebarPrice.innerHTML = `${room.price}€ <span>/ Monat</span>`;
-  } else {
-    sidebarPrice.innerHTML = `Preis <span>auf Anfrage</span>`;
+    sidebarTitle.textContent = room.title;
+    sidebarDetails.textContent = room.subtitle;
+    sidebarPrice.style.display = 'block';
+    if (room.price) {
+      sidebarPrice.innerHTML = `${room.price}€ <span>/ Monat</span>`;
+    } else {
+      sidebarPrice.innerHTML = `Preis <span>auf Anfrage</span>`;
+    }
+    sidebarImage.className = 'form-sidebar-image';
+    sidebarImage.style = '';
+    sidebarImage.innerHTML = `<img src="${room.image}" alt="${room.title}">`;
   }
-  sidebarImage.className = 'form-sidebar-image';
-  sidebarImage.style = '';
-  sidebarImage.innerHTML = `<img src="${room.image}" alt="${room.title}">`;
 }
 
-// Form submission
+// ===== BOOKING FORM =====
 const inquiryForm = document.getElementById('inquiryForm');
 const bookingFormEl = document.getElementById('bookingForm');
 const formSuccess = document.getElementById('formSuccess');
@@ -443,3 +438,6 @@ document.querySelectorAll('.bewohner-nav a').forEach(link => {
     link.classList.add('active');
   });
 });
+
+// ===== LOAD DATA ON PAGE LOAD =====
+loadRoomsData();

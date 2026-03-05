@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Schweinekamp 9</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== ADMIN STYLES ===== */
+    .admin-body { padding-top: 72px; background: var(--bg-light); min-height: 100vh; }
+
+    .admin-header {
+      background: white;
+      border-bottom: 1px solid var(--border-light);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .admin-header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .admin-header-actions { display: flex; gap: 0.8rem; align-items: center; }
+
+    .admin-container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+    .admin-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .admin-stat-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+
+    .admin-stat-card .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .admin-stat-card .stat-value {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-top: 0.3rem;
+    }
+
+    .admin-stat-card .stat-value.green { color: var(--green); }
+    .admin-stat-card .stat-value.coral { color: var(--coral); }
+
+    .admin-section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .admin-rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .admin-room-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .admin-room-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--coral);
+    }
+
+    .admin-room-card-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .admin-room-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .admin-room-card-body { padding: 1rem; }
+
+    .admin-room-card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .admin-room-card-meta {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .admin-room-card-meta .price {
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .admin-room-status {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .admin-room-status.available { background: var(--green); }
+    .admin-room-status.occupied { background: rgba(0,0,0,0.6); }
+
+    .admin-edit-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ===== EDIT MODAL ===== */
+    .edit-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 2000;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .edit-overlay.active { display: flex; }
+
+    .edit-modal {
+      background: white;
+      border-radius: var(--radius-lg);
+      max-width: 700px;
+      width: 100%;
+      margin: 2rem auto;
+    }
+
+    .edit-modal-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .edit-modal-header h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .edit-modal-body { padding: 2rem; }
+
+    .edit-modal-footer {
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.8rem;
+    }
+
+    .edit-image-preview {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-bottom: 1rem;
+      background: var(--bg-light);
+    }
+
+    .edit-image-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .amenity-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .amenity-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .amenity-row input {
+      flex: 1;
+      padding: 0.5rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .amenity-row input:focus {
+      outline: none;
+      border-color: var(--coral);
+    }
+
+    .amenity-remove {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      flex-shrink: 0;
+    }
+
+    .amenity-remove:hover { border-color: var(--coral); color: var(--coral); }
+
+    .add-amenity-btn {
+      font-size: 0.85rem;
+      color: var(--coral);
+      cursor: pointer;
+      background: none;
+      border: 1px dashed var(--border);
+      padding: 0.5rem;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      margin-top: 0.3rem;
+      transition: var(--transition);
+    }
+
+    .add-amenity-btn:hover { border-color: var(--coral); background: #fff1f0; }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--dark);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+      z-index: 3000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      max-width: 400px;
+    }
+
+    .toast.active { transform: translateY(0); opacity: 1; }
+    .toast.success { background: var(--green); }
+    .toast.error { background: var(--coral); }
+
+    /* Saving overlay */
+    .saving-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.8);
+      z-index: 2500;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .saving-overlay.active { display: flex; }
+
+    .saving-spinner {
+      text-align: center;
+    }
+
+    .saving-spinner .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid var(--border);
+      border-top-color: var(--coral);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Settings section */
+    .admin-settings {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .admin-settings h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .webhook-url-display {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .webhook-url-display input {
+      flex: 1;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-family: monospace;
+      background: var(--bg-light);
+    }
+
+    /* Login */
+    .admin-login-wrapper {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    /* Gemeinschaft edit */
+    .gemeinschaft-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .gemeinschaft-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .gemeinschaft-card:hover {
+      border-color: var(--coral);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .gemeinschaft-card img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.5rem;
+    }
+
+    .gemeinschaft-card h4 { font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .gemeinschaft-card p { font-size: 0.8rem; color: var(--text-light); }
+
+    @media (max-width: 768px) {
+      .admin-rooms-grid { grid-template-columns: 1fr; }
+      .admin-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">S9</div>
+      Schweinekamp 9
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="zimmer.html">Zimmer</a>
+      <a href="buchen.html">Buchen</a>
+      <a href="bewohner.html">Bewohner</a>
+      <a href="admin.html" class="active">Admin</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- LOGIN -->
+  <div class="admin-body" id="adminLogin">
+    <div class="admin-login-wrapper">
+      <div class="login-gate">
+        <div class="login-card">
+          <div class="login-icon">🔐</div>
+          <h2>Admin-Bereich</h2>
+          <p>Melde dich an, um Zimmer und Inhalte zu verwalten.</p>
+          <div class="login-error" id="adminLoginError">Falsches Passwort. Versuche es erneut.</div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <input type="password" id="adminPassword" placeholder="Passwort eingeben" autofocus>
+          </div>
+          <button class="btn btn-primary" style="width: 100%;" id="adminLoginBtn">Anmelden</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD (hidden until login) -->
+  <div class="admin-body" id="adminDashboard" style="display: none;">
+
+    <div class="admin-header">
+      <h1>⚙️ Zimmerverwaltung</h1>
+      <div class="admin-header-actions">
+        <a href="zimmer.html" class="btn btn-secondary btn-sm" target="_blank">Seite ansehen</a>
+        <button class="btn btn-primary btn-sm" id="saveAllBtn">Alle Änderungen speichern</button>
+        <button class="btn btn-secondary btn-sm" id="adminLogoutBtn">Abmelden</button>
+      </div>
+    </div>
+
+    <div class="admin-container">
+      <!-- Stats -->
+      <div class="admin-stats" id="adminStats"></div>
+
+      <!-- Wohnung -->
+      <div class="admin-section-title" id="adminWohnungTitle"></div>
+      <div class="admin-rooms-grid" id="adminWohnungGrid"></div>
+
+      <!-- Haus -->
+      <div class="admin-section-title" id="adminHausTitle"></div>
+      <div class="admin-rooms-grid" id="adminHausGrid"></div>
+
+      <!-- Gemeinschaft -->
+      <div class="admin-section-title">✨ Gemeinschaftsbereiche</div>
+      <div class="gemeinschaft-grid" id="adminGemeinschaftGrid"></div>
+
+      <!-- Settings -->
+      <div class="admin-settings">
+        <h3>⚙️ Einstellungen</h3>
+        <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">
+          Gib die URL deines n8n-Webhooks ein, damit Änderungen automatisch auf der Website veröffentlicht werden.
+        </p>
+        <div class="form-group">
+          <label>n8n Webhook URL</label>
+          <div class="webhook-url-display">
+            <input type="url" id="webhookUrl" placeholder="https://deine-instanz.app.n8n.cloud/webhook/...">
+            <button class="btn btn-secondary btn-sm" id="saveWebhookBtn">Speichern</button>
+          </div>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;">
+          Ohne Webhook werden Änderungen lokal gespeichert und können als JSON heruntergeladen werden.
+        </p>
+        <button class="btn btn-outline btn-sm" id="downloadJsonBtn" style="margin-top: 1rem;">JSON herunterladen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT MODAL -->
+  <div class="edit-overlay" id="editOverlay">
+    <div class="edit-modal">
+      <div class="edit-modal-header">
+        <h2 id="editTitle">Zimmer bearbeiten</h2>
+        <button class="modal-close" id="editClose">✕</button>
+      </div>
+      <div class="edit-modal-body">
+        <input type="hidden" id="editRoomId">
+
+        <div class="edit-image-preview" id="editImagePreview"></div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Titel</label>
+            <input type="text" id="editRoomTitle" placeholder="z.B. Zimmer 1 — Sonnenseite">
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <select id="editRoomStatus">
+              <option value="available">Verfügbar</option>
+              <option value="occupied">Belegt</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preis (€/Monat)</label>
+            <input type="number" id="editRoomPrice" placeholder="z.B. 440 (leer = auf Anfrage)">
+          </div>
+          <div class="form-group">
+            <label>Untertitel</label>
+            <input type="text" id="editRoomSubtitle" placeholder="z.B. Wohnung · Möbliert · Hell">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Beschreibung</label>
+          <textarea id="editRoomDescription" rows="3" placeholder="Beschreibung des Zimmers..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Hauptbild (Pfad)</label>
+          <input type="text" id="editRoomImage" placeholder="z.B. img/zimmer1-1.jpg">
+        </div>
+
+        <div class="form-group">
+          <label>Kartenmerkmale (auf der Übersichtskarte angezeigt)</label>
+          <div class="amenity-list" id="editCardFeatures"></div>
+          <button class="add-amenity-btn" id="addCardFeatureBtn">+ Merkmal hinzufügen</button>
+        </div>
+
+        <div class="form-group">
+          <label>Ausstattung (im Detail-Popup angezeigt)</label>
+          <div class="amenity-list" id="editAmenities"></div>
+          <button class="add-amenity-btn" id="addAmenityBtn">+ Ausstattung hinzufügen</button>
+        </div>
+      </div>
+      <div class="edit-modal-footer">
+        <button class="btn btn-secondary" id="editCancel">Abbrechen</button>
+        <button class="btn btn-primary" id="editSave">Übernehmen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GEMEINSCHAFT EDIT MODAL -->
+  <div class="edit-overlay" id="gemeinschaftEditOverlay">
+    <div class="edit-modal" style="max-width: 500px;">
+      <div class="edit-modal-header">
+        <h2>Gemeinschaftsbereich bearbeiten</h2>
+        <button class="modal-close" id="gemeinschaftEditClose">✕</button>
+      </div>
+      <div class="edit-modal-body">
+        <input type="hidden" id="gemeinschaftEditIndex">
+        <div class="form-group">
+          <label>Titel</label>
+          <input type="text" id="gemeinschaftEditTitle">
+        </div>
+        <div class="form-group">
+          <label>Details</label>
+          <input type="text" id="gemeinschaftEditDetails">
+        </div>
+        <div class="form-group">
+          <label>Bild (Pfad)</label>
+          <input type="text" id="gemeinschaftEditImage">
+        </div>
+      </div>
+      <div class="edit-modal-footer">
+        <button class="btn btn-secondary" id="gemeinschaftEditCancel">Abbrechen</button>
+        <button class="btn btn-primary" id="gemeinschaftEditSave">Übernehmen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAVING OVERLAY -->
+  <div class="saving-overlay" id="savingOverlay">
+    <div class="saving-spinner">
+      <div class="spinner"></div>
+      <p style="font-weight: 600; color: var(--dark);">Wird gespeichert...</p>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ===== NAV =====
+    const nav = document.getElementById('nav');
+    if (nav) window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const spans = navToggle.querySelectorAll('span');
+        if (navLinks.classList.contains('active')) {
+          spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+          spans[1].style.opacity = '0';
+          spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+        } else {
+          spans[0].style.transform = '';
+          spans[1].style.opacity = '';
+          spans[2].style.transform = '';
+        }
+      });
+    }
+
+    // ===== STATE =====
+    const ADMIN_PASSWORD = 'admin9';
+    let data = null;
+    let hasChanges = false;
+
+    // ===== LOGIN =====
+    const adminLoginBtn = document.getElementById('adminLoginBtn');
+    const adminPassword = document.getElementById('adminPassword');
+    const adminLoginError = document.getElementById('adminLoginError');
+
+    function doLogin() {
+      if (adminPassword.value.trim() === ADMIN_PASSWORD) {
+        sessionStorage.setItem('admin_logged_in', 'true');
+        showDashboard();
+      } else {
+        adminLoginError.classList.add('active');
+        adminPassword.style.borderColor = '#dc2626';
+        adminPassword.value = '';
+        adminPassword.focus();
+      }
+    }
+
+    adminLoginBtn.addEventListener('click', doLogin);
+    adminPassword.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+    if (sessionStorage.getItem('admin_logged_in') === 'true') {
+      showDashboard();
+    }
+
+    document.getElementById('adminLogoutBtn').addEventListener('click', () => {
+      sessionStorage.removeItem('admin_logged_in');
+      document.getElementById('adminDashboard').style.display = 'none';
+      document.getElementById('adminLogin').style.display = '';
+      adminPassword.value = '';
+      adminLoginError.classList.remove('active');
+    });
+
+    function showDashboard() {
+      document.getElementById('adminLogin').style.display = 'none';
+      document.getElementById('adminDashboard').style.display = '';
+      loadData();
+    }
+
+    // ===== LOAD DATA =====
+    async function loadData() {
+      try {
+        const res = await fetch('data/rooms.json');
+        data = await res.json();
+        renderDashboard();
+      } catch (e) {
+        showToast('Fehler beim Laden der Daten', 'error');
+      }
+
+      // Load saved webhook URL
+      const savedUrl = localStorage.getItem('s9_webhook_url');
+      if (savedUrl) document.getElementById('webhookUrl').value = savedUrl;
+    }
+
+    // ===== RENDER =====
+    function renderDashboard() {
+      if (!data) return;
+
+      // Stats
+      const rooms = Object.values(data.rooms);
+      const available = rooms.filter(r => r.status === 'available').length;
+      const occupied = rooms.filter(r => r.status === 'occupied').length;
+      const totalRevenue = rooms.filter(r => r.price).reduce((sum, r) => sum + r.price, 0);
+
+      document.getElementById('adminStats').innerHTML = `
+        <div class="admin-stat-card">
+          <div class="stat-label">Gesamt</div>
+          <div class="stat-value">${rooms.length}</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="stat-label">Verfügbar</div>
+          <div class="stat-value green">${available}</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="stat-label">Belegt</div>
+          <div class="stat-value">${occupied}</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="stat-label">Auslastung</div>
+          <div class="stat-value coral">${Math.round(occupied / rooms.length * 100)}%</div>
+        </div>
+      `;
+
+      // Wohnung
+      const wohnung = data.wohnungen[0];
+      document.getElementById('adminWohnungTitle').textContent = `${wohnung.icon} ${wohnung.label}`;
+      document.getElementById('adminWohnungGrid').innerHTML = wohnung.roomIds
+        .map(id => renderAdminCard(id, data.rooms[id])).join('');
+
+      // Haus
+      const haus = data.wohnungen[1];
+      document.getElementById('adminHausTitle').textContent = `${haus.icon} ${haus.label}`;
+      document.getElementById('adminHausGrid').innerHTML = haus.roomIds
+        .map(id => renderAdminCard(id, data.rooms[id])).join('');
+
+      // Gemeinschaft
+      document.getElementById('adminGemeinschaftGrid').innerHTML = data.gemeinschaft
+        .map((item, i) => `
+          <div class="gemeinschaft-card" onclick="openGemeinschaftEdit(${i})">
+            <img src="${item.image}" alt="${item.title}">
+            <h4>${item.title}</h4>
+            <p>${item.details}</p>
+          </div>
+        `).join('');
+
+      // Rebind clicks
+      document.querySelectorAll('.admin-room-card').forEach(card => {
+        card.addEventListener('click', () => openRoomEdit(card.dataset.room));
+      });
+    }
+
+    function renderAdminCard(id, room) {
+      const priceText = room.price ? `${room.price}€/Monat` : 'Auf Anfrage';
+      return `
+        <div class="admin-room-card" data-room="${id}">
+          <div class="admin-room-card-image">
+            <img src="${room.image}" alt="${room.title}">
+            <span class="admin-room-status ${room.status}">${room.status === 'available' ? 'Verfügbar' : 'Belegt'}</span>
+            <span class="admin-edit-btn">✏️</span>
+          </div>
+          <div class="admin-room-card-body">
+            <div class="admin-room-card-title">${room.title}</div>
+            <div class="admin-room-card-meta">
+              <span>${room.subtitle}</span>
+              <span class="price">${priceText}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ===== ROOM EDIT MODAL =====
+    const editOverlay = document.getElementById('editOverlay');
+
+    function openRoomEdit(roomId) {
+      const room = data.rooms[roomId];
+      if (!room) return;
+
+      document.getElementById('editRoomId').value = roomId;
+      document.getElementById('editTitle').textContent = `${room.title} bearbeiten`;
+      document.getElementById('editRoomTitle').value = room.title;
+      document.getElementById('editRoomStatus').value = room.status;
+      document.getElementById('editRoomPrice').value = room.price || '';
+      document.getElementById('editRoomSubtitle').value = room.subtitle;
+      document.getElementById('editRoomDescription').value = room.description;
+      document.getElementById('editRoomImage').value = room.image;
+
+      document.getElementById('editImagePreview').innerHTML = `<img src="${room.image}" alt="${room.title}">`;
+
+      // Card features
+      renderListEditor('editCardFeatures', room.cardFeatures || []);
+
+      // Amenities
+      renderListEditor('editAmenities', room.amenities || []);
+
+      editOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function renderListEditor(containerId, items) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = items.map((item, i) => `
+        <div class="amenity-row">
+          <input type="text" value="${escapeHtml(item)}" data-index="${i}">
+          <button class="amenity-remove" onclick="this.parentElement.remove()">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function getListValues(containerId) {
+      const inputs = document.querySelectorAll(`#${containerId} input[type="text"]`);
+      return Array.from(inputs).map(i => i.value.trim()).filter(v => v);
+    }
+
+    document.getElementById('addCardFeatureBtn').addEventListener('click', () => {
+      const container = document.getElementById('editCardFeatures');
+      container.insertAdjacentHTML('beforeend', `
+        <div class="amenity-row">
+          <input type="text" value="" placeholder="z.B. 🛏️ Möbliert">
+          <button class="amenity-remove" onclick="this.parentElement.remove()">✕</button>
+        </div>
+      `);
+    });
+
+    document.getElementById('addAmenityBtn').addEventListener('click', () => {
+      const container = document.getElementById('editAmenities');
+      container.insertAdjacentHTML('beforeend', `
+        <div class="amenity-row">
+          <input type="text" value="" placeholder="z.B. 📚 Schreibtisch & Stuhl">
+          <button class="amenity-remove" onclick="this.parentElement.remove()">✕</button>
+        </div>
+      `);
+    });
+
+    function closeEditModal() {
+      editOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('editClose').addEventListener('click', closeEditModal);
+    document.getElementById('editCancel').addEventListener('click', closeEditModal);
+    editOverlay.addEventListener('click', e => { if (e.target === editOverlay) closeEditModal(); });
+
+    document.getElementById('editSave').addEventListener('click', () => {
+      const roomId = document.getElementById('editRoomId').value;
+      const room = data.rooms[roomId];
+
+      room.title = document.getElementById('editRoomTitle').value;
+      room.status = document.getElementById('editRoomStatus').value;
+      const priceVal = document.getElementById('editRoomPrice').value;
+      room.price = priceVal ? parseInt(priceVal) : null;
+      room.subtitle = document.getElementById('editRoomSubtitle').value;
+      room.description = document.getElementById('editRoomDescription').value;
+      room.image = document.getElementById('editRoomImage').value;
+      room.cardFeatures = getListValues('editCardFeatures');
+      room.amenities = getListValues('editAmenities');
+
+      hasChanges = true;
+      closeEditModal();
+      renderDashboard();
+      showToast('Änderungen übernommen (noch nicht gespeichert)', 'success');
+    });
+
+    // Update image preview on path change
+    document.getElementById('editRoomImage').addEventListener('change', function() {
+      document.getElementById('editImagePreview').innerHTML = `<img src="${this.value}" alt="Vorschau">`;
+    });
+
+    // ===== GEMEINSCHAFT EDIT =====
+    const gemeinschaftOverlay = document.getElementById('gemeinschaftEditOverlay');
+
+    function openGemeinschaftEdit(index) {
+      const item = data.gemeinschaft[index];
+      document.getElementById('gemeinschaftEditIndex').value = index;
+      document.getElementById('gemeinschaftEditTitle').value = item.title;
+      document.getElementById('gemeinschaftEditDetails').value = item.details;
+      document.getElementById('gemeinschaftEditImage').value = item.image;
+      gemeinschaftOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGemeinschaftEdit() {
+      gemeinschaftOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('gemeinschaftEditClose').addEventListener('click', closeGemeinschaftEdit);
+    document.getElementById('gemeinschaftEditCancel').addEventListener('click', closeGemeinschaftEdit);
+    gemeinschaftOverlay.addEventListener('click', e => { if (e.target === gemeinschaftOverlay) closeGemeinschaftEdit(); });
+
+    document.getElementById('gemeinschaftEditSave').addEventListener('click', () => {
+      const index = parseInt(document.getElementById('gemeinschaftEditIndex').value);
+      data.gemeinschaft[index].title = document.getElementById('gemeinschaftEditTitle').value;
+      data.gemeinschaft[index].details = document.getElementById('gemeinschaftEditDetails').value;
+      data.gemeinschaft[index].image = document.getElementById('gemeinschaftEditImage').value;
+      hasChanges = true;
+      closeGemeinschaftEdit();
+      renderDashboard();
+      showToast('Änderungen übernommen (noch nicht gespeichert)', 'success');
+    });
+
+    // ===== SAVE ALL =====
+    document.getElementById('saveAllBtn').addEventListener('click', saveAll);
+
+    async function saveAll() {
+      if (!data) return;
+
+      const webhookUrl = localStorage.getItem('s9_webhook_url');
+
+      if (webhookUrl) {
+        // Save via n8n webhook → GitHub
+        document.getElementById('savingOverlay').classList.add('active');
+        try {
+          const res = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+
+          if (res.ok) {
+            hasChanges = false;
+            showToast('Gespeichert! Die Website wird in ~30 Sekunden aktualisiert.', 'success');
+          } else {
+            throw new Error('Webhook-Fehler: ' + res.status);
+          }
+        } catch (e) {
+          showToast('Fehler: ' + e.message, 'error');
+        }
+        document.getElementById('savingOverlay').classList.remove('active');
+      } else {
+        // No webhook — download JSON
+        downloadJson();
+        showToast('JSON heruntergeladen. Richte einen n8n-Webhook ein für automatisches Speichern.', 'success');
+      }
+    }
+
+    // ===== DOWNLOAD JSON =====
+    document.getElementById('downloadJsonBtn').addEventListener('click', downloadJson);
+
+    function downloadJson() {
+      if (!data) return;
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'rooms.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // ===== WEBHOOK SETTINGS =====
+    document.getElementById('saveWebhookBtn').addEventListener('click', () => {
+      const url = document.getElementById('webhookUrl').value.trim();
+      if (url) {
+        localStorage.setItem('s9_webhook_url', url);
+        showToast('Webhook-URL gespeichert', 'success');
+      } else {
+        localStorage.removeItem('s9_webhook_url');
+        showToast('Webhook-URL entfernt', 'success');
+      }
+    });
+
+    // ===== TOAST =====
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = `toast ${type} active`;
+      setTimeout(() => toast.classList.remove('active'), 4000);
+    }
+
+    // ===== UTILS =====
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // ===== WARN ON UNSAVED CHANGES =====
+    window.addEventListener('beforeunload', (e) => {
+      if (hasChanges) {
+        e.preventDefault();
+        e.returnValue = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
