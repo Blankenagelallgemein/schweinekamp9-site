@@ -3,34 +3,22 @@
     {
       "id": "wohnung",
       "label": "Wohnung — 6 Zimmer",
+      "label_en": "Apartment — 6 Rooms",
       "filterValue": "7er",
       "icon": "🏠",
       "subtitle": "3 Bäder, Küche, Wohnzimmer",
-      "roomIds": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6"
-      ]
+      "subtitle_en": "3 Bathrooms, Kitchen, Living Room",
+      "roomIds": ["1", "2", "3", "4", "5", "6"]
     },
     {
       "id": "haus",
       "label": "Haus — 8 Zimmer",
+      "label_en": "House — 8 Rooms",
       "filterValue": "5er",
       "icon": "🏡",
       "subtitle": "2 Bäder, Küche, Wohnzimmer",
-      "roomIds": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H"
-      ]
+      "subtitle_en": "2 Bathrooms, Kitchen, Living Room",
+      "roomIds": ["A", "B", "C", "D", "E", "F", "G", "H"]
     }
   ],
   "rooms": {
@@ -38,399 +26,265 @@
       "wg": "wohnung",
       "wgFilter": "7er",
       "title": "Zimmer 1 — Sonnenseite",
+      "title_en": "Room 1 — Sunny Side",
       "subtitle": "Wohnung · Möbliert · Dachschräge",
+      "subtitle_en": "Apartment · Furnished · Sloped Ceiling",
       "status": "occupied",
       "price": null,
       "image": "img/zimmer1-1.jpg",
-      "images": [
-        "img/zimmer1-1.jpg",
-        "img/zimmer1-2.jpg",
-        "img/zimmer1-3.jpg"
-      ],
+      "images": ["img/zimmer1-1.jpg", "img/zimmer1-2.jpg", "img/zimmer1-3.jpg"],
       "description": "Helles Zimmer mit Dachschräge und viel Tageslicht. Möbliert mit Bett, Schreibtisch, Schrank und Regal. Derzeit belegt.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "📚 Schreibtisch"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "👔 Kleiderschrank",
-        "📖 Regal",
-        "💡 Deckenleuchte"
-      ]
+      "description_en": "Bright room with sloped ceiling and plenty of daylight. Furnished with bed, desk, wardrobe and shelf. Currently occupied.",
+      "cardFeatures": ["🛏️ Möbliert", "📚 Schreibtisch"],
+      "cardFeatures_en": ["🛏️ Furnished", "📚 Desk"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "👔 Kleiderschrank", "📖 Regal", "💡 Deckenleuchte"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "👔 Wardrobe", "📖 Shelf", "💡 Ceiling Light"]
     },
     "2": {
       "wg": "wohnung",
       "wgFilter": "7er",
       "title": "Zimmer 2 — Gemütlich",
+      "title_en": "Room 2 — Cozy",
       "subtitle": "Wohnung · Möbliert · Hell",
+      "subtitle_en": "Apartment · Furnished · Bright",
       "status": "available",
       "price": 440,
       "image": "img/zimmer2-2.jpg",
-      "images": [
-        "img/zimmer2-1.jpg",
-        "img/zimmer2-2.jpg"
-      ],
+      "images": ["img/zimmer2-1.jpg", "img/zimmer2-2.jpg"],
       "description": "Gemütliches und helles Zimmer in der 7er WG. Möbliert mit Bett, Schreibtisch, Schrank und Regal. Teil der Wohnung mit 3 Bädern und Gemeinschaftsküche.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "🔇 Ruhige Seite"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "👔 Kleiderschrank",
-        "📖 Regal",
-        "💡 Deckenleuchte",
-        "🔇 Ruhige Seite"
-      ]
+      "description_en": "Cozy and bright room in the shared apartment. Furnished with bed, desk, wardrobe and shelf. Part of the apartment with 3 bathrooms and shared kitchen.",
+      "cardFeatures": ["🛏️ Möbliert", "🔇 Ruhige Seite"],
+      "cardFeatures_en": ["🛏️ Furnished", "🔇 Quiet Side"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "👔 Kleiderschrank", "📖 Regal", "💡 Deckenleuchte", "🔇 Ruhige Seite"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "👔 Wardrobe", "📖 Shelf", "💡 Ceiling Light", "🔇 Quiet Side"]
     },
     "3": {
       "wg": "wohnung",
       "wgFilter": "7er",
       "title": "Zimmer 3 — Erdgeschoss",
+      "title_en": "Room 3 — Ground Floor",
       "subtitle": "Wohnung · Möbliert · EG · Geräumig",
+      "subtitle_en": "Apartment · Furnished · Ground Floor · Spacious",
       "status": "available",
       "price": 390,
       "image": "img/zimmer3-1.jpg",
-      "images": [
-        "img/zimmer3-1.jpg",
-        "img/zimmer3-2.jpg",
-        "img/zimmer3-3.jpg",
-        "img/zimmer3-4.jpg"
-      ],
+      "images": ["img/zimmer3-1.jpg", "img/zimmer3-2.jpg", "img/zimmer3-3.jpg", "img/zimmer3-4.jpg"],
       "description": "Geräumiges Zimmer im Erdgeschoss der 7er WG. Möbliert mit Bett, Schreibtisch und Schrank. Ebenerdiger Zugang, kein Treppensteigen. Teil der Wohnung mit 3 Bädern.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "🚪 Erdgeschoss"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "👔 Kleiderschrank",
-        "🚪 Erdgeschoss",
-        "📐 Geräumig",
-        "💡 Deckenleuchte"
-      ]
+      "description_en": "Spacious ground floor room in the shared apartment. Furnished with bed, desk and wardrobe. Level access, no stairs. Part of the apartment with 3 bathrooms.",
+      "cardFeatures": ["🛏️ Möbliert", "🚪 Erdgeschoss"],
+      "cardFeatures_en": ["🛏️ Furnished", "🚪 Ground Floor"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "👔 Kleiderschrank", "🚪 Erdgeschoss", "📐 Geräumig", "💡 Deckenleuchte"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "👔 Wardrobe", "🚪 Ground Floor", "📐 Spacious", "💡 Ceiling Light"]
     },
     "4": {
       "wg": "wohnung",
       "wgFilter": "7er",
       "title": "Zimmer 4 — Ruheoase",
+      "title_en": "Room 4 — Quiet Retreat",
       "subtitle": "Wohnung · Möbliert · Ruhige Lage",
+      "subtitle_en": "Apartment · Furnished · Quiet Location",
       "status": "occupied",
       "price": null,
       "image": "img/zimmer4-1.jpg",
-      "images": [
-        "img/zimmer4-1.jpg",
-        "img/zimmer4-2.jpg",
-        "img/zimmer4-3.jpg"
-      ],
+      "images": ["img/zimmer4-1.jpg", "img/zimmer4-2.jpg", "img/zimmer4-3.jpg"],
       "description": "Ruhig gelegenes Zimmer in der 7er WG mit gemütlicher Atmosphäre. Derzeit belegt.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "🔇 Ruhige Lage"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "👔 Kleiderschrank",
-        "🔇 Ruhige Lage"
-      ]
+      "description_en": "Quietly located room in the shared apartment with a cozy atmosphere. Currently occupied.",
+      "cardFeatures": ["🛏️ Möbliert", "🔇 Ruhige Lage"],
+      "cardFeatures_en": ["🛏️ Furnished", "🔇 Quiet Location"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "👔 Kleiderschrank", "🔇 Ruhige Lage"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "👔 Wardrobe", "🔇 Quiet Location"]
     },
     "5": {
       "wg": "wohnung",
       "wgFilter": "7er",
       "title": "Zimmer 5 — Dachstudio",
+      "title_en": "Room 5 — Attic Studio",
       "subtitle": "Wohnung · Dachschräge · Rundfenster",
+      "subtitle_en": "Apartment · Sloped Ceiling · Round Window",
       "status": "occupied",
       "price": null,
       "image": "img/zimmer5-1.jpg",
-      "images": [
-        "img/zimmer5-1.jpg",
-        "img/zimmer5-2.jpg",
-        "img/zimmer5-3.jpg",
-        "img/zimmer5-4.jpg",
-        "img/zimmer5-5.jpg"
-      ],
+      "images": ["img/zimmer5-1.jpg", "img/zimmer5-2.jpg", "img/zimmer5-3.jpg", "img/zimmer5-4.jpg", "img/zimmer5-5.jpg"],
       "description": "Charmantes Dachstudio mit Dachschrägen, Holzbalken und einem runden Fenster. Gemütliche Atmosphäre. Derzeit belegt.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "🌙 Dachfenster"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch",
-        "🪑 Relaxsessel",
-        "🌙 Dachfenster",
-        "⭕ Rundfenster",
-        "🌿 Pflanzen"
-      ]
+      "description_en": "Charming attic studio with sloped ceilings, wooden beams and a round window. Cozy atmosphere. Currently occupied.",
+      "cardFeatures": ["🛏️ Möbliert", "🌙 Dachfenster"],
+      "cardFeatures_en": ["🛏️ Furnished", "🌙 Skylight"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch", "🪑 Relaxsessel", "🌙 Dachfenster", "⭕ Rundfenster", "🌿 Pflanzen"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk", "🪑 Lounge Chair", "🌙 Skylight", "⭕ Round Window", "🌿 Plants"]
     },
     "6": {
       "wg": "wohnung",
       "wgFilter": "7er",
       "title": "Zimmer 6 — Kompakt",
+      "title_en": "Room 6 — Compact",
       "subtitle": "Wohnung · Möbliert · Viel Licht",
+      "subtitle_en": "Apartment · Furnished · Lots of Light",
       "status": "occupied",
       "price": null,
       "image": "img/zimmer6-1.jpg",
-      "images": [
-        "img/zimmer6-1.jpg",
-        "img/zimmer6-2.jpg",
-        "img/zimmer6-3.jpg",
-        "img/zimmer6-4.jpg",
-        "img/zimmer6-5.jpg",
-        "img/zimmer6-6.jpg"
-      ],
+      "images": ["img/zimmer6-1.jpg", "img/zimmer6-2.jpg", "img/zimmer6-3.jpg", "img/zimmer6-4.jpg", "img/zimmer6-5.jpg", "img/zimmer6-6.jpg"],
       "description": "Kompaktes, aber helles Zimmer in der 7er WG mit viel natürlichem Licht. Derzeit belegt.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "💡 Viel Licht"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "👔 Kleiderschrank",
-        "💡 Viel Licht"
-      ]
+      "description_en": "Compact but bright room in the shared apartment with lots of natural light. Currently occupied.",
+      "cardFeatures": ["🛏️ Möbliert", "💡 Viel Licht"],
+      "cardFeatures_en": ["🛏️ Furnished", "💡 Lots of Light"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "👔 Kleiderschrank", "💡 Viel Licht"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "👔 Wardrobe", "💡 Lots of Light"]
     },
     "A": {
       "wg": "haus",
       "wgFilter": "5er",
       "title": "Zimmer A — Terrassenzugang",
+      "title_en": "Room A — Terrace Access",
       "subtitle": "Haus · Möbliert · Terrasse",
+      "subtitle_en": "House · Furnished · Terrace",
       "status": "occupied",
       "price": null,
       "image": "img/zimmerA-1.jpg",
-      "images": [
-        "img/zimmerA-1.jpg",
-        "img/zimmerA-2.jpg",
-        "img/zimmerA-3.jpg",
-        "img/zimmerA-4.jpg"
-      ],
+      "images": ["img/zimmerA-1.jpg", "img/zimmerA-2.jpg", "img/zimmerA-3.jpg", "img/zimmerA-4.jpg"],
       "description": "Zimmer mit bodentiefer Terrassentür und direktem Zugang zum Außenbereich. Derzeit belegt.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "🌿 Terrassenzugang"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "🪟 Terrassentür",
-        "🌿 Gartenzugang",
-        "🗄️ Vitrinenschrank",
-        "💡 Wandlampe"
-      ]
+      "description_en": "Room with floor-to-ceiling terrace door and direct outdoor access. Currently occupied.",
+      "cardFeatures": ["🛏️ Möbliert", "🌿 Terrassenzugang"],
+      "cardFeatures_en": ["🛏️ Furnished", "🌿 Terrace Access"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "🪟 Terrassentür", "🌿 Gartenzugang", "🗄️ Vitrinenschrank", "💡 Wandlampe"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "🪟 Terrace Door", "🌿 Garden Access", "🗄️ Display Cabinet", "💡 Wall Lamp"]
     },
     "B": {
       "wg": "haus",
       "wgFilter": "5er",
       "title": "Zimmer B — Gemütlich",
+      "title_en": "Room B — Cozy",
       "subtitle": "Haus · Möbliert · Wandbeleuchtung",
+      "subtitle_en": "House · Furnished · Wall Lighting",
       "status": "occupied",
       "price": null,
       "image": "img/zimmerB-1.jpg",
-      "images": [
-        "img/zimmerB-1.jpg",
-        "img/zimmerB-2.jpg",
-        "img/zimmerB-3.jpg",
-        "img/zimmerB-4.jpg",
-        "img/zimmerB-5.jpg"
-      ],
+      "images": ["img/zimmerB-1.jpg", "img/zimmerB-2.jpg", "img/zimmerB-3.jpg", "img/zimmerB-4.jpg", "img/zimmerB-5.jpg"],
       "description": "Gemütliches Zimmer mit schöner Tapete und stimmungsvoller Wandbeleuchtung. Derzeit belegt.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "💡 Wandleuchten"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "📖 Regal",
-        "💡 Wandleuchten",
-        "🎨 Tapete",
-        "🔇 Ruhig"
-      ]
+      "description_en": "Cozy room with nice wallpaper and ambient wall lighting. Currently occupied.",
+      "cardFeatures": ["🛏️ Möbliert", "💡 Wandleuchten"],
+      "cardFeatures_en": ["🛏️ Furnished", "💡 Wall Lights"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "📖 Regal", "💡 Wandleuchten", "🎨 Tapete", "🔇 Ruhig"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "📖 Shelf", "💡 Wall Lights", "🎨 Wallpaper", "🔇 Quiet"]
     },
     "C": {
       "wg": "haus",
       "wgFilter": "5er",
       "title": "Zimmer C — Ruhig",
+      "title_en": "Room C — Quiet",
       "subtitle": "Haus · Möbliert · Ruhige Lage",
+      "subtitle_en": "House · Furnished · Quiet Location",
       "status": "occupied",
       "price": null,
       "image": "img/zimmerC-1.jpg",
-      "images": [
-        "img/zimmerC-1.jpg",
-        "img/zimmerC-2.jpg",
-        "img/zimmerC-3.jpg",
-        "img/zimmerC-4.jpg"
-      ],
+      "images": ["img/zimmerC-1.jpg", "img/zimmerC-2.jpg", "img/zimmerC-3.jpg", "img/zimmerC-4.jpg"],
       "description": "Ruhiges Zimmer im Haus mit gemütlicher Atmosphäre. Derzeit belegt.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "🔇 Ruhige Lage"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "👔 Kleiderschrank",
-        "🔇 Ruhige Lage"
-      ]
+      "description_en": "Quiet room in the house with a cozy atmosphere. Currently occupied.",
+      "cardFeatures": ["🛏️ Möbliert", "🔇 Ruhige Lage"],
+      "cardFeatures_en": ["🛏️ Furnished", "🔇 Quiet Location"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "👔 Kleiderschrank", "🔇 Ruhige Lage"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "👔 Wardrobe", "🔇 Quiet Location"]
     },
     "D": {
       "wg": "haus",
       "wgFilter": "5er",
       "title": "Zimmer D — Kompakt",
+      "title_en": "Room D — Compact",
       "subtitle": "Haus · Möbliert",
+      "subtitle_en": "House · Furnished",
       "status": "occupied",
       "price": null,
       "image": "img/haus-eingang.jpg",
-      "images": [
-        "img/haus-eingang.jpg"
-      ],
+      "images": ["img/haus-eingang.jpg"],
       "description": "Kompaktes Zimmer im Haus. Derzeit belegt.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "📚 Schreibtisch"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "👔 Kleiderschrank"
-      ]
+      "description_en": "Compact room in the house. Currently occupied.",
+      "cardFeatures": ["🛏️ Möbliert", "📚 Schreibtisch"],
+      "cardFeatures_en": ["🛏️ Furnished", "📚 Desk"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "👔 Kleiderschrank"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "👔 Wardrobe"]
     },
     "E": {
       "wg": "haus",
       "wgFilter": "5er",
       "title": "Zimmer E — Erdgeschoss",
+      "title_en": "Room E — Ground Floor",
       "subtitle": "Haus · Möbliert · EG",
+      "subtitle_en": "House · Furnished · Ground Floor",
       "status": "occupied",
       "price": null,
       "image": "img/haus-eingang.jpg",
-      "images": [
-        "img/haus-eingang.jpg"
-      ],
+      "images": ["img/haus-eingang.jpg"],
       "description": "Zimmer im Erdgeschoss des Hauses. Derzeit belegt.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "🚪 Erdgeschoss"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "👔 Kleiderschrank",
-        "🚪 Erdgeschoss"
-      ]
+      "description_en": "Ground floor room in the house. Currently occupied.",
+      "cardFeatures": ["🛏️ Möbliert", "🚪 Erdgeschoss"],
+      "cardFeatures_en": ["🛏️ Furnished", "🚪 Ground Floor"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "👔 Kleiderschrank", "🚪 Erdgeschoss"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "👔 Wardrobe", "🚪 Ground Floor"]
     },
     "F": {
       "wg": "haus",
       "wgFilter": "5er",
       "title": "Zimmer F — Obergeschoss",
+      "title_en": "Room F — Upper Floor",
       "subtitle": "Haus · Möbliert · OG",
+      "subtitle_en": "House · Furnished · Upper Floor",
       "status": "occupied",
       "price": null,
       "image": "img/haus-aussen.jpg",
-      "images": [
-        "img/haus-aussen.jpg"
-      ],
+      "images": ["img/haus-aussen.jpg"],
       "description": "Zimmer im Obergeschoss des Hauses. Derzeit belegt.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "📚 Schreibtisch"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "👔 Kleiderschrank"
-      ]
+      "description_en": "Upper floor room in the house. Currently occupied.",
+      "cardFeatures": ["🛏️ Möbliert", "📚 Schreibtisch"],
+      "cardFeatures_en": ["🛏️ Furnished", "📚 Desk"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "👔 Kleiderschrank"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "👔 Wardrobe"]
     },
     "G": {
       "wg": "haus",
       "wgFilter": "5er",
       "title": "Zimmer G — Dachgeschoss",
+      "title_en": "Room G — Attic Floor",
       "subtitle": "Haus · Möbliert · DG",
+      "subtitle_en": "House · Furnished · Attic",
       "status": "occupied",
       "price": null,
       "image": "img/haus-aussen.jpg",
-      "images": [
-        "img/haus-aussen.jpg"
-      ],
+      "images": ["img/haus-aussen.jpg"],
       "description": "Zimmer im Dachgeschoss des Hauses. Derzeit belegt.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "🏔️ Dachgeschoss"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Schreibtisch & Stuhl",
-        "👔 Kleiderschrank",
-        "🏔️ Dachgeschoss"
-      ]
+      "description_en": "Attic floor room in the house. Currently occupied.",
+      "cardFeatures": ["🛏️ Möbliert", "🏔️ Dachgeschoss"],
+      "cardFeatures_en": ["🛏️ Furnished", "🏔️ Attic Floor"],
+      "amenities": ["🛏️ Bett", "📚 Schreibtisch & Stuhl", "👔 Kleiderschrank", "🏔️ Dachgeschoss"],
+      "amenities_en": ["🛏️ Bed", "📚 Desk & Chair", "👔 Wardrobe", "🏔️ Attic Floor"]
     },
     "H": {
       "wg": "haus",
       "wgFilter": "5er",
       "title": "Zimmer H — Premium",
+      "title_en": "Room H — Premium",
       "subtitle": "Haus · Geräumig · Dachschräge",
+      "subtitle_en": "House · Spacious · Sloped Ceiling",
       "status": "available",
       "price": 440,
       "image": "img/zimmerH-2.jpg",
-      "images": [
-        "img/zimmerH-1.jpg",
-        "img/zimmerH-2.jpg"
-      ],
+      "images": ["img/zimmerH-1.jpg", "img/zimmerH-2.jpg"],
       "description": "Das Premium-Zimmer im Haus — geräumig mit Dachschräge, eigenem Sofabereich mit TV, Schreibtisch und viel Platz. Weiße IKEA-Möbel, moderner Glastisch, gemütliche Beleuchtung.",
-      "cardFeatures": [
-        "🛏️ Möbliert",
-        "📐 Großes Zimmer",
-        "📺 TV"
-      ],
-      "amenities": [
-        "🛏️ Bett",
-        "📚 Glas-Schreibtisch",
-        "👔 Kleiderschrank",
-        "🗄️ Kommode",
-        "📺 TV & Sofa-Ecke",
-        "💡 Design-Lampe"
-      ]
+      "description_en": "The premium room in the house — spacious with sloped ceiling, private sofa area with TV, desk and plenty of space. White IKEA furniture, modern glass desk, cozy lighting.",
+      "cardFeatures": ["🛏️ Möbliert", "📐 Großes Zimmer", "📺 TV"],
+      "cardFeatures_en": ["🛏️ Furnished", "📐 Large Room", "📺 TV"],
+      "amenities": ["🛏️ Bett", "📚 Glas-Schreibtisch", "👔 Kleiderschrank", "🗄️ Kommode", "📺 TV & Sofa-Ecke", "💡 Design-Lampe"],
+      "amenities_en": ["🛏️ Bed", "📚 Glass Desk", "👔 Wardrobe", "🗄️ Dresser", "📺 TV & Sofa Corner", "💡 Designer Lamp"]
     }
   },
   "gemeinschaft": {
     "wohnung": [
-      {
-        "title": "Gemeinschaftsküche",
-        "details": "Voll ausgestattet für die Wohnung",
-        "image": "img/kueche-1.jpg"
-      },
-      {
-        "title": "Wohnzimmer",
-        "details": "Sofa, TV, Gemeinschaftsbereich",
-        "image": "img/wohnzimmer.jpg"
-      },
-      {
-        "title": "Badezimmer",
-        "details": "3 Bäder in der Wohnung",
-        "image": "img/bad-dg.jpg"
-      }
+      { "title": "Gemeinschaftsküche", "title_en": "Shared Kitchen", "details": "Voll ausgestattet für die Wohnung", "details_en": "Fully equipped for the apartment", "image": "img/kueche-1.jpg" },
+      { "title": "Wohnzimmer", "title_en": "Living Room", "details": "Sofa, TV, Gemeinschaftsbereich", "details_en": "Sofa, TV, common area", "image": "img/wohnzimmer.jpg" },
+      { "title": "Badezimmer", "title_en": "Bathroom", "details": "3 Bäder in der Wohnung", "details_en": "3 bathrooms in the apartment", "image": "img/bad-dg.jpg" }
     ],
     "haus": [
-      {
-        "title": "Gemeinschaftsküche",
-        "details": "Voll ausgestattet für das Haus",
-        "image": "img/kueche-1.jpg"
-      },
-      {
-        "title": "Wohnzimmer",
-        "details": "Sofa, TV, Gemeinschaftsbereich",
-        "image": "img/wohnzimmer.jpg"
-      },
-      {
-        "title": "Badezimmer",
-        "details": "2 Bäder im Haus",
-        "image": "img/bad-dg.jpg"
-      }
+      { "title": "Gemeinschaftsküche", "title_en": "Shared Kitchen", "details": "Voll ausgestattet für das Haus", "details_en": "Fully equipped for the house", "image": "img/kueche-1.jpg" },
+      { "title": "Wohnzimmer", "title_en": "Living Room", "details": "Sofa, TV, Gemeinschaftsbereich", "details_en": "Sofa, TV, common area", "image": "img/wohnzimmer.jpg" },
+      { "title": "Badezimmer", "title_en": "Bathroom", "details": "2 Bäder im Haus", "details_en": "2 bathrooms in the house", "image": "img/bad-dg.jpg" }
     ]
   }
 }

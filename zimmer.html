@@ -15,10 +15,10 @@
       Schweinekamp 9
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="zimmer.html" class="active">Zimmer</a>
-      <a href="buchen.html">Buchen</a>
-      <a href="bewohner.html">Bewohner</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="zimmer.html" class="active" data-i18n="nav.zimmer">Zimmer</a>
+      <a href="buchen.html" data-i18n="nav.buchen">Buchen</a>
+      <a href="bewohner.html" data-i18n="nav.bewohner">Bewohner</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menü">
       <span></span><span></span><span></span>
@@ -27,8 +27,8 @@
 
   <!-- PAGE HEADER -->
   <div class="page-header">
-    <h1>Unsere Zimmer</h1>
-    <p>14 möblierte Zimmer in 2 WGs auf dem Resthof — finde das perfekte für dich.</p>
+    <h1 data-i18n="zimmer.title">Unsere Zimmer</h1>
+    <p data-i18n="zimmer.subtitle">14 möblierte Zimmer in 2 WGs auf dem Resthof — finde das perfekte für dich.</p>
   </div>
 
   <!-- FILTER + ROOMS -->
@@ -38,20 +38,20 @@
       <!-- Filter Bar -->
       <div class="filter-bar" id="filterBar">
         <div class="filter-group">
-          <label>WG</label>
+          <label data-i18n="filter.wg">WG</label>
           <select id="filterWG">
-            <option value="all">Alle WGs</option>
-            <option value="7er">Wohnung — 6 Zimmer</option>
-            <option value="5er">Haus — 8 Zimmer</option>
+            <option value="all" data-i18n="filter.wg.all">Alle WGs</option>
+            <option value="7er" data-i18n="filter.wg.wohnung">Wohnung — 6 Zimmer</option>
+            <option value="5er" data-i18n="filter.wg.haus">Haus — 8 Zimmer</option>
           </select>
         </div>
         <div class="filter-divider"></div>
         <div class="filter-group">
-          <label>Verfügbarkeit</label>
+          <label data-i18n="filter.status">Verfügbarkeit</label>
           <select id="filterStatus">
-            <option value="all">Alle</option>
-            <option value="available">Verfügbar</option>
-            <option value="occupied">Belegt</option>
+            <option value="all" data-i18n="filter.status.all">Alle</option>
+            <option value="available" data-i18n="filter.status.available">Verfügbar</option>
+            <option value="occupied" data-i18n="filter.status.occupied">Belegt</option>
           </select>
         </div>
       </div>
@@ -67,8 +67,8 @@
       <!-- No Results -->
       <div id="noResults" style="display: none; text-align: center; padding: 3rem; color: var(--text-light);">
         <p style="font-size: 2rem; margin-bottom: 1rem;">😕</p>
-        <p style="font-size: 1.1rem; font-weight: 600; color: var(--dark);">Keine Zimmer gefunden</p>
-        <p>Versuche andere Filtereinstellungen.</p>
+        <p style="font-size: 1.1rem; font-weight: 600; color: var(--dark);" data-i18n="no.results.title">Keine Zimmer gefunden</p>
+        <p data-i18n="no.results.text">Versuche andere Filtereinstellungen.</p>
       </div>
 
       <!-- Gemeinschaftsräume Wohnung -->
@@ -91,11 +91,11 @@
         <h2 id="modalTitle"></h2>
         <div class="modal-meta" id="modalMeta"></div>
         <p class="modal-description" id="modalDescription"></p>
-        <h4 style="margin-bottom: 0.8rem;">Ausstattung</h4>
+        <h4 style="margin-bottom: 0.8rem;" data-i18n="room.equipment">Ausstattung</h4>
         <div class="modal-amenities" id="modalAmenities"></div>
         <div class="modal-price-bar">
           <div class="modal-price" id="modalPrice"></div>
-          <a href="#" class="btn btn-primary" id="modalCTA">Jetzt anfragen</a>
+          <a href="#" class="btn btn-primary" id="modalCTA" data-i18n="room.inquireNow">Jetzt anfragen</a>
         </div>
       </div>
     </div>
@@ -106,38 +106,39 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>Schweinekamp 9</h3>
-        <p>Studentisches Wohnen auf dem Resthof — 28816 Stuhr bei Bremen.</p>
+        <p data-i18n="footer.description">Studentisches Wohnen auf dem Resthof — 28816 Stuhr bei Bremen.</p>
       </div>
       <div>
-        <h4>Seiten</h4>
+        <h4 data-i18n="footer.pages">Seiten</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="zimmer.html">Zimmer</a></li>
-          <li><a href="buchen.html">Buchen</a></li>
-          <li><a href="bewohner.html">Bewohner</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="zimmer.html" data-i18n="nav.zimmer">Zimmer</a></li>
+          <li><a href="buchen.html" data-i18n="nav.buchen">Buchen</a></li>
+          <li><a href="bewohner.html" data-i18n="nav.bewohner">Bewohner</a></li>
         </ul>
       </div>
       <div>
-        <h4>Kontakt</h4>
+        <h4 data-i18n="footer.contact">Kontakt</h4>
         <ul>
           <li><a href="#">kontakt@schweinekamp9.de</a></li>
           <li><a href="#">+49 123 456 789</a></li>
         </ul>
       </div>
       <div>
-        <h4>Rechtliches</h4>
+        <h4 data-i18n="footer.legal">Rechtliches</h4>
         <ul>
-          <li><a href="#">Impressum</a></li>
-          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#" data-i18n="footer.imprint">Impressum</a></li>
+          <li><a href="#" data-i18n="footer.privacy">Datenschutz</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Schweinekamp 9. Alle Rechte vorbehalten.</span>
-      <span>Made with ♥ für Studenten</span>
+      <span data-i18n="footer.copy">&copy; 2026 Schweinekamp 9. Alle Rechte vorbehalten.</span>
+      <span data-i18n-html="footer.made">Made with ♥ für Studenten</span>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

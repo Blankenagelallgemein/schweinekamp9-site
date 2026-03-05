@@ -15,10 +15,10 @@
       Schweinekamp 9
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="index.html" class="active">Home</a>
-      <a href="zimmer.html">Zimmer</a>
-      <a href="buchen.html">Buchen</a>
-      <a href="bewohner.html">Bewohner</a>
+      <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+      <a href="zimmer.html" data-i18n="nav.zimmer">Zimmer</a>
+      <a href="buchen.html" data-i18n="nav.buchen">Buchen</a>
+      <a href="bewohner.html" data-i18n="nav.bewohner">Bewohner</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menü">
       <span></span><span></span><span></span>
@@ -30,12 +30,12 @@
     <div class="hero-bg"></div>
     <div class="hero-content">
       <div class="hero-text">
-        <div class="hero-badge">Jetzt freie Zimmer verfügbar</div>
-        <h1>Dein Zuhause am <span>Schweinekamp</span></h1>
-        <p class="hero-subtitle">Möblierte WG-Zimmer auf einem Resthof in Stuhr — direkt an der Bremer Stadtgrenze. Natur pur und trotzdem in 9 Minuten an der Hochschule Bremen.</p>
+        <div class="hero-badge" data-i18n="hero.badge">Jetzt freie Zimmer verfügbar</div>
+        <h1 data-i18n-html="hero.title">Dein Zuhause am <span>Schweinekamp</span></h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">Möblierte WG-Zimmer auf einem Resthof in Stuhr — direkt an der Bremer Stadtgrenze. Natur pur und trotzdem in 9 Minuten an der Hochschule Bremen.</p>
         <div class="hero-actions">
-          <a href="zimmer.html" class="btn btn-primary btn-lg">Zimmer ansehen</a>
-          <a href="#highlights" class="btn btn-secondary btn-lg">Mehr erfahren</a>
+          <a href="zimmer.html" class="btn btn-primary btn-lg" data-i18n="hero.btn.rooms">Zimmer ansehen</a>
+          <a href="#highlights" class="btn btn-secondary btn-lg" data-i18n="hero.btn.more">Mehr erfahren</a>
         </div>
       </div>
       <div class="hero-image">
@@ -45,15 +45,15 @@
         <div class="hero-stats">
           <div class="hero-stat">
             <div class="hero-stat-value">14</div>
-            <div class="hero-stat-label">Zimmer</div>
+            <div class="hero-stat-label" data-i18n="hero.stat.rooms">Zimmer</div>
           </div>
           <div class="hero-stat">
             <div class="hero-stat-value">2</div>
-            <div class="hero-stat-label">WGs</div>
+            <div class="hero-stat-label" data-i18n="hero.stat.wgs">WGs</div>
           </div>
           <div class="hero-stat">
             <div class="hero-stat-value">9 min</div>
-            <div class="hero-stat-label">zur Hochschule</div>
+            <div class="hero-stat-label" data-i18n="hero.stat.uni">zur Hochschule</div>
           </div>
         </div>
       </div>
@@ -64,29 +64,29 @@
   <section class="section section-alt" id="highlights">
     <div class="container">
       <div class="section-header">
-        <h2>Warum Schweinekamp 9?</h2>
-        <p>Alles was du für dein Studium brauchst — auf einem Resthof mit Charme.</p>
+        <h2 data-i18n="highlights.title">Warum Schweinekamp 9?</h2>
+        <p data-i18n="highlights.subtitle">Alles was du für dein Studium brauchst — auf einem Resthof mit Charme.</p>
       </div>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon coral">📍</div>
-          <h3>Top Anbindung</h3>
-          <p>1,5 km mit dem Rad zum Roland Center, dann Tram 1 oder 8 in nur 9 Minuten zur Hochschule Bremen.</p>
+          <h3 data-i18n="feature.location.title">Top Anbindung</h3>
+          <p data-i18n="feature.location.text">1,5 km mit dem Rad zum Roland Center, dann Tram 1 oder 8 in nur 9 Minuten zur Hochschule Bremen.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon green">🛋️</div>
-          <h3>Voll möbliert</h3>
-          <p>Bett, Schreibtisch, Schrank, Regal — du brauchst nur noch deinen Koffer.</p>
+          <h3 data-i18n="feature.furnished.title">Voll möbliert</h3>
+          <p data-i18n="feature.furnished.text">Bett, Schreibtisch, Schrank, Regal — du brauchst nur noch deinen Koffer.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon blue">🏡</div>
-          <h3>Resthof-Charme</h3>
-          <p>Wohnen auf einem Resthof mit viel Grün und Natur — direkt an der Bremer Stadtgrenze in 28816 Stuhr.</p>
+          <h3 data-i18n="feature.charme.title">Resthof-Charme</h3>
+          <p data-i18n="feature.charme.text">Wohnen auf einem Resthof mit viel Grün und Natur — direkt an der Bremer Stadtgrenze in 28816 Stuhr.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon yellow">👥</div>
-          <h3>2 WGs, 14 Zimmer</h3>
-          <p>Haus mit 8 Zimmern und 2 Bädern, Wohnung mit 6 Zimmern und 3 Bädern — gemeinsame Küchen und Wohnbereiche.</p>
+          <h3 data-i18n="feature.wgs.title">2 WGs, 14 Zimmer</h3>
+          <p data-i18n="feature.wgs.text">Haus mit 8 Zimmern und 2 Bädern, Wohnung mit 6 Zimmern und 3 Bädern — gemeinsame Küchen und Wohnbereiche.</p>
         </div>
       </div>
     </div>
@@ -96,14 +96,14 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Unsere Zimmer</h2>
-        <p>Finde dein perfektes Zimmer — von gemütlich bis geräumig.</p>
+        <h2 data-i18n="rooms.title">Unsere Zimmer</h2>
+        <p data-i18n="rooms.subtitle">Finde dein perfektes Zimmer — von gemütlich bis geräumig.</p>
       </div>
       <div class="rooms-grid" id="homeRoomsPreview">
         <!-- Dynamisch geladen aus data/rooms.json -->
       </div>
       <div style="text-align: center; margin-top: 2.5rem;">
-        <a href="zimmer.html" class="btn btn-outline">Alle Zimmer ansehen →</a>
+        <a href="zimmer.html" class="btn btn-outline" data-i18n="rooms.all">Alle Zimmer ansehen →</a>
       </div>
     </div>
   </section>
@@ -112,49 +112,49 @@
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <h2>Die perfekte Lage</h2>
-        <p>Resthof in Stuhr — Natur pur, trotzdem bestens angebunden.</p>
+        <h2 data-i18n="location.title">Die perfekte Lage</h2>
+        <p data-i18n="location.subtitle">Resthof in Stuhr — Natur pur, trotzdem bestens angebunden.</p>
       </div>
       <div class="map-section">
         <div class="map-placeholder has-image">
           <img src="img/fahrradweg-roland-center.png" alt="Fahrradweg zum Roland Center — 1,5 km">
         </div>
         <div class="location-info">
-          <h3>Anbindung & Umgebung</h3>
+          <h3 data-i18n="location.heading">Anbindung & Umgebung</h3>
           <div class="location-list">
             <div class="location-item">
               <div class="location-item-icon">🚲</div>
               <div>
-                <strong>Roland Center</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-light);">1,5 km mit dem Fahrrad</span>
+                <strong data-i18n="location.roland">Roland Center</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-light);" data-i18n="location.roland.detail">1,5 km mit dem Fahrrad</span>
               </div>
             </div>
             <div class="location-item">
               <div class="location-item-icon">🚌</div>
               <div>
-                <strong>Bus "Zur Windhorst"</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-light);">7 Minuten zu Fuß</span>
+                <strong data-i18n="location.bus">Bus "Zur Windhorst"</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-light);" data-i18n="location.bus.detail">7 Minuten zu Fuß</span>
               </div>
             </div>
             <div class="location-item">
               <div class="location-item-icon">🚋</div>
               <div>
-                <strong>Hochschule Bremen</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-light);">Tram 1 oder 8 — nur 9 Minuten</span>
+                <strong data-i18n="location.uni">Hochschule Bremen</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-light);" data-i18n="location.uni.detail">Tram 1 oder 8 — nur 9 Minuten</span>
               </div>
             </div>
             <div class="location-item">
               <div class="location-item-icon">🛒</div>
               <div>
-                <strong>Roland Center (Einkaufen)</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-light);">Alle Geschäfte & Supermärkte</span>
+                <strong data-i18n="location.shopping">Roland Center (Einkaufen)</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-light);" data-i18n="location.shopping.detail">Alle Geschäfte & Supermärkte</span>
               </div>
             </div>
             <div class="location-item">
               <div class="location-item-icon">🌿</div>
               <div>
-                <strong>Natur & Ruhe</strong><br>
-                <span style="font-size: 0.8rem; color: var(--text-light);">Resthof mit viel Grün direkt vor der Tür</span>
+                <strong data-i18n="location.nature">Natur & Ruhe</strong><br>
+                <span style="font-size: 0.8rem; color: var(--text-light);" data-i18n="location.nature.detail">Resthof mit viel Grün direkt vor der Tür</span>
               </div>
             </div>
           </div>
@@ -163,33 +163,24 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section" style="text-align: center;">
-    <div class="container">
-      <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 1rem;">Bereit einzuziehen?</h2>
-      <p style="color: var(--text-light); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem;">Schick uns eine Anfrage — wir melden uns innerhalb von 24 Stunden bei dir.</p>
-      <a href="buchen.html" class="btn btn-primary btn-lg">Jetzt Zimmer anfragen</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
+<!-- FOOTER -->
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>Schweinekamp 9</h3>
-        <p>Studentisches Wohnen auf dem Resthof — möbliert, naturnah, gut angebunden. 14 Zimmer in 2 WGs, 28816 Stuhr bei Bremen.</p>
+        <p data-i18n="footer.description">Studentisches Wohnen auf dem Resthof — möbliert, naturnah, gut angebunden. 14 Zimmer in 2 WGs, 28816 Stuhr bei Bremen.</p>
       </div>
       <div>
-        <h4>Seiten</h4>
+        <h4 data-i18n="footer.pages">Seiten</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="zimmer.html">Zimmer</a></li>
-          <li><a href="buchen.html">Buchen</a></li>
-          <li><a href="bewohner.html">Bewohner</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="zimmer.html" data-i18n="nav.zimmer">Zimmer</a></li>
+          <li><a href="buchen.html" data-i18n="nav.buchen">Buchen</a></li>
+          <li><a href="bewohner.html" data-i18n="nav.bewohner">Bewohner</a></li>
         </ul>
       </div>
       <div>
-        <h4>Kontakt</h4>
+        <h4 data-i18n="footer.contact">Kontakt</h4>
         <ul>
           <li><a href="#">kontakt@schweinekamp9.de</a></li>
           <li><a href="#">+49 123 456 789</a></li>
@@ -197,20 +188,21 @@
         </ul>
       </div>
       <div>
-        <h4>Rechtliches</h4>
+        <h4 data-i18n="footer.legal">Rechtliches</h4>
         <ul>
-          <li><a href="#">Impressum</a></li>
-          <li><a href="#">Datenschutz</a></li>
-          <li><a href="#">AGB</a></li>
+          <li><a href="#" data-i18n="footer.imprint">Impressum</a></li>
+          <li><a href="#" data-i18n="footer.privacy">Datenschutz</a></li>
+          <li><a href="#" data-i18n="footer.terms">AGB</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Schweinekamp 9. Alle Rechte vorbehalten.</span>
-      <span>Made with ♥ für Studenten</span>
+      <span data-i18n="footer.copy">&copy; 2026 Schweinekamp 9. Alle Rechte vorbehalten.</span>
+      <span data-i18n-html="footer.made">Made with ♥ für Studenten</span>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

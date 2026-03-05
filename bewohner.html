@@ -15,10 +15,10 @@
       Schweinekamp 9
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="zimmer.html">Zimmer</a>
-      <a href="buchen.html">Buchen</a>
-      <a href="bewohner.html" class="active">Bewohner</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="zimmer.html" data-i18n="nav.zimmer">Zimmer</a>
+      <a href="buchen.html" data-i18n="nav.buchen">Buchen</a>
+      <a href="bewohner.html" class="active" data-i18n="nav.bewohner">Bewohner</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menü">
       <span></span><span></span><span></span>
@@ -27,8 +27,8 @@
 
   <!-- PAGE HEADER -->
   <div class="page-header">
-    <h1>Bewohner-Bereich</h1>
-    <p>Alles Wichtige für aktuelle Bewohner — Hausregeln, FAQ, Dokumente.</p>
+    <h1 data-i18n="bewohner.title">Bewohner-Bereich</h1>
+    <p data-i18n="bewohner.subtitle">Alles Wichtige für aktuelle Bewohner — Hausregeln, FAQ, Dokumente.</p>
   </div>
 
   <!-- LOGIN GATE -->
@@ -37,14 +37,14 @@
       <div class="login-gate">
         <div class="login-card">
           <div class="login-icon">🔐</div>
-          <h2>Anmelden</h2>
-          <p>Gib das Bewohner-Passwort ein, um auf den internen Bereich zuzugreifen.</p>
-          <div class="login-error" id="loginError">Falsches Passwort. Bitte versuche es erneut.</div>
+          <h2 data-i18n="bewohner.login">Anmelden</h2>
+          <p data-i18n="bewohner.login.text">Gib das Bewohner-Passwort ein, um auf den internen Bereich zuzugreifen.</p>
+          <div class="login-error" id="loginError" data-i18n="bewohner.login.error">Falsches Passwort. Bitte versuche es erneut.</div>
           <div class="form-group" style="margin-bottom: 1.5rem;">
-            <input type="password" id="loginPassword" placeholder="Passwort eingeben..." style="text-align: center;">
+            <input type="password" id="loginPassword" data-i18n="bewohner.login.placeholder" placeholder="Passwort eingeben..." style="text-align: center;">
           </div>
-          <button class="btn btn-primary" style="width: 100%;" id="loginBtn">Einloggen</button>
-          <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1.5rem;">Passwort vergessen? Frag deine Mitbewohner oder schreib an kontakt@schweinekamp9.de</p>
+          <button class="btn btn-primary" style="width: 100%;" id="loginBtn" data-i18n="bewohner.login.btn">Einloggen</button>
+          <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1.5rem;" data-i18n="bewohner.login.forgot">Passwort vergessen? Frag deine Mitbewohner oder schreib an kontakt@schweinekamp9.de</p>
         </div>
       </div>
     </div>
@@ -57,16 +57,16 @@
 
         <!-- Sidebar Nav -->
         <div class="bewohner-sidebar">
-          <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); margin-bottom: 0.8rem;">Navigation</h4>
+          <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); margin-bottom: 0.8rem;" data-i18n="bewohner.nav">Navigation</h4>
           <nav class="bewohner-nav">
-            <a href="#hausregeln" class="active">📋 Hausregeln</a>
-            <a href="#faq">❓ FAQ</a>
-            <a href="#dokumente">📄 Dokumente</a>
-            <a href="#pinnwand">📌 Pinnwand</a>
-            <a href="#kontakt">📞 Kontakt</a>
+            <a href="#hausregeln" class="active" data-i18n="bewohner.nav.rules">📋 Hausregeln</a>
+            <a href="#faq" data-i18n="bewohner.nav.faq">❓ FAQ</a>
+            <a href="#dokumente" data-i18n="bewohner.nav.docs">📄 Dokumente</a>
+            <a href="#pinnwand" data-i18n="bewohner.nav.board">📌 Pinnwand</a>
+            <a href="#kontakt" data-i18n="bewohner.nav.contact">📞 Kontakt</a>
           </nav>
           <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-light);">
-            <button class="btn btn-secondary btn-sm" style="width: 100%;" id="logoutBtn">Ausloggen</button>
+            <button class="btn btn-secondary btn-sm" style="width: 100%;" id="logoutBtn" data-i18n="bewohner.logout">Ausloggen</button>
           </div>
         </div>
 
@@ -75,91 +75,91 @@
 
           <!-- Hausregeln -->
           <div class="bewohner-section" id="hausregeln">
-            <h3>Hausregeln</h3>
+            <h3 data-i18n="bewohner.rules.title">Hausregeln</h3>
             <div class="rule-item">
               <span class="rule-icon">🧹</span>
               <div>
-                <strong>Putzplan</strong><br>
-                <span style="color: var(--text-light);">Jede Woche ist ein anderer dran. Der aktuelle Putzplan hängt in der Küche. Küche, Bad und Flur werden wöchentlich gereinigt.</span>
+                <strong data-i18n="bewohner.rules.clean.title">Putzplan</strong><br>
+                <span style="color: var(--text-light);" data-i18n="bewohner.rules.clean.text">Jede Woche ist ein anderer dran. Der aktuelle Putzplan hängt in der Küche. Küche, Bad und Flur werden wöchentlich gereinigt.</span>
               </div>
             </div>
             <div class="rule-item">
               <span class="rule-icon">🔇</span>
               <div>
-                <strong>Ruhezeiten</strong><br>
-                <span style="color: var(--text-light);">22:00 – 07:00 Uhr Nachtruhe. Sonntags und feiertags ganztägig Zimmerlautstärke. Musik bitte nur mit Kopfhörern nach 22 Uhr.</span>
+                <strong data-i18n="bewohner.rules.quiet.title">Ruhezeiten</strong><br>
+                <span style="color: var(--text-light);" data-i18n="bewohner.rules.quiet.text">22:00 – 07:00 Uhr Nachtruhe. Sonntags und feiertags ganztägig Zimmerlautstärke. Musik bitte nur mit Kopfhörern nach 22 Uhr.</span>
               </div>
             </div>
             <div class="rule-item">
               <span class="rule-icon">🗑️</span>
               <div>
-                <strong>Müll & Recycling</strong><br>
-                <span style="color: var(--text-light);">Mülltrennung ist Pflicht: Restmüll, Papier, Gelber Sack, Bio. Mülltonnen stehen im Hof. Abfuhrtermine hängen am Kühlschrank.</span>
+                <strong data-i18n="bewohner.rules.trash.title">Müll & Recycling</strong><br>
+                <span style="color: var(--text-light);" data-i18n="bewohner.rules.trash.text">Mülltrennung ist Pflicht: Restmüll, Papier, Gelber Sack, Bio. Mülltonnen stehen im Hof. Abfuhrtermine hängen am Kühlschrank.</span>
               </div>
             </div>
             <div class="rule-item">
               <span class="rule-icon">🚿</span>
               <div>
-                <strong>Badezimmer</strong><br>
-                <span style="color: var(--text-light);">Nach dem Duschen kurz lüften und Haare aus dem Abfluss nehmen. Persönliche Sachen bitte im eigenen Zimmer lagern.</span>
+                <strong data-i18n="bewohner.rules.bath.title">Badezimmer</strong><br>
+                <span style="color: var(--text-light);" data-i18n="bewohner.rules.bath.text">Nach dem Duschen kurz lüften und Haare aus dem Abfluss nehmen. Persönliche Sachen bitte im eigenen Zimmer lagern.</span>
               </div>
             </div>
             <div class="rule-item">
               <span class="rule-icon">👥</span>
               <div>
-                <strong>Gäste & Übernachtungen</strong><br>
-                <span style="color: var(--text-light);">Gäste sind willkommen! Bei Übernachtungen (>3 Nächte) bitte kurz in der WG-Gruppe Bescheid geben.</span>
+                <strong data-i18n="bewohner.rules.guests.title">Gäste & Übernachtungen</strong><br>
+                <span style="color: var(--text-light);" data-i18n="bewohner.rules.guests.text">Gäste sind willkommen! Bei Übernachtungen (>3 Nächte) bitte kurz in der WG-Gruppe Bescheid geben.</span>
               </div>
             </div>
             <div class="rule-item">
               <span class="rule-icon">🚭</span>
               <div>
-                <strong>Rauchen</strong><br>
-                <span style="color: var(--text-light);">Rauchen nur auf dem Balkon oder im Garten. In den Zimmern und Gemeinschaftsräumen ist Rauchen nicht gestattet.</span>
+                <strong data-i18n="bewohner.rules.smoking.title">Rauchen</strong><br>
+                <span style="color: var(--text-light);" data-i18n="bewohner.rules.smoking.text">Rauchen nur auf dem Balkon oder im Garten. In den Zimmern und Gemeinschaftsräumen ist Rauchen nicht gestattet.</span>
               </div>
             </div>
           </div>
 
           <!-- FAQ -->
           <div class="bewohner-section" id="faq">
-            <h3>Häufige Fragen</h3>
+            <h3 data-i18n="bewohner.faq.title">Häufige Fragen</h3>
             <div class="faq-item">
-              <div class="faq-question">Wie lautet das WLAN-Passwort?</div>
-              <div class="faq-answer">
+              <div class="faq-question" data-i18n="bewohner.faq.wifi.q">Wie lautet das WLAN-Passwort?</div>
+              <div class="faq-answer" data-i18n-html="bewohner.faq.wifi.a">
                 <strong>Netzwerk:</strong> Schweinekamp9-5G<br>
                 <strong>Passwort:</strong> WG-S9-Student-2026!<br>
                 Das WLAN wird regelmäßig aktualisiert. Bei Problemen den Router im Flur kurz aus- und wieder einschalten (10 Sekunden warten).
               </div>
             </div>
             <div class="faq-item">
-              <div class="faq-question">Was mache ich bei einem Rohrbruch oder Notfall?</div>
-              <div class="faq-answer">
+              <div class="faq-question" data-i18n="bewohner.faq.emergency.q">Was mache ich bei einem Rohrbruch oder Notfall?</div>
+              <div class="faq-answer" data-i18n-html="bewohner.faq.emergency.a">
                 <strong>Notfall-Nummer Hausverwaltung:</strong> +49 123 456 000 (24h erreichbar)<br>
                 <strong>Hauptwasserhahn:</strong> Im Keller, links neben der Waschmaschine<br>
                 <strong>Sicherungskasten:</strong> Im Flur, hinter der Tür zum Keller
               </div>
             </div>
             <div class="faq-item">
-              <div class="faq-question">Ich habe meinen Schlüssel verloren — was tun?</div>
-              <div class="faq-answer">
+              <div class="faq-question" data-i18n="bewohner.faq.key.q">Ich habe meinen Schlüssel verloren — was tun?</div>
+              <div class="faq-answer" data-i18n-html="bewohner.faq.key.a">
                 Sofort bei der Hausverwaltung melden. Ein Ersatzschlüssel kostet 25€. Bis dahin können dich Mitbewohner reinlassen. <strong>Bitte NICHT den Schlüssel nachmachen lassen</strong> — das ist aus Sicherheitsgründen nicht erlaubt.
               </div>
             </div>
             <div class="faq-item">
-              <div class="faq-question">Wie melde ich eine Reparatur?</div>
-              <div class="faq-answer">
+              <div class="faq-question" data-i18n="bewohner.faq.repair.q">Wie melde ich eine Reparatur?</div>
+              <div class="faq-answer" data-i18n-html="bewohner.faq.repair.a">
                 Schreib eine kurze Mail an <strong>kontakt@schweinekamp9.de</strong> mit einer Beschreibung und Foto des Problems. Wir kümmern uns in der Regel innerhalb von 48 Stunden.
               </div>
             </div>
             <div class="faq-item">
-              <div class="faq-question">Darf ich Möbel umstellen oder Bilder aufhängen?</div>
-              <div class="faq-answer">
+              <div class="faq-question" data-i18n="bewohner.faq.furniture.q">Darf ich Möbel umstellen oder Bilder aufhängen?</div>
+              <div class="faq-answer" data-i18n-html="bewohner.faq.furniture.a">
                 Möbel im eigenen Zimmer dürfen umgestellt werden. Bilder bitte nur mit <strong>Klebenägeln</strong> (keine Bohrlöcher). In den Gemeinschaftsräumen bitte vorher in der WG-Gruppe absprechen.
               </div>
             </div>
             <div class="faq-item">
-              <div class="faq-question">Wie funktioniert die Waschmaschine?</div>
-              <div class="faq-answer">
+              <div class="faq-question" data-i18n="bewohner.faq.laundry.q">Wie funktioniert die Waschmaschine?</div>
+              <div class="faq-answer" data-i18n-html="bewohner.faq.laundry.a">
                 Waschmaschine und Trockner stehen im Keller. Bitte nur zwischen 08:00 und 21:00 Uhr benutzen. Waschmittel bitte selbst mitbringen. Nach dem Waschen Maschine bitte ausladen und Tür offen lassen.
               </div>
             </div>
@@ -167,7 +167,7 @@
 
           <!-- Dokumente -->
           <div class="bewohner-section" id="dokumente">
-            <h3>Wichtige Dokumente</h3>
+            <h3 data-i18n="bewohner.docs.title">Wichtige Dokumente</h3>
             <div class="document-list">
               <a href="#" class="document-item">
                 <span>📄 Hausordnung (PDF)</span>
@@ -194,7 +194,7 @@
 
           <!-- Pinnwand -->
           <div class="bewohner-section" id="pinnwand">
-            <h3>Schwarzes Brett</h3>
+            <h3 data-i18n="bewohner.board.title">Schwarzes Brett</h3>
             <div class="pinnwand-grid">
               <div class="pinnwand-card">
                 <h4>WG-Abend am Freitag!</h4>
@@ -221,22 +221,22 @@
 
           <!-- Kontakt -->
           <div class="bewohner-section" id="kontakt">
-            <h3>Kontakt Vermieter</h3>
+            <h3 data-i18n="bewohner.contact.title">Kontakt Vermieter</h3>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
               <div style="background: var(--bg-light); border-radius: var(--radius-sm); padding: 1.2rem;">
-                <strong style="font-size: 0.85rem; display: block; margin-bottom: 0.3rem;">Allgemeine Anfragen</strong>
+                <strong style="font-size: 0.85rem; display: block; margin-bottom: 0.3rem;" data-i18n="bewohner.contact.general">Allgemeine Anfragen</strong>
                 <span style="color: var(--text-light); font-size: 0.85rem;">kontakt@schweinekamp9.de</span>
               </div>
               <div style="background: var(--bg-light); border-radius: var(--radius-sm); padding: 1.2rem;">
-                <strong style="font-size: 0.85rem; display: block; margin-bottom: 0.3rem;">Notfälle (24h)</strong>
+                <strong style="font-size: 0.85rem; display: block; margin-bottom: 0.3rem;" data-i18n="bewohner.contact.emergency">Notfälle (24h)</strong>
                 <span style="color: var(--text-light); font-size: 0.85rem;">+49 123 456 000</span>
               </div>
               <div style="background: var(--bg-light); border-radius: var(--radius-sm); padding: 1.2rem;">
-                <strong style="font-size: 0.85rem; display: block; margin-bottom: 0.3rem;">Reparaturen</strong>
+                <strong style="font-size: 0.85rem; display: block; margin-bottom: 0.3rem;" data-i18n="bewohner.contact.repairs">Reparaturen</strong>
                 <span style="color: var(--text-light); font-size: 0.85rem;">reparatur@schweinekamp9.de</span>
               </div>
               <div style="background: var(--bg-light); border-radius: var(--radius-sm); padding: 1.2rem;">
-                <strong style="font-size: 0.85rem; display: block; margin-bottom: 0.3rem;">Hausverwaltung</strong>
+                <strong style="font-size: 0.85rem; display: block; margin-bottom: 0.3rem;" data-i18n="bewohner.contact.management">Hausverwaltung</strong>
                 <span style="color: var(--text-light); font-size: 0.85rem;">+49 123 456 789</span>
               </div>
             </div>
@@ -252,38 +252,39 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>Schweinekamp 9</h3>
-        <p>Studentisches Wohnen auf dem Resthof — 28816 Stuhr bei Bremen.</p>
+        <p data-i18n="footer.description">Studentisches Wohnen auf dem Resthof — 28816 Stuhr bei Bremen.</p>
       </div>
       <div>
-        <h4>Seiten</h4>
+        <h4 data-i18n="footer.pages">Seiten</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="zimmer.html">Zimmer</a></li>
-          <li><a href="buchen.html">Buchen</a></li>
-          <li><a href="bewohner.html">Bewohner</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="zimmer.html" data-i18n="nav.zimmer">Zimmer</a></li>
+          <li><a href="buchen.html" data-i18n="nav.buchen">Buchen</a></li>
+          <li><a href="bewohner.html" data-i18n="nav.bewohner">Bewohner</a></li>
         </ul>
       </div>
       <div>
-        <h4>Kontakt</h4>
+        <h4 data-i18n="footer.contact">Kontakt</h4>
         <ul>
           <li><a href="#">kontakt@schweinekamp9.de</a></li>
           <li><a href="#">+49 123 456 789</a></li>
         </ul>
       </div>
       <div>
-        <h4>Rechtliches</h4>
+        <h4 data-i18n="footer.legal">Rechtliches</h4>
         <ul>
-          <li><a href="#">Impressum</a></li>
-          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#" data-i18n="footer.imprint">Impressum</a></li>
+          <li><a href="#" data-i18n="footer.privacy">Datenschutz</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Schweinekamp 9. Alle Rechte vorbehalten.</span>
-      <span>Made with ♥ für Studenten</span>
+      <span data-i18n="footer.copy">&copy; 2026 Schweinekamp 9. Alle Rechte vorbehalten.</span>
+      <span data-i18n-html="footer.made">Made with ♥ für Studenten</span>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

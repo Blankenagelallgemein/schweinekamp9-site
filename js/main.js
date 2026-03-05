@@ -44,27 +44,27 @@ async function loadRoomsData() {
 function createRoomCardHTML(id, room) {
   const isAvailable = room.status === 'available';
   const priceHTML = room.price
-    ? `${room.price}€ <span>/ Monat</span>`
-    : `Preis <span>auf Anfrage</span>`;
+    ? `${room.price}€ <span>${t('room.perMonth')}</span>`
+    : `${t('room.priceOnRequest')} <span>${t('room.priceOnRequest2')}</span>`;
   const badgeClass = isAvailable ? 'available' : 'occupied';
-  const badgeText = isAvailable ? 'Verfügbar' : 'Belegt';
+  const badgeText = isAvailable ? t('room.available') : t('room.occupied');
   const buttonHTML = isAvailable
-    ? `<a href="buchen.html?zimmer=${id}" class="btn btn-primary btn-sm">Anfragen</a>`
-    : `<span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">Belegt</span>`;
-  const featuresHTML = (room.cardFeatures || [])
+    ? `<a href="buchen.html?zimmer=${id}" class="btn btn-primary btn-sm">${t('room.inquire')}</a>`
+    : `<span class="btn btn-secondary btn-sm" style="opacity: 0.5; pointer-events: none;">${t('room.occupied')}</span>`;
+  const featuresHTML = (tRoomArray(room, 'cardFeatures') || [])
     .map(f => `<span class="room-card-amenity">${f}</span>`)
     .join('');
 
   return `
     <div class="room-card" data-wg="${room.wgFilter}" data-status="${room.status}" data-room="${id}">
       <div class="room-card-image">
-        <img src="${room.image}" alt="${room.title}">
+        <img src="${room.image}" alt="${tRoom(room, 'title')}">
         <span class="room-badge ${badgeClass}">${badgeText}</span>
         <button class="room-card-heart">♡</button>
       </div>
       <div class="room-card-body">
-        <div class="room-card-title">${room.title}</div>
-        <div class="room-card-details">${room.subtitle}</div>
+        <div class="room-card-title">${tRoom(room, 'title')}</div>
+        <div class="room-card-details">${tRoom(room, 'subtitle')}</div>
         <div class="room-card-amenities">${featuresHTML}</div>
         <div class="room-card-footer">
           <div class="room-card-price">${priceHTML}</div>
@@ -77,26 +77,26 @@ function createRoomCardHTML(id, room) {
 
 function createPreviewCardHTML(id, room) {
   const priceHTML = room.price
-    ? `${room.price}€ <span>/ Monat</span>`
-    : `Preis <span>auf Anfrage</span>`;
-  const featuresHTML = (room.cardFeatures || []).slice(0, 2)
+    ? `${room.price}€ <span>${t('room.perMonth')}</span>`
+    : `${t('room.priceOnRequest')} <span>${t('room.priceOnRequest2')}</span>`;
+  const featuresHTML = (tRoomArray(room, 'cardFeatures') || []).slice(0, 2)
     .map(f => `<span class="room-card-amenity">${f}</span>`)
     .join('');
 
   return `
     <a href="buchen.html?zimmer=${id}" class="room-card">
       <div class="room-card-image">
-        <img src="${room.image}" alt="${room.title}">
-        <span class="room-badge available">Verfügbar</span>
+        <img src="${room.image}" alt="${tRoom(room, 'title')}">
+        <span class="room-badge available">${t('room.available')}</span>
         <button class="room-card-heart" onclick="event.preventDefault()">♡</button>
       </div>
       <div class="room-card-body">
-        <div class="room-card-title">${room.title}</div>
-        <div class="room-card-details">${room.subtitle}</div>
+        <div class="room-card-title">${tRoom(room, 'title')}</div>
+        <div class="room-card-details">${tRoom(room, 'subtitle')}</div>
         <div class="room-card-amenities">${featuresHTML}</div>
         <div class="room-card-footer">
           <div class="room-card-price">${priceHTML}</div>
-          <span class="btn btn-primary btn-sm">Anfragen</span>
+          <span class="btn btn-primary btn-sm">${t('room.inquire')}</span>
         </div>
       </div>
     </a>
@@ -117,10 +117,10 @@ function initializeRooms() {
     const haus = roomsJsonData.wohnungen[1];
 
     if (wohnungHeader) {
-      wohnungHeader.textContent = `${wohnung.icon} ${wohnung.label} (${wohnung.subtitle})`;
+      wohnungHeader.textContent = `${wohnung.icon} ${tField(wohnung, 'label')} (${tField(wohnung, 'subtitle')})`;
     }
     if (hausHeader) {
-      hausHeader.textContent = `${haus.icon} ${haus.label} (${haus.subtitle})`;
+      hausHeader.textContent = `${haus.icon} ${tField(haus, 'label')} (${tField(haus, 'subtitle')})`;
     }
 
     roomsGrid.innerHTML = wohnung.roomIds
@@ -148,29 +148,29 @@ function initializeRooms() {
   // ===== ZIMMER PAGE: Render Gemeinschaft per WG =====
   const gemeinschaft = roomsJsonData.gemeinschaft;
   if (gemeinschaft) {
-    function renderGemeinschaftGrid(gridId, headerId, items, wgLabel) {
+    function renderGemeinschaftGrid(gridId, headerId, items, wgKey) {
       const grid = document.getElementById(gridId);
       const header = document.getElementById(headerId);
       if (!grid || !items) return;
-      if (header) header.textContent = `✨ Gemeinschaftsbereiche — ${wgLabel}`;
+      if (header) header.textContent = `✨ ${t('gemeinschaft.' + wgKey)}`;
       grid.innerHTML = items.map(item => `
         <div class="room-card" style="cursor: default;">
           <div class="room-card-image">
-            <img src="${item.image}" alt="${item.title}">
+            <img src="${item.image}" alt="${tField(item, 'title')}">
           </div>
           <div class="room-card-body">
-            <div class="room-card-title">${item.title}</div>
-            <div class="room-card-details">${item.details}</div>
+            <div class="room-card-title">${tField(item, 'title')}</div>
+            <div class="room-card-details">${tField(item, 'details')}</div>
           </div>
         </div>
       `).join('');
     }
 
     if (gemeinschaft.wohnung) {
-      renderGemeinschaftGrid('gemeinschaftWohnungGrid', 'gemeinschaftWohnungHeader', gemeinschaft.wohnung, 'Wohnung');
+      renderGemeinschaftGrid('gemeinschaftWohnungGrid', 'gemeinschaftWohnungHeader', gemeinschaft.wohnung, 'wohnung');
     }
     if (gemeinschaft.haus) {
-      renderGemeinschaftGrid('gemeinschaftHausGrid', 'gemeinschaftHausHeader', gemeinschaft.haus, 'Haus');
+      renderGemeinschaftGrid('gemeinschaftHausGrid', 'gemeinschaftHausHeader', gemeinschaft.haus, 'haus');
     }
   }
 
@@ -241,35 +241,40 @@ function openRoomModal(roomId) {
   const room = roomData[roomId];
   if (!room || !modalOverlay) return;
 
-  document.getElementById('modalTitle').textContent = room.title;
+  const wgLabel = currentLang === 'en'
+    ? (room.wg === 'wohnung' ? 'Apartment' : 'House')
+    : (room.wg === 'wohnung' ? 'Wohnung' : 'Haus');
+
+  document.getElementById('modalTitle').textContent = tRoom(room, 'title');
   document.getElementById('modalMeta').innerHTML = `
-    <span>🏠 ${room.wg === 'wohnung' ? 'Wohnung' : 'Haus'}</span>
-    <span>📋 ${room.subtitle}</span>
+    <span>🏠 ${wgLabel}</span>
+    <span>📋 ${tRoom(room, 'subtitle')}</span>
   `;
-  document.getElementById('modalDescription').textContent = room.description;
+  document.getElementById('modalDescription').textContent = tRoom(room, 'description');
 
   const amenitiesEl = document.getElementById('modalAmenities');
-  amenitiesEl.innerHTML = room.amenities.map(a => `<div class="modal-amenity">${a}</div>`).join('');
+  const amenities = tRoomArray(room, 'amenities') || [];
+  amenitiesEl.innerHTML = amenities.map(a => `<div class="modal-amenity">${a}</div>`).join('');
 
   const priceEl = document.getElementById('modalPrice');
   if (room.price) {
-    priceEl.innerHTML = `${room.price}€ <span>/ Monat</span>`;
+    priceEl.innerHTML = `${room.price}€ <span>${t('room.perMonth')}</span>`;
   } else {
-    priceEl.innerHTML = `Preis <span>auf Anfrage</span>`;
+    priceEl.innerHTML = `${t('room.priceOnRequest')} <span>${t('room.priceOnRequest2')}</span>`;
   }
 
   const modalImage = document.getElementById('modalImage');
   modalImage.className = 'modal-image';
-  modalImage.innerHTML = `<img src="${room.image}" alt="${room.title}">`;
+  modalImage.innerHTML = `<img src="${room.image}" alt="${tRoom(room, 'title')}">`;
 
   const cta = document.getElementById('modalCTA');
   if (room.status === 'occupied') {
-    cta.textContent = 'Derzeit belegt';
+    cta.textContent = t('room.currentlyOccupied');
     cta.style.opacity = '0.5';
     cta.style.pointerEvents = 'none';
     cta.href = '#';
   } else {
-    cta.textContent = 'Jetzt anfragen';
+    cta.textContent = t('room.inquireNow');
     cta.style.opacity = '';
     cta.style.pointerEvents = '';
     cta.href = `buchen.html?zimmer=${roomId}`;
@@ -333,17 +338,20 @@ function initBookingSidebar() {
     const room = roomData[roomId];
     if (!room || !sidebarTitle) return;
 
-    sidebarTitle.textContent = room.title;
-    sidebarDetails.textContent = room.subtitle;
+    sidebarTitle.textContent = tRoom(room, 'title');
+    sidebarTitle.removeAttribute('data-i18n');
+    sidebarDetails.textContent = tRoom(room, 'subtitle');
+    sidebarDetails.removeAttribute('data-i18n');
     sidebarPrice.style.display = 'block';
     if (room.price) {
-      sidebarPrice.innerHTML = `${room.price}€ <span>/ Monat</span>`;
+      sidebarPrice.innerHTML = `${room.price}€ <span>${t('room.perMonth')}</span>`;
     } else {
-      sidebarPrice.innerHTML = `Preis <span>auf Anfrage</span>`;
+      sidebarPrice.innerHTML = `${t('room.priceOnRequest')} <span>${t('room.priceOnRequest2')}</span>`;
     }
     sidebarImage.className = 'form-sidebar-image';
     sidebarImage.style = '';
-    sidebarImage.innerHTML = `<img src="${room.image}" alt="${room.title}">`;
+    sidebarImage.removeAttribute('data-i18n');
+    sidebarImage.innerHTML = `<img src="${room.image}" alt="${tRoom(room, 'title')}">`;
   }
 }
 
@@ -364,12 +372,12 @@ if (inquiryForm) {
     const privacy = document.getElementById('privacy').checked;
 
     if (!firstName || !lastName || !email || !room || !moveIn || !privacy) {
-      alert('Bitte fülle alle Pflichtfelder aus und akzeptiere die Datenschutzerklärung.');
+      alert(t('buchen.alert.fill'));
       return;
     }
 
     if (!email.includes('@')) {
-      alert('Bitte gib eine gültige E-Mail-Adresse ein.');
+      alert(t('buchen.alert.email'));
       return;
     }
 
