@@ -140,22 +140,6 @@ ul { list-style: none; }
 .nav-links a.active::after { width: 100%; }
 .nav-links a.active { color: var(--coral); }
 
-.nav-links a.nav-cta {
-  background: var(--coral);
-  color: white !important;
-  padding: 1rem 3.5rem;
-  border-radius: var(--radius-sm);
-  font-weight: 700;
-  font-size: 1.05rem;
-  white-space: nowrap;
-}
-
-.nav-links a.nav-cta::after { display: none !important; }
-
-.nav-links a.nav-cta:hover {
-  background: var(--coral-dark);
-  transform: translateY(-1px);
-}
 
 /* Mobile Menu */
 .nav-toggle {
