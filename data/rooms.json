@@ -1,3 +1,417 @@
 {
-  "test": true
+  "wohnungen": [
+    {
+      "id": "wohnung",
+      "label": "Wohnung — 6 Zimmer",
+      "filterValue": "7er",
+      "icon": "🏠",
+      "subtitle": "3 Bäder, Küche, Wohnzimmer",
+      "roomIds": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "id": "haus",
+      "label": "Haus — 8 Zimmer",
+      "filterValue": "5er",
+      "icon": "🏡",
+      "subtitle": "2 Bäder, Küche, Wohnzimmer",
+      "roomIds": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+      ]
+    }
+  ],
+  "rooms": {
+    "1": {
+      "wg": "wohnung",
+      "wgFilter": "7er",
+      "title": "Zimmer 1 — Sonnenseite",
+      "subtitle": "Wohnung · Möbliert · Dachschräge",
+      "status": "occupied",
+      "price": null,
+      "image": "img/zimmer1-1.jpg",
+      "images": [
+        "img/zimmer1-1.jpg",
+        "img/zimmer1-2.jpg",
+        "img/zimmer1-3.jpg"
+      ],
+      "description": "Helles Zimmer mit Dachschräge und viel Tageslicht. Möbliert mit Bett, Schreibtisch, Schrank und Regal. Derzeit belegt.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "📚 Schreibtisch"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "👔 Kleiderschrank",
+        "📖 Regal",
+        "💡 Deckenleuchte"
+      ]
+    },
+    "2": {
+      "wg": "wohnung",
+      "wgFilter": "7er",
+      "title": "Zimmer 2 — Gemütlich",
+      "subtitle": "Wohnung · Möbliert · Hell",
+      "status": "available",
+      "price": 440,
+      "image": "img/zimmer2-1.jpg",
+      "images": [
+        "img/zimmer2-1.jpg",
+        "img/zimmer2-2.jpg"
+      ],
+      "description": "Gemütliches und helles Zimmer in der 7er WG. Möbliert mit Bett, Schreibtisch, Schrank und Regal. Teil der Wohnung mit 3 Bädern und Gemeinschaftsküche.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "🔇 Ruhige Seite"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "👔 Kleiderschrank",
+        "📖 Regal",
+        "💡 Deckenleuchte",
+        "🔇 Ruhige Seite"
+      ]
+    },
+    "3": {
+      "wg": "wohnung",
+      "wgFilter": "7er",
+      "title": "Zimmer 3 — Erdgeschoss",
+      "subtitle": "Wohnung · Möbliert · EG · Geräumig",
+      "status": "available",
+      "price": 390,
+      "image": "img/zimmer3-1.jpg",
+      "images": [
+        "img/zimmer3-1.jpg",
+        "img/zimmer3-2.jpg",
+        "img/zimmer3-3.jpg",
+        "img/zimmer3-4.jpg"
+      ],
+      "description": "Geräumiges Zimmer im Erdgeschoss der 7er WG. Möbliert mit Bett, Schreibtisch und Schrank. Ebenerdiger Zugang, kein Treppensteigen. Teil der Wohnung mit 3 Bädern.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "🚪 Erdgeschoss"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "👔 Kleiderschrank",
+        "🚪 Erdgeschoss",
+        "📐 Geräumig",
+        "💡 Deckenleuchte"
+      ]
+    },
+    "4": {
+      "wg": "wohnung",
+      "wgFilter": "7er",
+      "title": "Zimmer 4 — Ruheoase",
+      "subtitle": "Wohnung · Möbliert · Ruhige Lage",
+      "status": "occupied",
+      "price": null,
+      "image": "img/zimmer4-1.jpg",
+      "images": [
+        "img/zimmer4-1.jpg",
+        "img/zimmer4-2.jpg",
+        "img/zimmer4-3.jpg"
+      ],
+      "description": "Ruhig gelegenes Zimmer in der 7er WG mit gemütlicher Atmosphäre. Derzeit belegt.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "🔇 Ruhige Lage"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "👔 Kleiderschrank",
+        "🔇 Ruhige Lage"
+      ]
+    },
+    "5": {
+      "wg": "wohnung",
+      "wgFilter": "7er",
+      "title": "Zimmer 5 — Dachstudio",
+      "subtitle": "Wohnung · Dachschräge · Rundfenster",
+      "status": "occupied",
+      "price": null,
+      "image": "img/zimmer5-1.jpg",
+      "images": [
+        "img/zimmer5-1.jpg",
+        "img/zimmer5-2.jpg",
+        "img/zimmer5-3.jpg",
+        "img/zimmer5-4.jpg",
+        "img/zimmer5-5.jpg"
+      ],
+      "description": "Charmantes Dachstudio mit Dachschrägen, Holzbalken und einem runden Fenster. Gemütliche Atmosphäre. Derzeit belegt.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "🌙 Dachfenster"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch",
+        "🪑 Relaxsessel",
+        "🌙 Dachfenster",
+        "⭕ Rundfenster",
+        "🌿 Pflanzen"
+      ]
+    },
+    "6": {
+      "wg": "wohnung",
+      "wgFilter": "7er",
+      "title": "Zimmer 6 — Kompakt",
+      "subtitle": "Wohnung · Möbliert · Viel Licht",
+      "status": "occupied",
+      "price": null,
+      "image": "img/zimmer6-1.jpg",
+      "images": [
+        "img/zimmer6-1.jpg",
+        "img/zimmer6-2.jpg",
+        "img/zimmer6-3.jpg",
+        "img/zimmer6-4.jpg",
+        "img/zimmer6-5.jpg",
+        "img/zimmer6-6.jpg"
+      ],
+      "description": "Kompaktes, aber helles Zimmer in der 7er WG mit viel natürlichem Licht. Derzeit belegt.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "💡 Viel Licht"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "👔 Kleiderschrank",
+        "💡 Viel Licht"
+      ]
+    },
+    "A": {
+      "wg": "haus",
+      "wgFilter": "5er",
+      "title": "Zimmer A — Terrassenzugang",
+      "subtitle": "Haus · Möbliert · Terrasse",
+      "status": "occupied",
+      "price": null,
+      "image": "img/zimmerA-1.jpg",
+      "images": [
+        "img/zimmerA-1.jpg",
+        "img/zimmerA-2.jpg",
+        "img/zimmerA-3.jpg",
+        "img/zimmerA-4.jpg"
+      ],
+      "description": "Zimmer mit bodentiefer Terrassentür und direktem Zugang zum Außenbereich. Derzeit belegt.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "🌿 Terrassenzugang"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "🪟 Terrassentür",
+        "🌿 Gartenzugang",
+        "🗄️ Vitrinenschrank",
+        "💡 Wandlampe"
+      ]
+    },
+    "B": {
+      "wg": "haus",
+      "wgFilter": "5er",
+      "title": "Zimmer B — Gemütlich",
+      "subtitle": "Haus · Möbliert · Wandbeleuchtung",
+      "status": "occupied",
+      "price": null,
+      "image": "img/zimmerB-1.jpg",
+      "images": [
+        "img/zimmerB-1.jpg",
+        "img/zimmerB-2.jpg",
+        "img/zimmerB-3.jpg",
+        "img/zimmerB-4.jpg",
+        "img/zimmerB-5.jpg"
+      ],
+      "description": "Gemütliches Zimmer mit schöner Tapete und stimmungsvoller Wandbeleuchtung. Derzeit belegt.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "💡 Wandleuchten"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "📖 Regal",
+        "💡 Wandleuchten",
+        "🎨 Tapete",
+        "🔇 Ruhig"
+      ]
+    },
+    "C": {
+      "wg": "haus",
+      "wgFilter": "5er",
+      "title": "Zimmer C — Ruhig",
+      "subtitle": "Haus · Möbliert · Ruhige Lage",
+      "status": "occupied",
+      "price": null,
+      "image": "img/zimmerC-1.jpg",
+      "images": [
+        "img/zimmerC-1.jpg",
+        "img/zimmerC-2.jpg",
+        "img/zimmerC-3.jpg",
+        "img/zimmerC-4.jpg"
+      ],
+      "description": "Ruhiges Zimmer im Haus mit gemütlicher Atmosphäre. Derzeit belegt.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "🔇 Ruhige Lage"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "👔 Kleiderschrank",
+        "🔇 Ruhige Lage"
+      ]
+    },
+    "D": {
+      "wg": "haus",
+      "wgFilter": "5er",
+      "title": "Zimmer D — Kompakt",
+      "subtitle": "Haus · Möbliert",
+      "status": "occupied",
+      "price": null,
+      "image": "img/haus-eingang.jpg",
+      "images": [
+        "img/haus-eingang.jpg"
+      ],
+      "description": "Kompaktes Zimmer im Haus. Derzeit belegt.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "📚 Schreibtisch"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "👔 Kleiderschrank"
+      ]
+    },
+    "E": {
+      "wg": "haus",
+      "wgFilter": "5er",
+      "title": "Zimmer E — Erdgeschoss",
+      "subtitle": "Haus · Möbliert · EG",
+      "status": "occupied",
+      "price": null,
+      "image": "img/haus-eingang.jpg",
+      "images": [
+        "img/haus-eingang.jpg"
+      ],
+      "description": "Zimmer im Erdgeschoss des Hauses. Derzeit belegt.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "🚪 Erdgeschoss"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "👔 Kleiderschrank",
+        "🚪 Erdgeschoss"
+      ]
+    },
+    "F": {
+      "wg": "haus",
+      "wgFilter": "5er",
+      "title": "Zimmer F — Obergeschoss",
+      "subtitle": "Haus · Möbliert · OG",
+      "status": "occupied",
+      "price": null,
+      "image": "img/haus-aussen.jpg",
+      "images": [
+        "img/haus-aussen.jpg"
+      ],
+      "description": "Zimmer im Obergeschoss des Hauses. Derzeit belegt.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "📚 Schreibtisch"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "👔 Kleiderschrank"
+      ]
+    },
+    "G": {
+      "wg": "haus",
+      "wgFilter": "5er",
+      "title": "Zimmer G — Dachgeschoss",
+      "subtitle": "Haus · Möbliert · DG",
+      "status": "occupied",
+      "price": null,
+      "image": "img/haus-aussen.jpg",
+      "images": [
+        "img/haus-aussen.jpg"
+      ],
+      "description": "Zimmer im Dachgeschoss des Hauses. Derzeit belegt.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "🏔️ Dachgeschoss"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Schreibtisch & Stuhl",
+        "👔 Kleiderschrank",
+        "🏔️ Dachgeschoss"
+      ]
+    },
+    "H": {
+      "wg": "haus",
+      "wgFilter": "5er",
+      "title": "Zimmer H — Premium",
+      "subtitle": "Haus · Geräumig · Dachschräge",
+      "status": "available",
+      "price": 440,
+      "image": "img/zimmerH-2.jpg",
+      "images": [
+        "img/zimmerH-1.jpg",
+        "img/zimmerH-2.jpg"
+      ],
+      "description": "Das Premium-Zimmer im Haus — geräumig mit Dachschräge, eigenem Sofabereich mit TV, Schreibtisch und viel Platz. Weiße IKEA-Möbel, moderner Glastisch, gemütliche Beleuchtung.",
+      "cardFeatures": [
+        "🛏️ Möbliert",
+        "📐 Großes Zimmer",
+        "📺 TV"
+      ],
+      "amenities": [
+        "🛏️ Bett",
+        "📚 Glas-Schreibtisch",
+        "👔 Kleiderschrank",
+        "🗄️ Kommode",
+        "📺 TV & Sofa-Ecke",
+        "💡 Design-Lampe"
+      ]
+    }
+  },
+  "gemeinschaft": [
+    {
+      "title": "Gemeinschaftsküche",
+      "details": "Voll ausgestattet in jeder WG",
+      "image": "img/kueche-1.jpg"
+    },
+    {
+      "title": "Wohnzimmer",
+      "details": "Sofa, TV, Gemeinschaftsbereich",
+      "image": "img/wohnzimmer.jpg"
+    },
+    {
+      "title": "Badezimmer",
+      "details": "2-3 Bäder pro WG",
+      "image": "img/bad-dg.jpg"
+    }
+  ]
 }
