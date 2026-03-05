@@ -676,9 +676,13 @@
         showToast('Fehler beim Laden der Daten', 'error');
       }
 
-      // Load saved webhook URL
-      const savedUrl = localStorage.getItem('s9_webhook_url');
-      if (savedUrl) document.getElementById('webhookUrl').value = savedUrl;
+      // Load saved webhook URL (default to production webhook)
+      const defaultWebhook = 'https://tobiasblankenagel.app.n8n.cloud/webhook/schweinekamp9-rooms';
+      const savedUrl = localStorage.getItem('s9_webhook_url') || defaultWebhook;
+      if (savedUrl) {
+        document.getElementById('webhookUrl').value = savedUrl;
+        localStorage.setItem('s9_webhook_url', savedUrl);
+      }
     }
 
     // ===== RENDER =====
