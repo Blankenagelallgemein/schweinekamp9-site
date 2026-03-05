@@ -524,9 +524,13 @@
       <div class="admin-section-title" id="adminHausTitle"></div>
       <div class="admin-rooms-grid" id="adminHausGrid"></div>
 
-      <!-- Gemeinschaft -->
-      <div class="admin-section-title">✨ Gemeinschaftsbereiche</div>
-      <div class="gemeinschaft-grid" id="adminGemeinschaftGrid"></div>
+      <!-- Gemeinschaft Wohnung -->
+      <div class="admin-section-title" id="adminGemeinschaftWohnungTitle">✨ Gemeinschaftsbereiche — Wohnung</div>
+      <div class="gemeinschaft-grid" id="adminGemeinschaftWohnungGrid"></div>
+
+      <!-- Gemeinschaft Haus -->
+      <div class="admin-section-title" id="adminGemeinschaftHausTitle" style="margin-top: 2rem;">✨ Gemeinschaftsbereiche — Haus</div>
+      <div class="gemeinschaft-grid" id="adminGemeinschaftHausGrid"></div>
 
       <!-- Settings -->
       <div class="admin-settings">
@@ -624,6 +628,7 @@
       </div>
       <div class="edit-modal-body">
         <input type="hidden" id="gemeinschaftEditIndex">
+        <input type="hidden" id="gemeinschaftEditWg">
         <div class="form-group">
           <label>Titel</label>
           <input type="text" id="gemeinschaftEditTitle">
@@ -786,15 +791,20 @@
       document.getElementById('adminHausGrid').innerHTML = haus.roomIds
         .map(id => renderAdminCard(id, data.rooms[id])).join('');
 
-      // Gemeinschaft
-      document.getElementById('adminGemeinschaftGrid').innerHTML = data.gemeinschaft
-        .map((item, i) => `
-          <div class="gemeinschaft-card" onclick="openGemeinschaftEdit(${i})">
+      // Gemeinschaft per WG
+      function renderGemeinschaftAdmin(gridId, items, wgKey) {
+        const grid = document.getElementById(gridId);
+        if (!grid || !items) return;
+        grid.innerHTML = items.map((item, i) => `
+          <div class="gemeinschaft-card" onclick="openGemeinschaftEdit('${wgKey}', ${i})">
             <img src="${item.image}" alt="${item.title}">
             <h4>${item.title}</h4>
             <p>${item.details}</p>
           </div>
         `).join('');
+      }
+      renderGemeinschaftAdmin('adminGemeinschaftWohnungGrid', data.gemeinschaft.wohnung, 'wohnung');
+      renderGemeinschaftAdmin('adminGemeinschaftHausGrid', data.gemeinschaft.haus, 'haus');
 
       // Rebind clicks
       document.querySelectorAll('.admin-room-card').forEach(card => {
@@ -914,9 +924,10 @@
     // ===== GEMEINSCHAFT EDIT =====
     const gemeinschaftOverlay = document.getElementById('gemeinschaftEditOverlay');
 
-    function openGemeinschaftEdit(index) {
-      const item = data.gemeinschaft[index];
+    function openGemeinschaftEdit(wgKey, index) {
+      const item = data.gemeinschaft[wgKey][index];
       document.getElementById('gemeinschaftEditIndex').value = index;
+      document.getElementById('gemeinschaftEditWg').value = wgKey;
       document.getElementById('gemeinschaftEditTitle').value = item.title;
       document.getElementById('gemeinschaftEditDetails').value = item.details;
       document.getElementById('gemeinschaftEditImage').value = item.image;
@@ -936,9 +947,10 @@
 
     document.getElementById('gemeinschaftEditSave').addEventListener('click', () => {
       const index = parseInt(document.getElementById('gemeinschaftEditIndex').value);
-      data.gemeinschaft[index].title = document.getElementById('gemeinschaftEditTitle').value;
-      data.gemeinschaft[index].details = document.getElementById('gemeinschaftEditDetails').value;
-      data.gemeinschaft[index].image = document.getElementById('gemeinschaftEditImage').value;
+      const wgKey = document.getElementById('gemeinschaftEditWg').value;
+      data.gemeinschaft[wgKey][index].title = document.getElementById('gemeinschaftEditTitle').value;
+      data.gemeinschaft[wgKey][index].details = document.getElementById('gemeinschaftEditDetails').value;
+      data.gemeinschaft[wgKey][index].image = document.getElementById('gemeinschaftEditImage').value;
       hasChanges = true;
       closeGemeinschaftEdit();
       renderDashboard();

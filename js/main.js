@@ -145,20 +145,33 @@ function initializeRooms() {
     initFilters();
   }
 
-  // ===== ZIMMER PAGE: Render Gemeinschaft =====
-  const gemeinschaftGrid = document.getElementById('gemeinschaftGrid');
-  if (gemeinschaftGrid && roomsJsonData.gemeinschaft) {
-    gemeinschaftGrid.innerHTML = roomsJsonData.gemeinschaft.map(item => `
-      <div class="room-card" style="cursor: default;">
-        <div class="room-card-image">
-          <img src="${item.image}" alt="${item.title}">
+  // ===== ZIMMER PAGE: Render Gemeinschaft per WG =====
+  const gemeinschaft = roomsJsonData.gemeinschaft;
+  if (gemeinschaft) {
+    function renderGemeinschaftGrid(gridId, headerId, items, wgLabel) {
+      const grid = document.getElementById(gridId);
+      const header = document.getElementById(headerId);
+      if (!grid || !items) return;
+      if (header) header.textContent = `✨ Gemeinschaftsbereiche — ${wgLabel}`;
+      grid.innerHTML = items.map(item => `
+        <div class="room-card" style="cursor: default;">
+          <div class="room-card-image">
+            <img src="${item.image}" alt="${item.title}">
+          </div>
+          <div class="room-card-body">
+            <div class="room-card-title">${item.title}</div>
+            <div class="room-card-details">${item.details}</div>
+          </div>
         </div>
-        <div class="room-card-body">
-          <div class="room-card-title">${item.title}</div>
-          <div class="room-card-details">${item.details}</div>
-        </div>
-      </div>
-    `).join('');
+      `).join('');
+    }
+
+    if (gemeinschaft.wohnung) {
+      renderGemeinschaftGrid('gemeinschaftWohnungGrid', 'gemeinschaftWohnungHeader', gemeinschaft.wohnung, 'Wohnung');
+    }
+    if (gemeinschaft.haus) {
+      renderGemeinschaftGrid('gemeinschaftHausGrid', 'gemeinschaftHausHeader', gemeinschaft.haus, 'Haus');
+    }
   }
 
   // ===== HOME PAGE: Render available rooms preview =====

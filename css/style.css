@@ -360,8 +360,10 @@ ul { list-style: none; }
 }
 
 .btn-lg {
-  padding: 1rem 2.2rem;
-  font-size: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.05rem;
+  min-width: 260px;
+  justify-content: center;
 }
 
 /* ===== SECTIONS ===== */
@@ -1338,6 +1340,23 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
+  .btn-lg {
+    width: 100%;
+    min-width: unset;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .nav-links {
     display: none;
     position: fixed;

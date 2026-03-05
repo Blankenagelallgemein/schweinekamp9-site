@@ -397,21 +397,40 @@
       ]
     }
   },
-  "gemeinschaft": [
-    {
-      "title": "Gemeinschaftsküche",
-      "details": "Voll ausgestattet in jeder WG",
-      "image": "img/kueche-1.jpg"
-    },
-    {
-      "title": "Wohnzimmer",
-      "details": "Sofa, TV, Gemeinschaftsbereich",
-      "image": "img/wohnzimmer.jpg"
-    },
-    {
-      "title": "Badezimmer",
-      "details": "2-3 Bäder pro WG",
-      "image": "img/bad-dg.jpg"
-    }
-  ]
+  "gemeinschaft": {
+    "wohnung": [
+      {
+        "title": "Gemeinschaftsküche",
+        "details": "Voll ausgestattet für die Wohnung",
+        "image": "img/kueche-1.jpg"
+      },
+      {
+        "title": "Wohnzimmer",
+        "details": "Sofa, TV, Gemeinschaftsbereich",
+        "image": "img/wohnzimmer.jpg"
+      },
+      {
+        "title": "Badezimmer",
+        "details": "3 Bäder in der Wohnung",
+        "image": "img/bad-dg.jpg"
+      }
+    ],
+    "haus": [
+      {
+        "title": "Gemeinschaftsküche",
+        "details": "Voll ausgestattet für das Haus",
+        "image": "img/kueche-1.jpg"
+      },
+      {
+        "title": "Wohnzimmer",
+        "details": "Sofa, TV, Gemeinschaftsbereich",
+        "image": "img/wohnzimmer.jpg"
+      },
+      {
+        "title": "Badezimmer",
+        "details": "2 Bäder im Haus",
+        "image": "img/bad-dg.jpg"
+      }
+    ]
+  }
 }
