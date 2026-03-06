@@ -151,13 +151,13 @@ function initializeRooms() {
       if (!grid || !items) return;
       if (header) header.textContent = `✨ ${t('gemeinschaft.' + wgKey)}`;
       grid.innerHTML = items.map(item => `
-        <div class="room-card" style="cursor: default;">
-          <div class="room-card-image">
+        <div class="shared-area-card">
+          <div class="shared-area-image">
             <img src="${item.image}" alt="${tField(item, 'title')}">
           </div>
-          <div class="room-card-body">
-            <div class="room-card-title">${tField(item, 'title')}</div>
-            <div class="room-card-details">${tField(item, 'details')}</div>
+          <div class="shared-area-body">
+            <div class="shared-area-title">${tField(item, 'title')}</div>
+            <div class="shared-area-details">${tField(item, 'details')}</div>
           </div>
         </div>
       `).join('');

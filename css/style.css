@@ -619,6 +619,54 @@ ul { list-style: none; }
   color: var(--text-light);
 }
 
+/* ===== SHARED AREA CARDS ===== */
+.shared-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+
+.shared-area-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-light);
+  border-radius: var(--radius-md);
+  padding: 0.6rem;
+  transition: var(--transition);
+}
+
+.shared-area-image {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.shared-area-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shared-area-body {
+  min-width: 0;
+}
+
+.shared-area-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.15rem;
+}
+
+.shared-area-details {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
 /* ===== MAP SECTION ===== */
 .map-section {
   display: grid;
@@ -1423,6 +1471,10 @@ ul { list-style: none; }
   }
 
   .rooms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shared-areas-grid {
     grid-template-columns: 1fr;
   }
 
