@@ -16,7 +16,7 @@ const translations = {
     "hero.stat.wgs": "WGs",
     "hero.stat.uni": "zur Hochschule",
     // Highlights
-    "highlights.title": "Warum Schweinekamp 9?",
+    "highlights.title": "Warum Schweinekamp 9",
     "highlights.subtitle": "Alles was du für dein Studium brauchst — auf einem Resthof mit Charme.",
     "feature.location.title": "Top Anbindung",
     "feature.location.text": "1,5 km mit dem Rad zum Roland Center, dann Tram 1 oder 8 in nur 9 Minuten zur Hochschule Bremen.",
@@ -174,7 +174,7 @@ const translations = {
     "hero.stat.rooms": "Rooms",
     "hero.stat.wgs": "Shared Flats",
     "hero.stat.uni": "to University",
-    "highlights.title": "Why Schweinekamp 9?",
+    "highlights.title": "Why Schweinekamp 9",
     "highlights.subtitle": "Everything you need for your studies — on a charming farmstead.",
     "feature.location.title": "Great Location",
     "feature.location.text": "1.5 km by bike to Roland Center, then tram 1 or 8 in just 9 minutes to Bremen University.",
