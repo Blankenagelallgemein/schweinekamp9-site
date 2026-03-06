@@ -60,7 +60,6 @@ function createRoomCardHTML(id, room) {
       <div class="room-card-image">
         <img src="${room.image}" alt="${tRoom(room, 'title')}">
         <span class="room-badge ${badgeClass}">${badgeText}</span>
-        <button class="room-card-heart">♡</button>
       </div>
       <div class="room-card-body">
         <div class="room-card-title">${tRoom(room, 'title')}</div>
@@ -88,7 +87,6 @@ function createPreviewCardHTML(id, room) {
       <div class="room-card-image">
         <img src="${room.image}" alt="${tRoom(room, 'title')}">
         <span class="room-badge available">${t('room.available')}</span>
-        <button class="room-card-heart" onclick="event.preventDefault()">♡</button>
       </div>
       <div class="room-card-body">
         <div class="room-card-title">${tRoom(room, 'title')}</div>
@@ -135,7 +133,6 @@ function initializeRooms() {
     document.querySelectorAll('.room-card[data-room]').forEach(card => {
       card.addEventListener('click', (e) => {
         if (e.target.closest('.btn')) return;
-        if (e.target.closest('.room-card-heart')) return;
         const roomId = card.dataset.room;
         if (roomId) openRoomModal(roomId);
       });
@@ -301,16 +298,6 @@ if (modalOverlay) {
 // Close modal on Escape
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
-});
-
-// ===== HEART TOGGLE =====
-document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('room-card-heart')) {
-    e.preventDefault();
-    e.stopPropagation();
-    e.target.textContent = e.target.textContent === '♡' ? '♥' : '♡';
-    e.target.style.color = e.target.textContent === '♥' ? '#FF5A5F' : '';
-  }
 });
 
 // ===== BOOKING SIDEBAR =====
