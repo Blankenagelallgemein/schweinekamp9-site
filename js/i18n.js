@@ -197,7 +197,7 @@ const translations = {
     "agb.title": "Allgemeine Geschäftsbedingungen",
     "agb.subtitle": "Bedingungen für die Zimmervermietung",
     "agb.scope.title": "§ 1 Geltungsbereich",
-    "agb.scope.text": "Diese Allgemeinen Geschäftsbedingungen gelten für die Vermietung von möblierten Zimmern in der Wohngemeinschaft Schweinekamp 9, 28816 Stuhr, durch Tobias Blankenagel (nachfolgend „Vermieter"). Mit der Anfrage über das Kontaktformular erkennt der Interessent diese AGB an.",
+    "agb.scope.text": "Diese Allgemeinen Geschäftsbedingungen gelten für die Vermietung von möblierten Zimmern in der Wohngemeinschaft Schweinekamp 9, 28816 Stuhr, durch Tobias Blankenagel (nachfolgend \"Vermieter\"). Mit der Anfrage über das Kontaktformular erkennt der Interessent diese AGB an.",
     "agb.inquiry.title": "§ 2 Zimmeranfrage & Mietvertrag",
     "agb.inquiry.text": "Die Zimmeranfrage über diese Website stellt kein verbindliches Mietangebot dar. Ein Mietverhältnis kommt erst durch Abschluss eines schriftlichen Mietvertrages zustande. Der Vermieter behält sich vor, Anfragen ohne Angabe von Gründen abzulehnen.",
     "agb.rent.title": "§ 3 Miete & Nebenkosten",
