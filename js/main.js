@@ -360,7 +360,7 @@ if (countrySelect) {
 }
 
 if (inquiryForm) {
-  inquiryForm.addEventListener('submit', (e) => {
+  inquiryForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const firstName = document.getElementById('firstName').value.trim();
@@ -386,29 +386,33 @@ if (inquiryForm) {
       return;
     }
 
-    // Send via mailto
     const roomLabel = document.getElementById('roomSelect').options[document.getElementById('roomSelect').selectedIndex].text;
-    const body = `Neue Zimmeranfrage über schweinekamp9-site.vercel.app
+    const submitBtn = inquiryForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet...';
 
-Name: ${firstName} ${lastName}
-E-Mail: ${email}
-Telefon: ${phone || 'Nicht angegeben'}
-Geschlecht: ${gender}
-Herkunftsland: ${country}
-Universität: ${university}
-Studienfach: ${subject || 'Nicht angegeben'}
-Gewünschtes Zimmer: ${roomLabel}
-Gewünschter Einzug: ${moveIn}
+    try {
+      const response = await fetch('https://tobiasblankenagel.app.n8n.cloud/webhook/schweinekamp-booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName, lastName, email, phone, room, roomLabel,
+          moveIn, gender, country, university, subject, message
+        })
+      });
 
-Nachricht:
-${message || 'Keine Nachricht'}`;
+      if (!response.ok) throw new Error('Netzwerkfehler');
 
-    const mailtoLink = `mailto:allgemeinblankenagel@gmail.com?subject=${encodeURIComponent('Zimmeranfrage: ' + firstName + ' ' + lastName + ' — ' + roomLabel)}&body=${encodeURIComponent(body)}`;
-    window.open(mailtoLink, '_blank');
-
-    bookingFormEl.style.display = 'none';
-    formSuccess.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+      bookingFormEl.style.display = 'none';
+      formSuccess.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      console.error('Anfrage fehlgeschlagen:', err);
+      alert('Die Anfrage konnte leider nicht gesendet werden. Bitte versuche es erneut oder schreibe uns direkt an allgemeinblankenagel@gmail.com');
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
   });
 }
 
