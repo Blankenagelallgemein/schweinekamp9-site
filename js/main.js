@@ -55,11 +55,20 @@ function createRoomCardHTML(id, room) {
     .map(f => `<span class="room-card-amenity">${f}</span>`)
     .join('');
 
+  const images = room.images && room.images.length > 1 ? room.images : [room.image];
+  const imagesHTML = images.map((src, i) => `<img src="${src}" alt="${tRoom(room, 'title')}" style="${i > 0 ? 'display:none' : ''}">`).join('');
+  const navHTML = images.length > 1 ? `
+        <button class="carousel-btn carousel-prev" data-dir="-1">&#8249;</button>
+        <button class="carousel-btn carousel-next" data-dir="1">&#8250;</button>
+        <div class="carousel-dots">${images.map((_, i) => `<span class="carousel-dot${i === 0 ? ' active' : ''}" data-idx="${i}"></span>`).join('')}</div>
+  ` : '';
+
   return `
     <div class="room-card" data-wg="${room.wgFilter}" data-status="${room.status}" data-room="${id}">
-      <div class="room-card-image">
-        <img src="${room.image}" alt="${tRoom(room, 'title')}">
+      <div class="room-card-image carousel" data-count="${images.length}" data-current="0">
+        ${imagesHTML}
         <span class="room-badge ${badgeClass}">${badgeText}</span>
+        ${navHTML}
       </div>
       <div class="room-card-body">
         <div class="room-card-title">${tRoom(room, 'title')}</div>
@@ -110,6 +119,43 @@ function createPreviewCardHTML(id, room) {
   `;
 }
 
+// ===== CAROUSEL INIT (reusable) =====
+function initCarousels(container) {
+  if (!container) return;
+  container.querySelectorAll('.carousel').forEach(carousel => {
+    const imgs = carousel.querySelectorAll('img');
+    const dots = carousel.querySelectorAll('.carousel-dot');
+    if (imgs.length <= 1) return;
+
+    function showSlide(idx) {
+      imgs.forEach(img => img.style.display = 'none');
+      dots.forEach(dot => dot.classList.remove('active'));
+      imgs[idx].style.display = '';
+      if (dots[idx]) dots[idx].classList.add('active');
+      carousel.dataset.current = idx;
+    }
+
+    carousel.querySelectorAll('.carousel-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const dir = parseInt(btn.dataset.dir);
+        const count = imgs.length;
+        const next = (parseInt(carousel.dataset.current) + dir + count) % count;
+        showSlide(next);
+      });
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        showSlide(parseInt(dot.dataset.idx));
+      });
+    });
+  });
+}
+
 function initializeRooms() {
   if (!roomsJsonData) return;
 
@@ -138,10 +184,14 @@ function initializeRooms() {
       .map(id => createRoomCardHTML(id, roomData[id]))
       .join('');
 
+    // Initialize carousels on zimmer page
+    initCarousels(roomsGrid);
+    initCarousels(roomsGrid2);
+
     // Bind click events for modal
     document.querySelectorAll('.room-card[data-room]').forEach(card => {
       card.addEventListener('click', (e) => {
-        if (e.target.closest('.btn')) return;
+        if (e.target.closest('.btn') || e.target.closest('.carousel-btn') || e.target.closest('.carousel-dot')) return;
         const roomId = card.dataset.room;
         if (roomId) openRoomModal(roomId);
       });
@@ -191,39 +241,7 @@ function initializeRooms() {
       .map(([id, room]) => createPreviewCardHTML(id, room))
       .join('');
 
-    // Initialize carousels
-    homePreview.querySelectorAll('.carousel').forEach(carousel => {
-      const imgs = carousel.querySelectorAll('img');
-      const dots = carousel.querySelectorAll('.carousel-dot');
-      if (imgs.length <= 1) return;
-
-      function showSlide(idx) {
-        imgs.forEach(img => img.style.display = 'none');
-        dots.forEach(dot => dot.classList.remove('active'));
-        imgs[idx].style.display = '';
-        dots[idx].classList.add('active');
-        carousel.dataset.current = idx;
-      }
-
-      carousel.querySelectorAll('.carousel-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const dir = parseInt(btn.dataset.dir);
-          const count = imgs.length;
-          const next = (parseInt(carousel.dataset.current) + dir + count) % count;
-          showSlide(next);
-        });
-      });
-
-      dots.forEach(dot => {
-        dot.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          showSlide(parseInt(dot.dataset.idx));
-        });
-      });
-    });
+    initCarousels(homePreview);
   }
 
   // ===== BOOKING PAGE: Initialize sidebar =====
@@ -381,7 +399,19 @@ function initBookingSidebar() {
     sidebarImage.className = 'form-sidebar-image';
     sidebarImage.style = '';
     sidebarImage.removeAttribute('data-i18n');
-    sidebarImage.innerHTML = `<img src="${room.image}" alt="${tRoom(room, 'title')}">`;
+
+    const images = room.images && room.images.length > 1 ? room.images : [room.image];
+    const imgsHTML = images.map((src, i) => `<img src="${src}" alt="${tRoom(room, 'title')}" style="${i > 0 ? 'display:none' : ''}">`).join('');
+    const sidebarNavHTML = images.length > 1 ? `
+      <button class="carousel-btn carousel-prev" data-dir="-1">&#8249;</button>
+      <button class="carousel-btn carousel-next" data-dir="1">&#8250;</button>
+      <div class="carousel-dots">${images.map((_, i) => `<span class="carousel-dot${i === 0 ? ' active' : ''}" data-idx="${i}"></span>`).join('')}</div>
+    ` : '';
+    sidebarImage.classList.add('carousel');
+    sidebarImage.dataset.current = '0';
+    sidebarImage.dataset.count = images.length;
+    sidebarImage.innerHTML = imgsHTML + sidebarNavHTML;
+    initCarousels(sidebarImage.parentElement);
   }
 }
 

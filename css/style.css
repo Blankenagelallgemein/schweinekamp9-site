@@ -562,7 +562,8 @@ ul { list-style: none; }
   z-index: 5;
 }
 
-.room-card:hover .carousel-btn { opacity: 1; }
+.room-card:hover .carousel-btn,
+.form-sidebar-image .carousel-btn { opacity: 1; }
 .carousel-prev { left: 8px; }
 .carousel-next { right: 8px; }
 .carousel-btn:hover { background: white; transform: translateY(-50%) scale(1.1); }
