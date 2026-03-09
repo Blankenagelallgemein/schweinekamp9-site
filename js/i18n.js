@@ -105,6 +105,15 @@ const translations = {
     "buchen.countryPlaceholder": "Land wählen...",
     "buchen.university": "Universität / Hochschule",
     "buchen.universityPlaceholder": "Bitte wählen...",
+    "buchen.uni.hsbremen": "Hochschule Bremen (City University of Applied Sciences)",
+    "buchen.uni.unibremen": "Universität Bremen",
+    "buchen.uni.constructor": "Constructor University (ehem. Jacobs University)",
+    "buchen.uni.kuenste": "Hochschule für Künste Bremen",
+    "buchen.uni.apollon": "Apollon Hochschule der Gesundheitswirtschaft",
+    "buchen.uni.fom": "FOM Hochschule (Standort Bremen)",
+    "buchen.uni.iu": "IU Internationale Hochschule (Standort Bremen)",
+    "buchen.uni.bremerhaven": "Hochschule Bremerhaven",
+    "buchen.uni.other": "Andere",
     "buchen.subject": "Studienfach",
     "buchen.message": "Über dich / Nachricht",
     "buchen.messagePlaceholder": "Erzähl uns kurz etwas über dich — was studierst du, warum suchst du ein WG-Zimmer, was ist dir wichtig?",
@@ -323,6 +332,15 @@ const translations = {
     "buchen.countryPlaceholder": "Select country...",
     "buchen.university": "University",
     "buchen.universityPlaceholder": "Please select...",
+    "buchen.uni.hsbremen": "Hochschule Bremen (City University of Applied Sciences)",
+    "buchen.uni.unibremen": "University of Bremen",
+    "buchen.uni.constructor": "Constructor University (formerly Jacobs University)",
+    "buchen.uni.kuenste": "University of the Arts Bremen",
+    "buchen.uni.apollon": "Apollon University of Applied Health Sciences",
+    "buchen.uni.fom": "FOM University (Bremen Campus)",
+    "buchen.uni.iu": "IU International University (Bremen Campus)",
+    "buchen.uni.bremerhaven": "Bremerhaven University of Applied Sciences",
+    "buchen.uni.other": "Other",
     "buchen.subject": "Field of Study",
     "buchen.message": "About you / Message",
     "buchen.messagePlaceholder": "Tell us briefly about yourself — what do you study, why are you looking for a shared room, what is important to you?",
@@ -489,6 +507,9 @@ function setLanguage(lang) {
   // Re-render dynamic content if available
   if (typeof initializeRooms === 'function' && typeof roomsJsonData !== 'undefined' && roomsJsonData) {
     initializeRooms();
+  }
+  if (typeof populateCountries === 'function') {
+    populateCountries();
   }
 }
 
