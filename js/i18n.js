@@ -37,7 +37,7 @@ const translations = {
     "location.roland": "Roland Center",
     "location.roland.detail": "1,5 km (mit dem Fahrrad 5 Minuten)",
     "location.bus": "Roland-Center",
-    "location.bus.detail": "7 Minuten mit dem Bus 55 ab der Haltestelle „Zur Windhorst" (7 Minuten Fußweg)",
+    "location.bus.detail": "7 Minuten mit dem Bus 55 ab der Haltestelle \"Zur Windhorst\" (7 Minuten Fußweg)",
     "location.uni": "Hochschule Bremen (City University of Applied Sciences)",
     "location.uni.detail": "Tram 1 oder 8 — nur 9 Minuten",
     "location.unibremen": "Universität Bremen (University of Bremen)",
