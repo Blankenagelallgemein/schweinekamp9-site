@@ -98,8 +98,37 @@
 
               <div class="form-row">
                 <div class="form-group">
-                  <label for="university" data-i18n="buchen.university">Universität / Hochschule</label>
-                  <input type="text" id="university" placeholder="z.B. Hochschule Bremen">
+                  <label for="gender" data-i18n="buchen.gender">Geschlecht *</label>
+                  <select id="gender" required>
+                    <option value="" data-i18n="buchen.genderPlaceholder">Bitte wählen...</option>
+                    <option value="männlich" data-i18n="buchen.gender.male">Männlich</option>
+                    <option value="weiblich" data-i18n="buchen.gender.female">Weiblich</option>
+                    <option value="divers" data-i18n="buchen.gender.diverse">Divers</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="country" data-i18n="buchen.country">Herkunftsland *</label>
+                  <select id="country" required>
+                    <option value="" data-i18n="buchen.countryPlaceholder">Land wählen...</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="university" data-i18n="buchen.university">Universität / Hochschule *</label>
+                  <select id="university" required>
+                    <option value="" data-i18n="buchen.universityPlaceholder">Bitte wählen...</option>
+                    <option value="Hochschule Bremen">Hochschule Bremen (City University of Applied Sciences)</option>
+                    <option value="Universität Bremen">Universität Bremen</option>
+                    <option value="Constructor University">Constructor University (ehem. Jacobs University)</option>
+                    <option value="Hochschule für Künste Bremen">Hochschule für Künste Bremen</option>
+                    <option value="Apollon Hochschule">Apollon Hochschule der Gesundheitswirtschaft</option>
+                    <option value="FOM Hochschule Bremen">FOM Hochschule (Standort Bremen)</option>
+                    <option value="IU Internationale Hochschule Bremen">IU Internationale Hochschule (Standort Bremen)</option>
+                    <option value="Hochschule Bremerhaven">Hochschule Bremerhaven</option>
+                    <option value="Andere">Andere</option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="subject" data-i18n="buchen.subject">Studienfach</label>
@@ -160,11 +189,7 @@
               </div>
               <div style="display: flex; gap: 0.8rem; font-size: 0.85rem;">
                 <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--coral); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;">3</span>
-                <span data-i18n="buchen.steps.3">Besichtigungstermin vereinbaren</span>
-              </div>
-              <div style="display: flex; gap: 0.8rem; font-size: 0.85rem;">
-                <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--coral); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;">4</span>
-                <span data-i18n="buchen.steps.4">Mietvertrag unterschreiben & einziehen</span>
+                <span data-i18n="buchen.steps.3">Mietvertrag unterschreiben & einziehen</span>
               </div>
             </div>
           </div>

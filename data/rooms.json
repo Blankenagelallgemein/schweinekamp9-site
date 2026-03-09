@@ -6,8 +6,8 @@
       "label_en": "Apartment — 6 Rooms",
       "filterValue": "7er",
       "icon": "🏠",
-      "subtitle": "3 Bäder, Küche, Wohnzimmer",
-      "subtitle_en": "3 Bathrooms, Kitchen, Living Room",
+      "subtitle": "2 Bäder, Küche, Wohnzimmer",
+      "subtitle_en": "2 Bathrooms, Kitchen, Living Room",
       "roomIds": [
         "1",
         "2",
@@ -23,8 +23,8 @@
       "label_en": "House — 8 Rooms",
       "filterValue": "5er",
       "icon": "🏡",
-      "subtitle": "2 Bäder, Küche, Wohnzimmer",
-      "subtitle_en": "2 Bathrooms, Kitchen, Living Room",
+      "subtitle": "3 Bäder, Küche, Wohnzimmer",
+      "subtitle_en": "3 Bathrooms, Kitchen, Living Room",
       "roomIds": [
         "A",
         "B",
@@ -621,7 +621,7 @@
         "title": "Badezimmer",
         "title_en": "Bathroom",
         "details": "2 Bäder in der Wohnung",
-        "details_en": "3 bathrooms in the apartment",
+        "details_en": "2 bathrooms in the apartment",
         "image": "img/gemeinschaft-1773081865968.jpg"
       }
     ],
@@ -643,8 +643,8 @@
       {
         "title": "Badezimmer",
         "title_en": "Bathroom",
-        "details": "2 Bäder im Haus",
-        "details_en": "2 bathrooms in the house",
+        "details": "3 Bäder im Haus",
+        "details_en": "3 bathrooms in the house",
         "image": "img/bad-dg.jpg"
       }
     ]

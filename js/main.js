@@ -347,6 +347,18 @@ const inquiryForm = document.getElementById('inquiryForm');
 const bookingFormEl = document.getElementById('bookingForm');
 const formSuccess = document.getElementById('formSuccess');
 
+// Populate country dropdown
+const countrySelect = document.getElementById('country');
+if (countrySelect) {
+  const countries = ["Afghanistan","Ägypten","Albanien","Algerien","Andorra","Angola","Antigua und Barbuda","Äquatorialguinea","Argentinien","Armenien","Aserbaidschan","Äthiopien","Australien","Bahamas","Bahrain","Bangladesch","Barbados","Belarus","Belgien","Belize","Benin","Bhutan","Bolivien","Bosnien und Herzegowina","Botswana","Brasilien","Brunei","Bulgarien","Burkina Faso","Burundi","Cabo Verde","Chile","China","Costa Rica","Côte d'Ivoire","Dänemark","Deutschland","Dominica","Dominikanische Republik","Dschibuti","Ecuador","El Salvador","Eritrea","Estland","Eswatini","Fidschi","Finnland","Frankreich","Gabun","Gambia","Georgien","Ghana","Grenada","Griechenland","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Indien","Indonesien","Irak","Iran","Irland","Island","Israel","Italien","Jamaika","Japan","Jemen","Jordanien","Kambodscha","Kamerun","Kanada","Kasachstan","Katar","Kenia","Kirgisistan","Kiribati","Kolumbien","Komoren","Kongo (Dem. Rep.)","Kongo (Rep.)","Korea (Nord)","Korea (Süd)","Kosovo","Kroatien","Kuba","Kuwait","Laos","Lesotho","Lettland","Libanon","Liberia","Libyen","Liechtenstein","Litauen","Luxemburg","Madagaskar","Malawi","Malaysia","Malediven","Mali","Malta","Marokko","Marshallinseln","Mauretanien","Mauritius","Mexiko","Mikronesien","Moldau","Monaco","Mongolei","Montenegro","Mosambik","Myanmar","Namibia","Nauru","Nepal","Neuseeland","Nicaragua","Niederlande","Niger","Nigeria","Nordmazedonien","Norwegen","Oman","Österreich","Pakistan","Palau","Palästina","Panama","Papua-Neuguinea","Paraguay","Peru","Philippinen","Polen","Portugal","Ruanda","Rumänien","Russland","Salomonen","Sambia","Samoa","San Marino","São Tomé und Príncipe","Saudi-Arabien","Schweden","Schweiz","Senegal","Serbien","Seychellen","Sierra Leone","Simbabwe","Singapur","Slowakei","Slowenien","Somalia","Spanien","Sri Lanka","St. Kitts und Nevis","St. Lucia","St. Vincent und die Grenadinen","Südafrika","Sudan","Südsudan","Suriname","Syrien","Tadschikistan","Tansania","Thailand","Timor-Leste","Togo","Tonga","Trinidad und Tobago","Tschad","Tschechien","Tunesien","Türkei","Turkmenistan","Tuvalu","Uganda","Ukraine","Ungarn","Uruguay","USA","Usbekistan","Vanuatu","Vatikanstadt","Venezuela","Vereinigte Arabische Emirate","Vereinigtes Königreich","Vietnam","Zentralafrikanische Republik","Zypern"];
+  countries.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c;
+    opt.textContent = c;
+    countrySelect.appendChild(opt);
+  });
+}
+
 if (inquiryForm) {
   inquiryForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -354,11 +366,17 @@ if (inquiryForm) {
     const firstName = document.getElementById('firstName').value.trim();
     const lastName = document.getElementById('lastName').value.trim();
     const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
     const room = document.getElementById('roomSelect').value;
     const moveIn = document.getElementById('moveIn').value;
+    const gender = document.getElementById('gender') ? document.getElementById('gender').value : '';
+    const country = document.getElementById('country') ? document.getElementById('country').value : '';
+    const university = document.getElementById('university') ? document.getElementById('university').value : '';
+    const subject = document.getElementById('subject') ? document.getElementById('subject').value.trim() : '';
+    const message = document.getElementById('message') ? document.getElementById('message').value.trim() : '';
     const privacy = document.getElementById('privacy').checked;
 
-    if (!firstName || !lastName || !email || !room || !moveIn || !privacy) {
+    if (!firstName || !lastName || !email || !room || !moveIn || !gender || !country || !university || !privacy) {
       alert(t('buchen.alert.fill'));
       return;
     }
@@ -367,6 +385,26 @@ if (inquiryForm) {
       alert(t('buchen.alert.email'));
       return;
     }
+
+    // Send via mailto
+    const roomLabel = document.getElementById('roomSelect').options[document.getElementById('roomSelect').selectedIndex].text;
+    const body = `Neue Zimmeranfrage über schweinekamp9-site.vercel.app
+
+Name: ${firstName} ${lastName}
+E-Mail: ${email}
+Telefon: ${phone || 'Nicht angegeben'}
+Geschlecht: ${gender}
+Herkunftsland: ${country}
+Universität: ${university}
+Studienfach: ${subject || 'Nicht angegeben'}
+Gewünschtes Zimmer: ${roomLabel}
+Gewünschter Einzug: ${moveIn}
+
+Nachricht:
+${message || 'Keine Nachricht'}`;
+
+    const mailtoLink = `mailto:allgemeinblankenagel@gmail.com?subject=${encodeURIComponent('Zimmeranfrage: ' + firstName + ' ' + lastName + ' — ' + roomLabel)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink, '_blank');
 
     bookingFormEl.style.display = 'none';
     formSuccess.classList.add('active');
