@@ -9,7 +9,7 @@ const translations = {
     // Hero
     "hero.badge": "Jetzt freie Zimmer verfügbar",
     "hero.title": "Dein Zuhause am <span>Schweinekamp</span>",
-    "hero.subtitle": "Möblierte WG-Zimmer auf einem Resthof in Stuhr — direkt an der Bremer Stadtgrenze. Natur pur und trotzdem nur 1,5 km zur Straßenbahn-Station „Roland Center". Von dort mit der Tram 1 oder 8 in nur 9 Minuten zur Hochschule Bremen (City University of Applied Sciences). Die Universität Bremen erreicht man vom „Roland Center" in 42 Minuten mit der Tram 1 und Umsteigen an der „Domsheide" in die Tram 6.",
+    "hero.subtitle": "Möblierte WG-Zimmer auf einem Resthof in Stuhr — direkt an der Bremer Stadtgrenze. Natur pur und trotzdem nur 1,5 km zur Straßenbahn-Station \u201ERoland Center\u201C. Von dort mit der Tram 1 oder 8 in nur 9 Minuten zur Hochschule Bremen (City University of Applied Sciences). Die Universität Bremen erreicht man vom \u201ERoland Center\u201C in 42 Minuten mit der Tram 1 und Umsteigen an der \u201EDomsheide\u201C in die Tram 6.",
     "hero.btn.rooms": "Zimmer ansehen",
     "hero.btn.more": "Mehr erfahren",
     "hero.stat.rooms": "Zimmer",
