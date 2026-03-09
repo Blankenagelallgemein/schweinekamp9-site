@@ -82,11 +82,20 @@ function createPreviewCardHTML(id, room) {
     .map(f => `<span class="room-card-amenity">${f}</span>`)
     .join('');
 
+  const images = room.images && room.images.length > 1 ? room.images : [room.image];
+  const imagesHTML = images.map((src, i) => `<img src="${src}" alt="${tRoom(room, 'title')}" style="${i > 0 ? 'display:none' : ''}">`).join('');
+  const navHTML = images.length > 1 ? `
+        <button class="carousel-btn carousel-prev" data-dir="-1">&#8249;</button>
+        <button class="carousel-btn carousel-next" data-dir="1">&#8250;</button>
+        <div class="carousel-dots">${images.map((_, i) => `<span class="carousel-dot${i === 0 ? ' active' : ''}" data-idx="${i}"></span>`).join('')}</div>
+  ` : '';
+
   return `
     <a href="buchen.html?zimmer=${id}" class="room-card">
-      <div class="room-card-image">
-        <img src="${room.image}" alt="${tRoom(room, 'title')}">
+      <div class="room-card-image carousel" data-count="${images.length}" data-current="0">
+        ${imagesHTML}
         <span class="room-badge available">${t('room.available')}</span>
+        ${navHTML}
       </div>
       <div class="room-card-body">
         <div class="room-card-title">${tRoom(room, 'title')}</div>
@@ -181,6 +190,40 @@ function initializeRooms() {
     homePreview.innerHTML = availableRooms
       .map(([id, room]) => createPreviewCardHTML(id, room))
       .join('');
+
+    // Initialize carousels
+    homePreview.querySelectorAll('.carousel').forEach(carousel => {
+      const imgs = carousel.querySelectorAll('img');
+      const dots = carousel.querySelectorAll('.carousel-dot');
+      if (imgs.length <= 1) return;
+
+      function showSlide(idx) {
+        imgs.forEach(img => img.style.display = 'none');
+        dots.forEach(dot => dot.classList.remove('active'));
+        imgs[idx].style.display = '';
+        dots[idx].classList.add('active');
+        carousel.dataset.current = idx;
+      }
+
+      carousel.querySelectorAll('.carousel-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const dir = parseInt(btn.dataset.dir);
+          const count = imgs.length;
+          const next = (parseInt(carousel.dataset.current) + dir + count) % count;
+          showSlide(next);
+        });
+      });
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          showSlide(parseInt(dot.dataset.idx));
+        });
+      });
+    });
   }
 
   // ===== BOOKING PAGE: Initialize sidebar =====
@@ -369,6 +412,7 @@ if (inquiryForm) {
     const phone = document.getElementById('phone').value.trim();
     const room = document.getElementById('roomSelect').value;
     const moveIn = document.getElementById('moveIn').value;
+    const moveOut = document.getElementById('moveOut') ? document.getElementById('moveOut').value : '';
     const gender = document.getElementById('gender') ? document.getElementById('gender').value : '';
     const country = document.getElementById('country') ? document.getElementById('country').value : '';
     const university = document.getElementById('university') ? document.getElementById('university').value : '';
@@ -376,7 +420,7 @@ if (inquiryForm) {
     const message = document.getElementById('message') ? document.getElementById('message').value.trim() : '';
     const privacy = document.getElementById('privacy').checked;
 
-    if (!firstName || !lastName || !email || !room || !moveIn || !gender || !country || !university || !privacy) {
+    if (!firstName || !lastName || !email || !room || !moveIn || !moveOut || !gender || !country || !university || !privacy) {
       alert(t('buchen.alert.fill'));
       return;
     }
@@ -398,7 +442,7 @@ if (inquiryForm) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           firstName, lastName, email, phone, room, roomLabel,
-          moveIn, gender, country, university, subject, message
+          moveIn, moveOut, gender, country, university, subject, message
         })
       });
 

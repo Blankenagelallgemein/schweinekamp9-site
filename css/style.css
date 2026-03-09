@@ -539,6 +539,57 @@ ul { list-style: none; }
   object-fit: cover;
 }
 
+/* ===== ROOM CARD CAROUSEL ===== */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 5;
+}
+
+.room-card:hover .carousel-btn { opacity: 1; }
+.carousel-prev { left: 8px; }
+.carousel-next { right: 8px; }
+.carousel-btn:hover { background: white; transform: translateY(-50%) scale(1.1); }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 5;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.carousel-dot.active {
+  background: white;
+}
+
 .room-badge {
   position: absolute;
   top: 12px;
