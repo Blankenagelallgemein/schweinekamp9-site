@@ -464,7 +464,7 @@ if (inquiryForm) {
     const submitBtn = inquiryForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Wird gesendet...';
+    submitBtn.textContent = t('buchen.sending');
 
     try {
       const response = await fetch('https://tobiasblankenagel.app.n8n.cloud/webhook/schweinekamp-booking', {
@@ -483,7 +483,7 @@ if (inquiryForm) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
       console.error('Anfrage fehlgeschlagen:', err);
-      alert('Die Anfrage konnte leider nicht gesendet werden. Bitte versuche es erneut oder schreibe uns direkt an allgemeinblankenagel@gmail.com');
+      alert(t('buchen.alert.error'));
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
     }
