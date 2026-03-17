@@ -45,7 +45,7 @@
       "title_en": "Room 1 — Sunny Side",
       "subtitle": "Wohnung · Möbliert · Dachschräge",
       "subtitle_en": "Apartment · Furnished · Sloped Ceiling",
-      "status": "occupied",
+      "status": "available",
       "price": 440,
       "image": "img/zimmer1-1.jpg",
       "images": [
@@ -85,7 +85,7 @@
       "title_en": "Room 2 — Cozy",
       "subtitle": "Wohnung · Möbliert · Hell",
       "subtitle_en": "Apartment · Furnished · Bright",
-      "status": "available",
+      "status": "occupied",
       "price": 440,
       "image": "img/zimmer2-2.jpg",
       "images": [
