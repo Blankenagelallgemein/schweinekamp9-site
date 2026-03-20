@@ -45,7 +45,7 @@
       "title_en": "Room 1 — Sunny Side",
       "subtitle": "Wohnung · Möbliert · Dachschräge",
       "subtitle_en": "Apartment · Furnished · Sloped Ceiling",
-      "status": "available",
+      "status": "occupied",
       "price": 440,
       "image": "img/zimmer1-1.jpg",
       "images": [
@@ -126,7 +126,7 @@
       "title_en": "Room 3 — Ground Floor",
       "subtitle": "Wohnung · Möbliert · EG · Geräumig",
       "subtitle_en": "Apartment · Furnished · Ground Floor · Spacious",
-      "status": "available",
+      "status": "occupied",
       "price": 390,
       "image": "img/zimmer3-1.jpg",
       "images": [
@@ -558,7 +558,7 @@
       "title_en": "Room H — Premium",
       "subtitle": "Haus · Geräumig · Dachschräge",
       "subtitle_en": "House · Spacious · Sloped Ceiling",
-      "status": "available",
+      "status": "occupied",
       "price": 440,
       "image": "img/zimmerH-2.jpg",
       "images": [
