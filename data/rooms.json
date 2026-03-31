@@ -522,11 +522,12 @@
       "title_en": "Room G — Attic Floor",
       "subtitle": "Haus · Möbliert · DG",
       "subtitle_en": "House · Furnished · Attic",
-      "status": "occupied",
-      "price": null,
+      "status": "available",
+      "price": 400,
       "image": "img/haus-aussen.jpg",
       "images": [
-        "img/haus-aussen.jpg"
+        "img/haus-aussen.jpg",
+        "img/zimmerG-1774976417278.jpeg"
       ],
       "description": "Zimmer im Obergeschoss des Hauses. ",
       "description_en": "Attic floor room in the house. Currently occupied.",
