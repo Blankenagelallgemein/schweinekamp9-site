@@ -293,7 +293,7 @@
       "subtitle": "Haus · Möbliert · Terrasse",
       "subtitle_en": "House · Furnished · Terrace",
       "status": "occupied",
-      "price": 350,
+      "price": 400,
       "image": "img/zimmerA-1.jpg",
       "images": [
         "img/zimmerA-1.jpg",
@@ -335,7 +335,7 @@
       "title_en": "Room B — Cozy",
       "subtitle": "Haus · Möbliert · Wandbeleuchtung",
       "subtitle_en": "House · Furnished · Wall Lighting",
-      "status": "available",
+      "status": "occupied",
       "price": 400,
       "image": "img/zimmerB-1.jpg",
       "images": [
