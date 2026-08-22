@@ -169,7 +169,7 @@
       "title_en": "Room 4 — Quiet Retreat",
       "subtitle": "Wohnung · Möbliert ",
       "subtitle_en": "Apartment · Furnished · Quiet Location",
-      "status": "available",
+      "status": "occupied",
       "price": 440,
       "image": "img/zimmer4-1.jpg",
       "images": [
@@ -562,7 +562,7 @@
       "title_en": "Room H — Premium",
       "subtitle": "Haus · Geräumig · Dachschräge",
       "subtitle_en": "House · Spacious · Sloped Ceiling",
-      "status": "available",
+      "status": "occupied",
       "price": 490,
       "image": "img/zimmerH-2.jpg",
       "images": [
