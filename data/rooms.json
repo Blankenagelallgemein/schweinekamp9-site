@@ -85,7 +85,7 @@
       "title_en": "Room 2 — Cozy",
       "subtitle": "Wohnung · Möbliert · Hell",
       "subtitle_en": "Apartment · Furnished · Bright",
-      "status": "available",
+      "status": "occupied",
       "price": 490,
       "image": "img/zimmer2-2.jpg",
       "images": [
@@ -126,7 +126,7 @@
       "title_en": "Room 3 — Ground Floor",
       "subtitle": "Wohnung · Möbliert · EG · Geräumig",
       "subtitle_en": "Apartment · Furnished · Ground Floor · Spacious",
-      "status": "available",
+      "status": "occupied",
       "price": 440,
       "image": "img/zimmer3-1.jpg",
       "images": [
@@ -251,7 +251,7 @@
       "title_en": "Room 6 — Compact",
       "subtitle": "Wohnung · Möbliert · Viel Licht",
       "subtitle_en": "Apartment · Furnished · Lots of Light",
-      "status": "available",
+      "status": "occupied",
       "price": 400,
       "image": "img/zimmer6-1.jpg",
       "images": [
@@ -292,7 +292,7 @@
       "title_en": "Room A — Terrace Access",
       "subtitle": "Haus · Möbliert · Terrasse",
       "subtitle_en": "House · Furnished · Terrace",
-      "status": "occupied",
+      "status": "available",
       "price": 400,
       "image": "img/zimmerA-1.jpg",
       "images": [
@@ -335,7 +335,7 @@
       "title_en": "Room B — Cozy",
       "subtitle": "Haus · Möbliert · Wandbeleuchtung",
       "subtitle_en": "House · Furnished · Wall Lighting",
-      "status": "occupied",
+      "status": "available",
       "price": 400,
       "image": "img/zimmerB-1.jpg",
       "images": [
