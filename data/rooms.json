@@ -292,7 +292,7 @@
       "title_en": "Room A — Terrace Access",
       "subtitle": "Haus · Möbliert · Terrasse",
       "subtitle_en": "House · Furnished · Terrace",
-      "status": "available",
+      "status": "occupied",
       "price": 400,
       "image": "img/zimmerA-1.jpg",
       "images": [
@@ -335,7 +335,7 @@
       "title_en": "Room B — Cozy",
       "subtitle": "Haus · Möbliert · Wandbeleuchtung",
       "subtitle_en": "House · Furnished · Wall Lighting",
-      "status": "available",
+      "status": "occupied",
       "price": 400,
       "image": "img/zimmerB-1.jpg",
       "images": [
@@ -379,7 +379,7 @@
       "title_en": "Room C — Quiet",
       "subtitle": "Haus · Möbliert · Ruhige Lage",
       "subtitle_en": "House · Furnished · Quiet Location",
-      "status": "available",
+      "status": "occupied",
       "price": 400,
       "image": "img/zimmerC-1.jpg",
       "images": [
